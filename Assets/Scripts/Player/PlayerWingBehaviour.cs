@@ -41,8 +41,6 @@ namespace Player
                 }
             }
             
-            Debug.Log(currSpeed);
-
             wing1Flapping.speed = currSpeed;
             wing2Flapping.speed = currSpeed;
         }
