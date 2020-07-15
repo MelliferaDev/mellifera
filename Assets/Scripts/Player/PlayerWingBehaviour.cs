@@ -9,6 +9,8 @@ namespace Player
     {
         [SerializeField] private Animator wing1Flapping;
         [SerializeField] private Animator wing2Flapping;
+        [SerializeField] private float wingSpeed = 10f;
+        [SerializeField] private float wingAcc = 2.5f;
 
         private PlayerControl player;
         private static readonly int FlyingState = Animator.StringToHash("flyingState");
@@ -24,21 +26,25 @@ namespace Player
         {
             if (player.currState == PlayerFlightState.Flying)
             {
+                currSpeed = Mathf.Lerp(currSpeed, wingSpeed, wingAcc * Time.deltaTime);
+
                 wing1Flapping.SetInteger(FlyingState, 0);
                 wing2Flapping.SetInteger(FlyingState, 0);
-                wing1Flapping.speed = Mathf.Lerp(currSpeed, 10f, Time.deltaTime);
-                wing2Flapping.speed = Mathf.Lerp(currSpeed, 10f, Time.deltaTime);
-
             } else if (player.currState == PlayerFlightState.Landed)
             {
-                wing1Flapping.speed = Mathf.Lerp(currSpeed, 0f, Time.deltaTime);
-                wing2Flapping.speed = Mathf.Lerp(currSpeed, 0f, Time.deltaTime);
+                currSpeed = Mathf.Lerp(currSpeed, 0, wingAcc * Time.deltaTime);
+
                 if (Math.Abs(currSpeed) < Mathf.Epsilon)
                 {
                     wing1Flapping.SetInteger(FlyingState, 1);
                     wing2Flapping.SetInteger(FlyingState, 1);
                 }
             }
+            
+            Debug.Log(currSpeed);
+
+            wing1Flapping.speed = currSpeed;
+            wing2Flapping.speed = currSpeed;
         }
     }
 }

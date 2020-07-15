@@ -1,6 +1,4 @@
-﻿using System;
-using System.Numerics;
-using UnityEngine;
+﻿using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -68,10 +66,7 @@ namespace Player
                 // TODO: implement fighting movement control
 
             }
-            
-            Debug.Log(currState);
-        
-        
+
         }
 
         private void FlyingControl(Vector2 input)
@@ -110,7 +105,7 @@ namespace Player
         {
             move = Physics.gravity;
             float moveX = Input.GetAxis("Mouse X") * rotSpeedX * Time.deltaTime;
-            float moveY = Input.GetAxis("Mouse Y") * rotSpeedY * Time.deltaTime;
+            float moveY = -Input.GetAxis("Mouse Y") * rotSpeedY * Time.deltaTime;
             
             transform.Rotate(Vector3.up * moveX);
             transform.Rotate(Vector3.right * moveY);

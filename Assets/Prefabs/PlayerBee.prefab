@@ -402,7 +402,7 @@ Transform:
   m_GameObject: {fileID: 7259016305702027547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.9994245, y: 1.9000657, z: 2.009407}
-  m_LocalScale: {x: 100, y: 100.000015, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7259016305340488440}
   - {fileID: 275836564292788446}
@@ -461,3 +461,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wing1Flapping: {fileID: 2385333680928157065}
   wing2Flapping: {fileID: 7190748348261954361}
+  wingSpeed: 10
+  wingAcc: 5
