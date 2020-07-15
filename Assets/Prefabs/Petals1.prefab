@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5158509821879723586}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.5, y: 0, z: -9.87}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
@@ -55,8 +55,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5158509822532738521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalPosition: {x: 0.1276, y: 0, z: 0.1094}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 7171626133651557039}
   m_Father: {fileID: 5158509821879723585}
@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 7171626133651557039}
   - component: {fileID: 8185075482541300489}
   - component: {fileID: 4747763531350725101}
+  - component: {fileID: 6092002744084860670}
   m_Layer: 0
   m_Name: Plant_3D:pPlane33
   m_TagString: Untagged
@@ -120,7 +121,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5774567838725360977, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
+  - {fileID: 3766634856024999188, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
   - {fileID: 5443518348861024770, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -142,3 +143,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6092002744084860670
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6751813338909878234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -32611494436037398, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}

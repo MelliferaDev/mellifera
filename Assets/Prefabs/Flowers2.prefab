@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4927725687150704456}
   - component: {fileID: 3956876578600787791}
   - component: {fileID: 6245480963949425209}
+  - component: {fileID: 7561501297971544649}
   m_Layer: 0
   m_Name: Plant_3D:pCylinder34
   m_TagString: Untagged
@@ -80,6 +81,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7561501297971544649
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783984790910893756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5221154645696592861, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
 --- !u!1 &2107183250256457154
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +185,7 @@ GameObject:
   - component: {fileID: 7117820335892738419}
   - component: {fileID: 2732333215304627156}
   - component: {fileID: 4329510522009785178}
+  - component: {fileID: 5422992949246387345}
   m_Layer: 0
   m_Name: Plant_3D:pCylinder33
   m_TagString: Untagged
@@ -239,6 +255,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5422992949246387345
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553831952981245020}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3036603620284052160, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
 --- !u!1 &6275475173825810998
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +799,7 @@ Transform:
   m_GameObject: {fileID: 8415079729450436346}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 7117820335892738419}
   - {fileID: 4927725687150704456}

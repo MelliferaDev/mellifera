@@ -1,0 +1,128 @@
+﻿using System;
+using System.Numerics;
+using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
+
+namespace Player
+{
+    /// <summary>
+    /// Control the Movement of the Player.
+    /// Current Control Scheme:
+    ///     Mouse controls pitch and Ya
+    ///     Fire1 (left btn) to go faster
+    ///     Fire2 (right btn) to go slower
+    ///     Space to Land (and take off again)
+    /// </summary>
+    [RequireComponent(typeof(CharacterController))]
+    public class PlayerControl : MonoBehaviour
+    {
+
+        [Space(10)]
+        [SerializeField] private Vector3 controllerOffset = new Vector3(0.0f, 0.06f, 1.77f);
+        [Space(10)]
+        [SerializeField] private float rotSpeedX = 3.0f;
+        [SerializeField] private float rotSpeedY = 1.5f;
+        [Space(10)]
+        [SerializeField] private float speedIncr = 0.5f;
+        [SerializeField] private float maxSpeed = 15.0f;
+        [SerializeField] private float minSpeed = 5.0f;
+
+        public PlayerFlightState currState;
+            
+        private CharacterController controller;
+        private float currSpeed;
+
+        private Vector3 move;
+
+        void Start()
+        {
+            controller = GetComponent<CharacterController>();
+            Cursor.lockState = CursorLockMode.Locked;
+            currSpeed = (maxSpeed + minSpeed) / 2.0f;
+            currState = PlayerFlightState.Flying;
+        }
+
+        void Update()
+        {
+            Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+
+            switch (currState)
+            {
+                case PlayerFlightState.Flying: FlyingControl(mouseInput);
+                    break;
+                case PlayerFlightState.Landed: LandedControl(mouseInput);
+                    break;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                switch (currState)
+                {
+                    case PlayerFlightState.Flying: currState = PlayerFlightState.Landed;
+                        break;
+                    case PlayerFlightState.Landed: currState = PlayerFlightState.Flying;
+                        break;
+                }
+                // TODO: implement fighting movement control
+
+            }
+            
+            Debug.Log(currState);
+        
+        
+        }
+
+        private void FlyingControl(Vector2 input)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                currSpeed += speedIncr;
+            }
+
+            if (Input.GetButtonDown("Fire2"))
+            {
+                currSpeed -= speedIncr;
+            }
+            currSpeed = Mathf.Clamp(currSpeed, minSpeed, maxSpeed);
+            move = transform.forward * currSpeed;
+
+            Vector3 yaw = transform.right * (input.x * rotSpeedX * Time.deltaTime);
+            Vector3 pitch = transform.up * (input.y * rotSpeedY * Time.deltaTime);
+            Vector3 dir = yaw + pitch;
+            
+            float maxX = Quaternion.LookRotation(dir).eulerAngles.x;
+            
+            // limit rotation to avoid going getting stuck in a loop
+            bool enteringLoop = (maxX < 90 && maxX > 70 || maxX > 270 && maxX < 290);
+            
+            if (!enteringLoop);
+            {
+                move += dir;
+                transform.rotation = Quaternion.LookRotation(move);
+            }
+            
+            controller.Move((move + controllerOffset) * Time.deltaTime);
+        }
+
+        private void LandedControl(Vector2 input)
+        {
+            move = Physics.gravity;
+            float moveX = Input.GetAxis("Mouse X") * rotSpeedX * Time.deltaTime;
+            float moveY = Input.GetAxis("Mouse Y") * rotSpeedY * Time.deltaTime;
+            
+            transform.Rotate(Vector3.up * moveX);
+            transform.Rotate(Vector3.right * moveY);
+            
+            controller.Move(move * Time.deltaTime);
+        }
+        
+
+    }
+    
+    public enum PlayerFlightState
+    {
+        Flying, Landed, Fighting
+    }
+}

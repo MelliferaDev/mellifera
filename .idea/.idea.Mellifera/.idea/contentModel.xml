@@ -6,10 +6,14 @@
     <e p="C:\Users\unnas\Documents\home\Class\gamedev\Mellifera" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="LowpolyVegetationPackFree" t="Include">
+          <e p="Readme.txt" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
-          <e p="PlayerCamera.cs" t="Include" />
-          <e p="PlayerControl.cs" t="Include" />
-          <e p="PlayerFollower.cs" t="Include" />
+          <e p="Player" t="Include">
+            <e p="PlayerCamera.cs" t="Include" />
+            <e p="PlayerControl.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="Mellifera.sln" t="IncludeFlat" />
