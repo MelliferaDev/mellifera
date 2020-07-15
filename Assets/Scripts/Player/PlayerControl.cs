@@ -123,6 +123,6 @@ namespace Player
     
     public enum PlayerFlightState
     {
-        Flying, Landed, Fighting
+        Flying = 0, Landed = 1, Fighting = 2
     }
 }
