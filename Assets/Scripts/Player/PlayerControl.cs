@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -28,17 +29,16 @@ namespace Player
         [SerializeField] private float minSpeed = 5.0f;
 
         public PlayerFlightState currState;
-            
-        private CharacterController controller;
-        private float currSpeed;
+        public float currSpeed;
 
+        private CharacterController controller;
         private Vector3 move;
 
         void Start()
         {
             controller = GetComponent<CharacterController>();
             Cursor.lockState = CursorLockMode.Locked;
-            currSpeed = (maxSpeed + minSpeed) / 2.0f;
+
             currState = PlayerFlightState.Flying;
         }
 
@@ -83,20 +83,26 @@ namespace Player
             currSpeed = Mathf.Clamp(currSpeed, minSpeed, maxSpeed);
             move = transform.forward * currSpeed;
 
-            Vector3 yaw = transform.right * (input.x * rotSpeedX * Time.deltaTime);
-            Vector3 pitch = transform.up * (input.y * rotSpeedY * Time.deltaTime);
+            float relativeRotSpeedX = rotSpeedX * (currSpeed / maxSpeed);
+            float relativeRotSpeedY = rotSpeedY * (currSpeed / maxSpeed);
+            Vector3 yaw = transform.right * (input.x * relativeRotSpeedX * Time.deltaTime);
+            Vector3 pitch = transform.up * (input.y * relativeRotSpeedY * Time.deltaTime);
             Vector3 dir = yaw + pitch;
-            
-            float maxX = Quaternion.LookRotation(dir).eulerAngles.x;
-            
-            // limit rotation to avoid going getting stuck in a loop
-            bool enteringLoop = (maxX < 90 && maxX > 70 || maxX > 270 && maxX < 290);
-            
-            if (!enteringLoop);
+
+            if (Math.Abs(dir.magnitude) > Mathf.Epsilon)
             {
-                move += dir;
-                transform.rotation = Quaternion.LookRotation(move);
+                float maxX = Quaternion.LookRotation(dir).eulerAngles.x;
+                
+                // limit rotation to avoid going getting stuck in a loop
+                bool enteringLoop = (maxX < 90 && maxX > 70 || maxX > 270 && maxX < 290);
+                
+                if (!enteringLoop);
+                {
+                    move += dir;
+                    transform.rotation = Quaternion.LookRotation(move);
+                }
             }
+
             
             controller.Move((move + controllerOffset) * Time.deltaTime);
         }

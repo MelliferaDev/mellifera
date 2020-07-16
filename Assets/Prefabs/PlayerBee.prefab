@@ -1,5 +1,97 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1287115222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287115223}
+  - component: {fileID: 1287115224}
+  m_Layer: 0
+  m_Name: Area Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1287115223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287115222}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 6.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7259016305702027546}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!108 &1287115224
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287115222}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 5.2307205, y: 3.0009499}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 2.9012e-41, z: 0, w: -1}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &406306533531693981
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,10 +202,10 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c2dd735ab35f3374cbb6393d27368b54, type: 2}
-  - {fileID: -4612162990109294230, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
-  - {fileID: 8748892135801146194, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
-  - {fileID: 8368722655750445499, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
-  - {fileID: 6034957751646507721, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
+  - {fileID: 2100000, guid: 45332f2426ace3848aa32f7aafc7a522, type: 2}
+  - {fileID: 2100000, guid: 5f1ef68f24eec7645ba6d5c61b7227a4, type: 2}
+  - {fileID: 2100000, guid: c6913bae26c0a3e40ac9fcc8675ce20d, type: 2}
+  - {fileID: 2100000, guid: e37c187487743ff47a3795935aec3e8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -243,7 +335,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4597107667637640440, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
+  - {fileID: 2100000, guid: e37c187487743ff47a3795935aec3e8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -322,7 +414,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4597107667637640440, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
+  - {fileID: 2100000, guid: e37c187487743ff47a3795935aec3e8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -388,7 +480,7 @@ GameObject:
   - component: {fileID: 3054152585756291836}
   m_Layer: 0
   m_Name: PlayerBee
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,6 +499,7 @@ Transform:
   - {fileID: 7259016305340488440}
   - {fileID: 275836564292788446}
   - {fileID: 2013438654946123747}
+  - {fileID: 1287115223}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -441,12 +534,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerOffset: {x: 0, y: 0.06, z: 1.77}
-  rotSpeedX: 100
-  rotSpeedY: 50
-  speedIncr: 2
-  maxSpeed: 36
-  minSpeed: 2
+  rotSpeedX: 250
+  rotSpeedY: 135
+  speedIncr: 20
+  maxSpeed: 100
+  minSpeed: 20
   currState: 0
+  currSpeed: 80
 --- !u!114 &3054152585756291836
 MonoBehaviour:
   m_ObjectHideFlags: 0

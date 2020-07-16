@@ -18,7 +18,7 @@ namespace Player
             lookAtTransform = lookAt.transform;
         }
         
-        void LateUpdate()
+        void Update()
         {
             Follow();
         }
