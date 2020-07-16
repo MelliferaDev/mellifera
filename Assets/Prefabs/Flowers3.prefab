@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8520310914469193795}
   - component: {fileID: 4987056078143960453}
   - component: {fileID: 4780690962384502158}
+  - component: {fileID: 2357790549892077918}
   m_Layer: 0
   m_Name: Plant_3D:pCylinder3
   m_TagString: Untagged
@@ -80,6 +81,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2357790549892077918
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399803720770043370}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4384387406025852048, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
 --- !u!1 &3592394669544315491
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +230,7 @@ Transform:
   m_GameObject: {fileID: 5181899793947846461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 5740356125666616626}
   - {fileID: 8520310914469193795}
@@ -235,6 +250,7 @@ GameObject:
   - component: {fileID: 5740356125666616626}
   - component: {fileID: 990503768888376917}
   - component: {fileID: 4997082966699107529}
+  - component: {fileID: 3998461361081292030}
   m_Layer: 0
   m_Name: Plant_3D:pCylinder1
   m_TagString: Untagged
@@ -304,6 +320,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3998461361081292030
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7799881096267637548}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4782275973689222507, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
 --- !u!1 &8908804917979048332
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +345,7 @@ GameObject:
   - component: {fileID: 773060831399831969}
   - component: {fileID: 5582839336918901487}
   - component: {fileID: 3240309160928457446}
+  - component: {fileID: 697343894705751228}
   m_Layer: 0
   m_Name: Plant_3D:pCylinder4
   m_TagString: Untagged
@@ -384,3 +415,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &697343894705751228
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8908804917979048332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4741627417039412468, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
