@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5300599132496425600}
   - component: {fileID: 1435237146320468430}
   - component: {fileID: 2143506521716421371}
+  - component: {fileID: 7244386127426513442}
   m_Layer: 0
   m_Name: Plant_3D:pCylinder28
   m_TagString: Untagged
@@ -80,6 +81,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7244386127426513442
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520474312421373346}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8485056636014927575, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
 --- !u!1 &1792071839823588380
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 3853343595348295206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 5300599132496425600}
   - {fileID: 1019020085501702739}
@@ -219,7 +234,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3853343595686265461}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.27, y: 0, z: -4.35}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:

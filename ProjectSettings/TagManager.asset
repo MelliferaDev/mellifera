@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - PollenUI
+  - Terrain
+  - Water
+  - Pickups
   layers:
   - Default
   - TransparentFX
