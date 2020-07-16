@@ -2,21 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehavior : MonoBehaviour
+public class WaspBehavior : MonoBehaviour
 {
     /*
      * When the player gets within minDistance of the wasp, the wasp will attack the player.
+     * The wasp will hover up and down when it's not attacking.
      */
     public Transform player;
     public float minDistance = 5f;
+    public float recoilDist = 1f;
     public float smoothingVal = 3f;
-    //move these to LevelManager
     public float enemyHealth = 10;
     public float playerAttack = 2;
+    public float hoverDist = 1f;  // Amount to move left and right from the start point
+    public float hoverSpeed = 1.5f;
 
     float dist;
     bool attack = true;
     bool moveBack = false;
+    Vector3 initPos;
 
 
     void Start()
@@ -26,6 +30,7 @@ public class EnemyBehavior : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
         dist = Vector3.Distance(player.position, transform.position);
+        initPos = transform.position;
     }
 
     void Update()
@@ -34,7 +39,7 @@ public class EnemyBehavior : MonoBehaviour
         if(moveBack)
         {
             float step = Time.deltaTime * smoothingVal;
-            transform.position = Vector3.MoveTowards(transform.position, -transform.position, step);
+            transform.position = Vector3.MoveTowards(transform.position, -transform.position * recoilDist, step);
         } else
         if (dist <= minDistance && attack)
         {
@@ -42,6 +47,12 @@ public class EnemyBehavior : MonoBehaviour
 
             float step = Time.deltaTime * (smoothingVal - 1);
             transform.position = Vector3.MoveTowards(transform.position, player.position, step);
+        } 
+        else
+        {
+            Vector3 v = initPos;
+            v.y += hoverDist * Mathf.Sin(Time.time * hoverSpeed);
+            transform.position = v;
         }
 
         if(enemyHealth <=0)
@@ -49,19 +60,13 @@ public class EnemyBehavior : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            moveBack = true;
-            attack = false;
-            Invoke("AttackAgain", 1f);
-            // call to decrease player health
 
-            //if the enemy also takes damage/ we switch this to being if the wasp is hit by the bee, then uncomment this line
-            //enemyHealth -= playerAttack;
-            
-        }
+    public void AttackRecoil(float recoilDamage)
+    {
+        enemyHealth -= recoilDamage;
+        moveBack = true;
+        attack = false;
+        Invoke("AttackAgain", 1f);
     }
 
     void AttackAgain()
