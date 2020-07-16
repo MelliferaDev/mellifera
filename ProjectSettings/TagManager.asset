@@ -8,6 +8,8 @@ TagManager:
   - Terrain
   - Water
   - Pickups
+  - Enemy
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX
