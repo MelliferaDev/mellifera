@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Pickups;
 using UnityEngine;
 
 namespace Player
 {
     [RequireComponent(typeof(PlayerControl))]
-    public class CollectCollectables : MonoBehaviour
+    public class PlayerCollection : MonoBehaviour
     {
         private PlayerControl player;
 
@@ -13,13 +13,18 @@ namespace Player
             player = GetComponent<PlayerControl>();
         }
 
-        private void OnControllerColliderhit(ControllerColliderHit hit)
+        // Instead of OnCollisionEnter, this is the method that is called
+        // when the CharacterController enters a collision. The event is triggered on the
+        // CharacterController object only. However, the action to take place
+        // is supposed ot be done by CollectibleBehavior. So we are sending a message
+        // to the CollectibleBehavior to do the task
+        private void OnControllerColliderHit(ControllerColliderHit hit)
         {
             if (hit.gameObject.CompareTag("Collectible"))
             {
-                CollectableBehavior cb = hit.gameObject.GetComponent<CollectableBehavior>();
+                CollectibleBehavior cb = hit.gameObject.GetComponent<CollectibleBehavior>();
                 if (cb == null) return;
-                cb.SendMessage("CollisionListener", player);
+                cb.SendMessage("ControllerCollisionListener", player);
             }
             
         }

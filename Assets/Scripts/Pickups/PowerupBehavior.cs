@@ -1,33 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PowerupBehavior : MonoBehaviour
+namespace Pickups
 {
-    public PlayerPowerup powerupType;
-
-    // Start is called before the first frame update
-    void Start()
+    public class PowerupBehavior : MonoBehaviour
     {
+        public PlayerPowerup powerupType;
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        private void OnTriggerEnter(Collider other)
         {
-            PlayerPowerupBehavior powerupReceiver = other.GetComponent<PlayerPowerupBehavior>();
-
-            if (powerupReceiver.CanPickUp())
+            if (other.CompareTag("Player"))
             {
-                powerupReceiver.GivePowerup(powerupType);
-                Destroy(gameObject);
+                PlayerPowerupBehavior powerupReceiver = other.GetComponent<PlayerPowerupBehavior>();
+
+                if (powerupReceiver.CanPickUp())
+                {
+                    powerupReceiver.GivePowerup(powerupType);
+                    Destroy(gameObject);
+                }
             }
         }
     }

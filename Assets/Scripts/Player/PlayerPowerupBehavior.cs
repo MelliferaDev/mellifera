@@ -52,7 +52,8 @@ public class PlayerPowerupBehavior : MonoBehaviour
     public void Activate()
     {
         isActive = true;
-        // TODO This is temp code for how the powerup is be fired. In the future we'd probably want some sort of modular or polymorphic approach.
+        // TODO This is temp code for how the powerup is be fired. In the future we'd probably want some
+        // sort of modular or polymorphic approach.
         // Also since for the prototype, we currently only support the "Vortex"
         if (curPowerup == PlayerPowerup.Vortex)
         {
