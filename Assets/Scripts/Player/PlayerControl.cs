@@ -9,7 +9,7 @@ namespace Player
     /// <summary>
     /// Control the Movement of the Player.
     /// Current Control Scheme:
-    ///     Mouse controls pitch and Ya
+    ///     Mouse controls pitch and Yaw
     ///     Fire1 (left btn) to go faster
     ///     Fire2 (right btn) to go slower
     ///     Space to Land (and take off again)
@@ -32,11 +32,13 @@ namespace Player
         public float currSpeed;
 
         private CharacterController controller;
+        private PlayerPowerupBehavior powerup;
         private Vector3 move;
 
         void Start()
         {
             controller = GetComponent<CharacterController>();
+            powerup = GetComponent<PlayerPowerupBehavior>();
             Cursor.lockState = CursorLockMode.Locked;
 
             currState = PlayerFlightState.Flying;
@@ -66,7 +68,10 @@ namespace Player
                 // TODO: implement fighting movement control
 
             }
-
+            if (Input.GetButtonDown("Powerup"))
+            {
+                powerup.Activate();
+            }
         }
 
         private void FlyingControl(Vector2 input)
@@ -81,7 +86,13 @@ namespace Player
                 currSpeed -= speedIncr;
             }
             currSpeed = Mathf.Clamp(currSpeed, minSpeed, maxSpeed);
-            move = transform.forward * currSpeed;
+
+            float boostedSpeed = currSpeed;
+            if (powerup.GetActiveCurrentPowerup() == PlayerPowerup.Vortex)
+            {
+                boostedSpeed += PlayerPowerupBehavior.speedBoost;
+            }
+            move = transform.forward * boostedSpeed;
 
             float relativeRotSpeedX = rotSpeedX * (currSpeed / maxSpeed);
             float relativeRotSpeedY = rotSpeedY * (currSpeed / maxSpeed);
@@ -96,7 +107,7 @@ namespace Player
                 // limit rotation to avoid going getting stuck in a loop
                 bool enteringLoop = (maxX < 90 && maxX > 70 || maxX > 270 && maxX < 290);
                 
-                if (!enteringLoop);
+                if (!enteringLoop)
                 {
                     move += dir;
                     transform.rotation = Quaternion.LookRotation(move);

@@ -65,4 +65,9 @@ public class LevelManager : MonoBehaviour
         pollenSlider.minValue = 0;
         pollenSlider.value = 0;
     }
+
+    public void CollectPollen(int pollenAmount)
+    {
+        pollenCollected += pollenAmount;
+    }
 }
