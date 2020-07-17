@@ -9,23 +9,25 @@ public class LevelManager : MonoBehaviour
     // pollenAvailable can probably be rewritten to count instances of a Pollen object, but that doesn't exist yet
     [SerializeField] int pollenAvailable = 0;
     [SerializeField] int pollenTarget = 0;
-
-    public int pollenCollected = 0;
+    [SerializeField] private int startingHealth = 100;
     public bool canFinishLevel = false;
-
-
-
-
+    public int pollenCollected = 0;
+    public int currentHealth;
+    
     // References to other objects
     [SerializeField] Slider pollenSlider;
     [SerializeField] Slider healthSlider;
 
 
+    private PollenTargetSlider pollenTargetSlider;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        pollenTargetSlider = FindObjectOfType<PollenTargetSlider>();
         SetupPollenSlider();
+        SetupHealthSlider();
     }
 
     // Update is called once per frame
@@ -49,12 +51,12 @@ public class LevelManager : MonoBehaviour
         if (pollenCollected >= pollenTarget)
         {
             canFinishLevel = true;
-            FindObjectOfType<PollenTargetSlider>().SetShouldLerpColor(true);
+            pollenTargetSlider.SetShouldLerpColor(true);
         }
         else
         {
             canFinishLevel = false;
-            FindObjectOfType<PollenTargetSlider>().SetShouldLerpColor(false);
+            pollenTargetSlider.SetShouldLerpColor(false);
         }
         pollenSlider.value = pollenCollected;
     }
@@ -64,5 +66,19 @@ public class LevelManager : MonoBehaviour
         pollenSlider.maxValue = pollenAvailable;
         pollenSlider.minValue = 0;
         pollenSlider.value = 0;
+    }
+
+    void SetupHealthSlider()
+    {
+        currentHealth = startingHealth;
+        healthSlider.maxValue = startingHealth;
+        healthSlider.minValue = 0;
+        healthSlider.value = currentHealth;
+    }
+
+    public void IncrementHealth(int amount)
+    {
+        currentHealth += amount;
+        healthSlider.value = (currentHealth / (1.0f * startingHealth)) * 100 ;
     }
 }

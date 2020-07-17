@@ -20,16 +20,20 @@ namespace Player
 
         [Space(10)]
         [SerializeField] private Vector3 controllerOffset = new Vector3(0.0f, 0.06f, 1.77f);
-        [Space(10)]
-        [SerializeField] private float rotSpeedX = 3.0f;
-        [SerializeField] private float rotSpeedY = 1.5f;
-        [Space(10)]
+
+        [Header("Rotation Settings")] 
+        [SerializeField] private Vector2 rotSpeedIncr;
+        [SerializeField] private Vector2 maxRotSpeed;
+        [SerializeField] private Vector2 minRotSpeed;
+        public Vector2 currRotSpeed;
+        [Header("Movement Settings")]
         [SerializeField] private float speedIncr = 0.5f;
         [SerializeField] private float maxSpeed = 15.0f;
         [SerializeField] private float minSpeed = 5.0f;
+        public float currSpeed;
+
 
         public PlayerFlightState currState;
-        public float currSpeed;
 
         private CharacterController controller;
         private Vector3 move;
@@ -74,19 +78,23 @@ namespace Player
             if (Input.GetButtonDown("Fire1"))
             {
                 currSpeed += speedIncr;
+                currRotSpeed += rotSpeedIncr;
             }
 
             if (Input.GetButtonDown("Fire2"))
             {
                 currSpeed -= speedIncr;
+                currRotSpeed -= rotSpeedIncr;
             }
             currSpeed = Mathf.Clamp(currSpeed, minSpeed, maxSpeed);
+            currRotSpeed.x = Mathf.Clamp(currRotSpeed.x, minRotSpeed.x, maxRotSpeed.x);
+            currRotSpeed.y = Mathf.Clamp(currRotSpeed.y, minRotSpeed.y, maxRotSpeed.y);
+
             move = transform.forward * currSpeed;
 
-            float relativeRotSpeedX = rotSpeedX * (currSpeed / maxSpeed);
-            float relativeRotSpeedY = rotSpeedY * (currSpeed / maxSpeed);
-            Vector3 yaw = transform.right * (input.x * relativeRotSpeedX * Time.deltaTime);
-            Vector3 pitch = transform.up * (input.y * relativeRotSpeedY * Time.deltaTime);
+
+            Vector3 yaw = transform.right * (input.x * currRotSpeed.x * Time.deltaTime);
+            Vector3 pitch = transform.up * (input.y * currRotSpeed.y * Time.deltaTime);
             Vector3 dir = yaw + pitch;
 
             if (Math.Abs(dir.magnitude) > Mathf.Epsilon)
@@ -110,8 +118,8 @@ namespace Player
         private void LandedControl(Vector2 input)
         {
             move = Physics.gravity;
-            float moveX = Input.GetAxis("Mouse X") * rotSpeedX * Time.deltaTime;
-            float moveY = -Input.GetAxis("Mouse Y") * rotSpeedY * Time.deltaTime;
+            float moveX = Input.GetAxis("Mouse X") * currRotSpeed.x * Time.deltaTime;
+            float moveY = -Input.GetAxis("Mouse Y") * currRotSpeed.y * Time.deltaTime;
             
             transform.Rotate(Vector3.up * moveX);
             transform.Rotate(Vector3.right * moveY);
