@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class WaspBehavior : MonoBehaviour
@@ -9,18 +10,26 @@ public class WaspBehavior : MonoBehaviour
      * The wasp will hover up and down when it's not attacking.
      */
     public Transform player;
+    [Header("Attack Settings")]
     public float minDistance = 5f;
-    public float recoilDist = 1f;
-    public float smoothingVal = 3f;
+    public float attackSpeed = 5f;
+    [Header("Attack Reactions")]
+    public float recoilForce = 0.75f;
+    public float recoilRecoverySpeed = 5f;
     public float enemyHealth = 10;
-    public float playerAttack = 2;
+     // public float playerAttack = 2;
+    [Header("Hovering")]
     public float hoverDist = 1f;  // Amount to move left and right from the start point
     public float hoverSpeed = 1.5f;
 
-    float dist;
-    bool attack = true;
-    bool moveBack = false;
+    private float currDist;
+
+    private WaspFlyingState currState = WaspFlyingState.Hovering;
+
     Vector3 initPos;
+    private Vector3 initLEulers;
+
+    private Rigidbody rb;
 
 
     void Start()
@@ -29,31 +38,58 @@ public class WaspBehavior : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        dist = Vector3.Distance(player.position, transform.position);
+
+        rb = GetComponent<Rigidbody>();
+        currDist = Vector3.Distance(player.position, transform.position);
         initPos = transform.position;
+        initLEulers = transform.localEulerAngles;
     }
 
     void Update()
     {
-        dist = Vector3.Distance(player.position, transform.position);
-        if(moveBack)
+        // Check if wasp should start attacking
+        currDist = Vector3.Distance(player.position, transform.position);
+        if (currDist <= minDistance && currState != WaspFlyingState.Recoiling)
         {
-            float step = Time.deltaTime * smoothingVal;
-            transform.position = Vector3.MoveTowards(transform.position, -transform.position * recoilDist, step);
-        } else
-        if (dist <= minDistance && attack)
+            if (currState != WaspFlyingState.Attacking) // attacking just started
+            {
+                Debug.Log("Update: REQUESTING");
+                RearviewCameraBehaviour.RequestRearviewOn();
+            }
+            currState = WaspFlyingState.Attacking;
+        } else if (currState == WaspFlyingState.Attacking)
         {
-            transform.LookAt(player);
+            Debug.Log("Update: Removing");
+            RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
+            currState = WaspFlyingState.Hovering;
+        }
 
-            float step = Time.deltaTime * (smoothingVal - 1);
+        // Apply movement based on state
+        if(currState == WaspFlyingState.Recoiling)
+        {
+            float step = Time.deltaTime * recoilRecoverySpeed;
+            
+            // AttackRecoil() applied the recoil, this recovering from said recoil
+            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, step);
+        } else if (currState == WaspFlyingState.Attacking)
+        {
+            float step = Time.deltaTime * (attackSpeed);
+
+            transform.LookAt(player);
             transform.position = Vector3.MoveTowards(transform.position, player.position, step);
         } 
-        else
+        else if (currState == WaspFlyingState.Hovering)
         {
-            Vector3 v = initPos;
-            v.y += hoverDist * Mathf.Sin(Time.time * hoverSpeed);
-            transform.position = v;
+            float step = Time.deltaTime * hoverSpeed;
+            
+            Vector3 target = initPos;
+            target.y += hoverDist * Mathf.Sin(Time.time * hoverSpeed);
+            
+            Vector3 moveTo = Vector3.MoveTowards(transform.position, target, step);
+            transform.position = moveTo;
+            transform.localEulerAngles = initLEulers;
         }
+        
 
         if(enemyHealth <=0)
         {
@@ -61,17 +97,23 @@ public class WaspBehavior : MonoBehaviour
         }
     }
 
-    public void AttackRecoil(float recoilDamage)
+    public void ApplyAttackRecoil(float recoilDamage)
     {
         enemyHealth -= recoilDamage;
-        moveBack = true;
-        attack = false;
-        Invoke("AttackAgain", 1f);
+        currState = WaspFlyingState.Recoiling;
+        rb.AddForce(Vector3.back * recoilForce, ForceMode.VelocityChange);
+        Invoke(nameof(FinishAttackRecoil), 1f);
     }
 
-    void AttackAgain()
+    void FinishAttackRecoil()
     {
-        attack = true;
-        moveBack = false;
+        currState = WaspFlyingState.Attacking;
+        rb.velocity = Vector3.zero;
+    }
+    
+
+    private enum WaspFlyingState
+    {
+        Hovering, Attacking, Recoiling
     }
 }
