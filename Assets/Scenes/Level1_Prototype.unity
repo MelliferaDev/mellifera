@@ -3075,7 +3075,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 211027501, guid: 9f3bb6c40ff850a42b0754da94afcded, type: 3}
+    - target: {fileID: 366648493, guid: 9f3bb6c40ff850a42b0754da94afcded, type: 3}
       propertyPath: cameraView
       value: 
       objectReference: {fileID: 203933832}
