@@ -127,7 +127,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-77122
+  m_Name: pb_Mesh26342
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 67823463}
   - component: {fileID: 67823462}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -574,7 +574,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-77120
+  m_Name: pb_Mesh26316
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -737,7 +737,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-77118
+  m_Name: pb_Mesh26312
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -904,12 +904,42 @@ PrefabInstance:
     - target: {fileID: 3054152585756291836, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: minSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: currSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: rotSpeedX
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: rotSpeedY
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: speedIncr
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7259016305702027546, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
@@ -980,7 +1010,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1203060015}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19c87ca5ca5dba44a99a1f699cc886e2, type: 3}
   m_Name: 
@@ -1052,11 +1082,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyWasp
       objectReference: {fileID: 0}
-    - target: {fileID: 5550227074780245865, guid: c7b9f808be1607e4a89966add3a4a0b9,
-        type: 3}
-      propertyPath: recoilDamage
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5550227074780245877, guid: c7b9f808be1607e4a89966add3a4a0b9,
         type: 3}
       propertyPath: m_Mesh
@@ -1067,16 +1092,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1005296114}
-    - target: {fileID: 5550227075445616242, guid: c7b9f808be1607e4a89966add3a4a0b9,
-        type: 3}
-      propertyPath: recoilDamage
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5550227075445616254, guid: c7b9f808be1607e4a89966add3a4a0b9,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 24088918}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b9f808be1607e4a89966add3a4a0b9, type: 3}

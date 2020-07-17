@@ -1,30 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class WaspAttack : MonoBehaviour
+namespace Wasps
 {
-    public float recoilDamage = 0;
-    // Start is called before the first frame update
-    void Start()
+    public class WaspAttack : MonoBehaviour
     {
+        public int playerDamage = -5;
+        public float recoilDamage = 0;
+        // Start is called before the first frame update
+    
+        private LevelManager lm;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        void Start()
         {
-            transform.parent.GetComponent<WaspBehavior>().AttackRecoil(recoilDamage);
+            lm = FindObjectOfType<LevelManager>();
 
-            // call to decrease player health          
+        }
 
+        private void OnTriggerEnter(Collider hit)
+        {
+            if (hit.gameObject.CompareTag("Player"))
+            {
+                transform.parent.GetComponent<WaspBehavior>().ApplyAttackRecoil(recoilDamage);
+                lm.IncrementHealth(playerDamage);
+                // call to decrease player health          
+
+            }
         }
     }
 }

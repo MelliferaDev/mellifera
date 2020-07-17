@@ -6,9 +6,7 @@ using UnityEngine.UI;
 
 public class PollenTargetSlider : MonoBehaviour
 {
-
     
-
     int pollenInScene;
     int pollenTarget;
 
