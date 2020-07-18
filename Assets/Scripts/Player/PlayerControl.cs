@@ -9,7 +9,7 @@ namespace Player
     /// <summary>
     /// Control the Movement of the Player.
     /// Current Control Scheme:
-    ///     Mouse controls pitch and Ya
+    ///     Mouse controls pitch and Yaw
     ///     Fire1 (left btn) to go faster
     ///     Fire2 (right btn) to go slower
     ///     Space to Land (and take off again)
@@ -36,11 +36,13 @@ namespace Player
         public PlayerFlightState currState;
 
         private CharacterController controller;
+        private PlayerPowerupBehavior powerup;
         private Vector3 move;
 
         void Start()
         {
             controller = GetComponent<CharacterController>();
+            powerup = GetComponent<PlayerPowerupBehavior>();
             Cursor.lockState = CursorLockMode.Locked;
 
             currState = PlayerFlightState.Flying;
@@ -70,7 +72,11 @@ namespace Player
                 // TODO: implement fighting movement control
 
             }
-
+            
+            if (Input.GetButtonDown("Powerup"))
+            {
+                powerup.Activate();
+            }
         }
 
         private void FlyingControl(Vector2 input)
@@ -87,12 +93,17 @@ namespace Player
                 currRotSpeed -= rotSpeedIncr;
             }
             currSpeed = Mathf.Clamp(currSpeed, minSpeed, maxSpeed);
+
+            float boostedSpeed = currSpeed;
+            if (powerup.GetActiveCurrentPowerup() == PlayerPowerup.Vortex)
+            {
+                boostedSpeed += PlayerPowerupBehavior.speedBoost;
+            }
+            move = transform.forward * boostedSpeed;
+            
             currRotSpeed.x = Mathf.Clamp(currRotSpeed.x, minRotSpeed.x, maxRotSpeed.x);
             currRotSpeed.y = Mathf.Clamp(currRotSpeed.y, minRotSpeed.y, maxRotSpeed.y);
-
-            move = transform.forward * currSpeed;
-
-
+            
             Vector3 yaw = transform.right * (input.x * currRotSpeed.x * Time.deltaTime);
             Vector3 pitch = transform.up * (input.y * currRotSpeed.y * Time.deltaTime);
             Vector3 dir = yaw + pitch;
@@ -104,7 +115,7 @@ namespace Player
                 // limit rotation to avoid going getting stuck in a loop
                 bool enteringLoop = (maxX < 90 && maxX > 70 || maxX > 270 && maxX < 290);
                 
-                if (!enteringLoop);
+                if (!enteringLoop)
                 {
                     move += dir;
                     transform.rotation = Quaternion.LookRotation(move);

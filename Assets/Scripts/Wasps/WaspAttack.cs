@@ -22,8 +22,6 @@ namespace Wasps
             {
                 transform.parent.GetComponent<WaspBehavior>().ApplyAttackRecoil(recoilDamage);
                 lm.IncrementHealth(playerDamage);
-                // call to decrease player health          
-
             }
         }
     }
