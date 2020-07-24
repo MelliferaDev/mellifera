@@ -11,6 +11,12 @@ TagManager:
   - Enemy
   - EnemyAttack
   - Collectible
+  - KeyCatcher
+  - Undefined
+  - A
+  - S
+  - D
+  - F
   layers:
   - Default
   - TransparentFX
