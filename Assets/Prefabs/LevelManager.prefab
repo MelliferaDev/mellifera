@@ -45,7 +45,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pollenAvailable: 80
   pollenTarget: 60
-  pollenCollected: 0
+  startingHealth: 100
   canFinishLevel: 0
+  pollenCollected: 0
+  currentHealth: 0
+  nextLevel: 
   pollenSlider: {fileID: 0}
   healthSlider: {fileID: 0}
+  nextLevelUI: {fileID: 0}
+  nextLevelGraphics: {fileID: 0}
