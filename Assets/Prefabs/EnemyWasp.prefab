@@ -3291,7 +3291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b42a8b83d7e9194c8500c44d96a0290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDamage: -5
+  playerDamage: -10
   recoilDamage: 0
 --- !u!54 &450085548
 Rigidbody:

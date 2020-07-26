@@ -15,7 +15,6 @@ public class RearviewCameraBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(cameraRequests);
         cameraView.SetActive(cameraRequests > 0);
     }
 
