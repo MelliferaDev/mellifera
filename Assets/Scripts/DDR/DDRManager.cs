@@ -16,10 +16,8 @@ public class DDRManager : MonoBehaviour
     
     // up-down tolerance for pressing a key
     public float pressTolerance = 30f;
-    // what position to delete the keys from the scene
-    public float minY = 150;
     // target position for when a key should be pressed
-    public float targetY = 30f;
+    public GameObject targetLocation;
     // holds the possible keys to spawn
     public GameObject[] keys;
 
@@ -42,6 +40,7 @@ public class DDRManager : MonoBehaviour
     float timer;
     float spawnTimer;
     int maxScore;
+    float targetY;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +51,8 @@ public class DDRManager : MonoBehaviour
         maxScore = 0;
         movingArrows = new List<GameObject>();
         UpdateScoreText();
+        targetY = targetLocation.transform.position.y + pressTolerance / 2;
+        Debug.Log(targetY);
     }
 
     // Update is called once per frame
@@ -88,6 +89,7 @@ public class DDRManager : MonoBehaviour
         maxScore = 0;
         movingArrows = new List<GameObject>();
         UpdateScoreText();
+        targetY = targetLocation.transform.position.y + pressTolerance / 2;
     }
 
     private void SpawnKey()
@@ -103,11 +105,11 @@ public class DDRManager : MonoBehaviour
     {
         GameObject[] matchingTag = GameObject.FindGameObjectsWithTag(keyPressed);
         matchingTag.Reverse();
-        foreach(GameObject g in matchingTag)
+        float maxY = targetY + pressTolerance;
+        float minY = targetY - pressTolerance;
+        foreach (GameObject g in matchingTag)
         {
             float yPos = g.transform.position.y;
-            float maxY = targetY + pressTolerance;
-            float minY = targetY - pressTolerance;
             if (yPos <= maxY && yPos >= minY)
             {
                 if (yPos <= targetY + pressTolerance / 5 && yPos >= targetY - pressTolerance / 5)
@@ -152,7 +154,7 @@ public class DDRManager : MonoBehaviour
                 Vector3 position = key.transform.position;
                 position.y -= dropSpeed * Time.deltaTime;
                 key.transform.position = position;
-                if (position.y <= minY)
+                if (position.y <= targetY - pressTolerance)
                 {
                     Destroy(key);
                     movingArrows.RemoveAt(i);
