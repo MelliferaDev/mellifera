@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -13,10 +14,13 @@ public class LevelManager : MonoBehaviour
     public bool canFinishLevel = false;
     public int pollenCollected = 0;
     public int currentHealth;
+    public string nextLevel;
     
     // References to other objects
     [SerializeField] Slider pollenSlider;
     [SerializeField] Slider healthSlider;
+    public GameObject nextLevelUI;
+    public GameObject nextLevelGraphics;
 
 
     private PollenTargetSlider pollenTargetSlider;
@@ -52,11 +56,13 @@ public class LevelManager : MonoBehaviour
         {
             canFinishLevel = true;
             pollenTargetSlider.SetShouldLerpColor(true);
+            nextLevelGraphics.SetActive(true);
         }
         else
         {
             canFinishLevel = false;
             pollenTargetSlider.SetShouldLerpColor(false);
+            nextLevelGraphics.SetActive(false);
         }
         pollenSlider.value = pollenCollected;
     }
@@ -85,5 +91,27 @@ public class LevelManager : MonoBehaviour
     {
         currentHealth += amount;
         healthSlider.value = (currentHealth / (1.0f * startingHealth)) * 100 ;
+    }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadNextLevel()
+    {
+        if (nextLevel != null)
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(nextLevel);
+        }
+    }
+
+    public void ResetNextLevelUI()
+    {
+        Time.timeScale = 1;
+        nextLevelUI.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
