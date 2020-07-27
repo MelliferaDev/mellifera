@@ -30,6 +30,7 @@ public class WaspBehavior : MonoBehaviour
     private Vector3 initLEulers;
 
     private Rigidbody rb;
+    Animator anim;
 
 
     void Start()
@@ -43,6 +44,7 @@ public class WaspBehavior : MonoBehaviour
         currDist = Vector3.Distance(player.position, transform.position);
         initPos = transform.position;
         initLEulers = transform.localEulerAngles;
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -57,11 +59,13 @@ public class WaspBehavior : MonoBehaviour
                 RearviewCameraBehaviour.RequestRearviewOn();
             }
             currState = WaspFlyingState.Attacking;
+            anim.SetInteger("animState", 1);
         } else if (currState == WaspFlyingState.Attacking)
         {
             Debug.Log("Update: Removing");
             RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
             currState = WaspFlyingState.Hovering;
+            anim.SetInteger("animState", 0);
         }
 
         // Apply movement based on state
@@ -78,22 +82,12 @@ public class WaspBehavior : MonoBehaviour
             transform.LookAt(player);
             transform.position = Vector3.MoveTowards(transform.position, player.position, step);
         } 
-        else if (currState == WaspFlyingState.Hovering)
-        {
-            float step = Time.deltaTime * hoverSpeed;
-            
-            Vector3 target = initPos;
-            target.y += hoverDist * Mathf.Sin(Time.time * hoverSpeed);
-            
-            Vector3 moveTo = Vector3.MoveTowards(transform.position, target, step);
-            transform.position = moveTo;
-            transform.localEulerAngles = initLEulers;
-        }
         
 
         if(enemyHealth <=0)
         {
-            Destroy(gameObject);
+            anim.SetInteger("animState", 2);
+            Destroy(gameObject, .5f);
         }
     }
 

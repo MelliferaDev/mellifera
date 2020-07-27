@@ -20,7 +20,7 @@ namespace Wasps
         {
             if (hit.gameObject.CompareTag("Player"))
             {
-                transform.parent.GetComponent<WaspBehavior>().ApplyAttackRecoil(recoilDamage);
+                GetComponent<WaspBehavior>().ApplyAttackRecoil(recoilDamage);
                 lm.IncrementHealth(playerDamage);
             }
         }
