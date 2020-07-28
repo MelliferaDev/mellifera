@@ -53,13 +53,11 @@ public class WaspBehavior : MonoBehaviour
         {
             if (currState != WaspFlyingState.Attacking) // attacking just started
             {
-                Debug.Log("Update: REQUESTING");
                 RearviewCameraBehaviour.RequestRearviewOn();
             }
             currState = WaspFlyingState.Attacking;
         } else if (currState == WaspFlyingState.Attacking)
         {
-            Debug.Log("Update: Removing");
             RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
             currState = WaspFlyingState.Hovering;
         }

@@ -10,16 +10,17 @@ public class LevelManager : MonoBehaviour
     [SerializeField] int pollenAvailable = 0;
     [SerializeField] int pollenTarget = 0;
     [SerializeField] private int startingHealth = 100;
-    public bool canFinishLevel = false;
-    public int pollenCollected = 0;
-    public int currentHealth;
-    public string nextLevel;
+    
+    [SerializeField] public GameState currentGameState = GameState.PLAYING;
+    [SerializeField] int pollenCollected = 0;
+    [SerializeField] int currentHealth;
+    [SerializeField] string nextLevel;
     
     // References to other objects
     [SerializeField] Slider pollenSlider;
     [SerializeField] Slider healthSlider;
-    public GameObject nextLevelUI;
-    public GameObject nextLevelGraphics;
+    [SerializeField]  GameObject nextLevelUI; // the UI elements to show when the level is over
+    [SerializeField]  GameObject nextLevelGraphics; // the target graphics to fly to when the next level is unlocked
 
 
     private PollenTargetSlider pollenTargetSlider;
@@ -53,16 +54,16 @@ public class LevelManager : MonoBehaviour
     {
         if (pollenCollected >= pollenTarget)
         {
-            canFinishLevel = true;
+            currentGameState = GameState.READY_TO_ADVANCE;
             pollenTargetSlider.SetShouldLerpColor(true);
             nextLevelGraphics.SetActive(true);
         }
         else
         {
-            canFinishLevel = false;
             pollenTargetSlider.SetShouldLerpColor(false);
             nextLevelGraphics.SetActive(false);
         }
+        
         pollenSlider.value = pollenCollected;
     }
 
@@ -113,4 +114,9 @@ public class LevelManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+}
+
+public enum GameState
+{
+    PLAYING, READY_TO_ADVANCE, DEAD, PAUSED
 }

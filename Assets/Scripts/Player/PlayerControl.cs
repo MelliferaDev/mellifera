@@ -39,10 +39,14 @@ namespace Player
         private PlayerPowerupBehavior powerup;
         private Vector3 move;
 
+        private InputManager inputManager;
         void Start()
         {
             controller = GetComponent<CharacterController>();
             powerup = GetComponent<PlayerPowerupBehavior>();
+            inputManager = FindObjectOfType<InputManager>();
+            
+            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
             currState = PlayerFlightState.Flying;
@@ -50,7 +54,7 @@ namespace Player
 
         void Update()
         {
-            Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+            Vector2 mouseInput = inputManager.GetMouseAxes();
 
             switch (currState)
             {
@@ -60,7 +64,7 @@ namespace Player
                     break;
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (inputManager.GetLandFlyKeyClicked())
             {
                 switch (currState)
                 {
@@ -73,7 +77,7 @@ namespace Player
 
             }
             
-            if (Input.GetButtonDown("Powerup"))
+            if (inputManager.GetPowerUpKeyClicked())
             {
                 powerup.Activate();
             }
@@ -81,13 +85,13 @@ namespace Player
 
         private void FlyingControl(Vector2 input)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (inputManager.GetSpeedUpBtnClicked())
             {
                 currSpeed += speedIncr;
                 currRotSpeed += rotSpeedIncr;
             }
 
-            if (Input.GetButtonDown("Fire2"))
+            if (inputManager.GetSlowDownBtnClicked())
             {
                 currSpeed -= speedIncr;
                 currRotSpeed -= rotSpeedIncr;

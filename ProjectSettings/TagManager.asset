@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - EnemyAttack
   - Collectible
+  - Menu Panel Parent
   layers:
   - Default
   - TransparentFX
