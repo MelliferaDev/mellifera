@@ -4566,7 +4566,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5962279021685710573}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371411639}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b71b380f1f64a5d43a07e77634d2b659, type: 3}
@@ -19251,30 +19251,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5738778707072835271, guid: 3dde205f1a772f646be7a57e285d902a, type: 3}
---- !u!1 &1371411639 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5962279020735602769, guid: 0881450cbb9b30046b0b503969b0720a,
+--- !u!114 &1371411640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 108964482881229148, guid: 0881450cbb9b30046b0b503969b0720a,
     type: 3}
   m_PrefabInstance: {fileID: 5962279021685710573}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1371411640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371411639}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 751836c900674eafbc378d417b7de007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 1
-  speedUpAxis: Fire1
-  slowDownAxis: Fire2
-  powerupKey: 101
-  landFlyKey: 32
-  pauseKey: 112
 --- !u!1 &1377135261
 GameObject:
   m_ObjectHideFlags: 0
@@ -28745,322 +28733,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807195, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807196, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_Text
-      value: 'You are Meli the Bee. You just turned 22 days old and the biggest task
-        of your life is beginning: it is time to
-
-        forage. In a meeting with
-        all the other young worker bees, the queen tells you to buzz far away and
-        collect
-
-        pollen for the hive.
-
-
-        As you forage for pollen,
-        you''ll have to avoid predators. One of the bee''s most powerful defense
-        is teamwork! You''ll learn how to use the power of the hive to defend against
-        enemies.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807196, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 110807196, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 58b647c5b2ec4184e9a07a561cdf0644,
-        type: 3}
-    - target: {fileID: 110807196, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114064001, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 393663558}
-    - target: {fileID: 456723457, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 456723457, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 456723457, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 370.4183
-      objectReference: {fileID: 0}
-    - target: {fileID: 456723457, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -261.83817
-      objectReference: {fileID: 0}
-    - target: {fileID: 456723457, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 750.8366
-      objectReference: {fileID: 0}
-    - target: {fileID: 643107755, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 643107755, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 643107755, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 370.4183
-      objectReference: {fileID: 0}
-    - target: {fileID: 643107755, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -35.759796
-      objectReference: {fileID: 0}
-    - target: {fileID: 643107755, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 750.8366
-      objectReference: {fileID: 0}
-    - target: {fileID: 841859441, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 841859441, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 841859441, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 370.4183
-      objectReference: {fileID: 0}
-    - target: {fileID: 841859441, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -205.31857
-      objectReference: {fileID: 0}
-    - target: {fileID: 841859441, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 750.8366
-      objectReference: {fileID: 0}
-    - target: {fileID: 1259579386, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1259579386, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1259579386, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 370.4183
-      objectReference: {fileID: 0}
-    - target: {fileID: 1259579386, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -318.35776
-      objectReference: {fileID: 0}
-    - target: {fileID: 1259579386, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 750.8366
-      objectReference: {fileID: 0}
-    - target: {fileID: 1308819149, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085170, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085171, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_Text
-      value: 'Collect enough pollen to bring back to the hive!
-
-
-        Once you
-        have enough pollen, you can continue to explore the area, or look for the
-        entrance to the next level
-
-
-        Watch out for wasps! If you get to close
-        to them, they''ll sting you and won''t stop following you until you get away.
-
-
-        There
-        are powerups in the field that you can use to improve your flying!'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085171, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085171, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 58b647c5b2ec4184e9a07a561cdf0644,
-        type: 3}
-    - target: {fileID: 1332085171, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085171, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1332085171, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_FontData.m_BestFit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1492647958, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1510753728, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1510753728, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1510753728, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 370.4183
-      objectReference: {fileID: 0}
-    - target: {fileID: 1510753728, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -92.27939
-      objectReference: {fileID: 0}
-    - target: {fileID: 1510753728, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 750.8366
-      objectReference: {fileID: 0}
-    - target: {fileID: 1790188287, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1790188291, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: inputManager
       value: 
       objectReference: {fileID: 1371411640}
-    - target: {fileID: 1971197016, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1971197016, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1971197016, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 370.4183
-      objectReference: {fileID: 0}
-    - target: {fileID: 1971197016, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -148.79898
-      objectReference: {fileID: 0}
-    - target: {fileID: 1971197016, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 750.8366
-      objectReference: {fileID: 0}
-    - target: {fileID: 2124254115, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2125279375, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
