@@ -22,8 +22,16 @@ public class LevelManager : MonoBehaviour
     public GameObject nextLevelUI;
     public GameObject nextLevelGraphics;
 
+    public static bool gamePaused = false;
+
+    // DDR BOIS
+    public GameObject ddrCanvas;
+    public GameObject uiCanvas;
+
 
     private PollenTargetSlider pollenTargetSlider;
+
+    GameObject ddrTarget;
 
 
     // Start is called before the first frame update
@@ -113,5 +121,23 @@ public class LevelManager : MonoBehaviour
         nextLevelUI.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void StartDDR(GameObject target)
+    {
+        ddrTarget = target;
+        gamePaused = true;
+        uiCanvas.SetActive(false);
+        ddrCanvas.SetActive(true);
+        FindObjectOfType<DDRManager>().startDDR();
+    }
+
+    public void EndDDR(int score, int maxScore)
+    {
+        gamePaused = false;
+        ddrCanvas.SetActive(false);
+        uiCanvas.SetActive(true);
+        FindObjectOfType<StingBehavior>().FinishSting(score, maxScore, ddrTarget);
+
     }
 }

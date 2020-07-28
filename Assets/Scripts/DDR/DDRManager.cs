@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DDRManager : MonoBehaviour
@@ -34,13 +35,14 @@ public class DDRManager : MonoBehaviour
     public int greatTimingPointGain = 5;
 
     // not needed to be public but so that it is visible from the inspector
-    public float score;
+    public int score;
 
     List<GameObject> movingArrows;
     float timer;
     float spawnTimer;
     int maxScore;
     float targetY;
+    bool unloaded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -73,11 +75,13 @@ public class DDRManager : MonoBehaviour
         }
         UpdateKeyPositions();
         UpdateScoreText();
-        if (movingArrows.Count == 0 && timer <= 0)
+        if (!unloaded && movingArrows.Count == 0 && timer <= 0)
         {
             // Do whatever should happen when the game is over - could be calling a level manager script,
             //  a call back to the sting script, something
             UpdateEndText();
+            unloaded = true;
+            Invoke("Unload", 3f);
         }
     }
 
@@ -90,6 +94,7 @@ public class DDRManager : MonoBehaviour
         movingArrows = new List<GameObject>();
         UpdateScoreText();
         targetY = targetLocation.transform.position.y + pressTolerance / 2;
+        unloaded = false;
     }
 
     private void SpawnKey()
@@ -173,5 +178,16 @@ public class DDRManager : MonoBehaviour
         {
             endText.text = "Max Score: " + maxScore;
         }
+    }
+
+    private void Unload()
+    {
+        ///SceneManager.UnloadSceneAsync("BrockDDR");
+        foreach (Transform child in GameObject.FindGameObjectWithTag("KeyCatcher").transform)
+        {
+            Destroy(child.gameObject);
+        }
+        endText.gameObject.SetActive(false);
+        FindObjectOfType<LevelManager>().EndDDR(score, maxScore);
     }
 }

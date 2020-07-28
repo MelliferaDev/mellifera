@@ -17,22 +17,18 @@ public class DDRBehavior : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("F");
             ddrManager.HandleKeyPress("F");
         } 
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            Debug.Log("D");
             ddrManager.HandleKeyPress("D");
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            Debug.Log("S");
             ddrManager.HandleKeyPress("S");
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            Debug.Log("A");
             ddrManager.HandleKeyPress("A");
         }
     }

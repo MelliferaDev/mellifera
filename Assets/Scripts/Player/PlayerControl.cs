@@ -50,32 +50,39 @@ namespace Player
 
         void Update()
         {
-            Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-
-            switch (currState)
+            if (!LevelManager.gamePaused)
             {
-                case PlayerFlightState.Flying: FlyingControl(mouseInput);
-                    break;
-                case PlayerFlightState.Landed: LandedControl(mouseInput);
-                    break;
-            }
+                Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
                 switch (currState)
                 {
-                    case PlayerFlightState.Flying: currState = PlayerFlightState.Landed;
+                    case PlayerFlightState.Flying:
+                        FlyingControl(mouseInput);
                         break;
-                    case PlayerFlightState.Landed: currState = PlayerFlightState.Flying;
+                    case PlayerFlightState.Landed:
+                        LandedControl(mouseInput);
                         break;
                 }
-                // TODO: implement fighting movement control
 
-            }
-            
-            if (Input.GetButtonDown("Powerup"))
-            {
-                powerup.Activate();
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    switch (currState)
+                    {
+                        case PlayerFlightState.Flying:
+                            currState = PlayerFlightState.Landed;
+                            break;
+                        case PlayerFlightState.Landed:
+                            currState = PlayerFlightState.Flying;
+                            break;
+                    }
+                    // TODO: implement fighting movement control
+
+                }
+
+                if (Input.GetButtonDown("Powerup"))
+                {
+                    powerup.Activate();
+                }
             }
         }
 

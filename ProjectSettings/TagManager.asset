@@ -17,6 +17,9 @@ TagManager:
   - S
   - D
   - F
+  - Wasp
+  - UICanvas
+  - DdrCanvas
   layers:
   - Default
   - TransparentFX

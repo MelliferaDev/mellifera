@@ -47,54 +47,60 @@ public class WaspBehavior : MonoBehaviour
 
     void Update()
     {
-        // Check if wasp should start attacking
-        currDist = Vector3.Distance(player.position, transform.position);
-        if (currDist <= minDistance && currState != WaspFlyingState.Recoiling)
+        if (!LevelManager.gamePaused)
         {
-            if (currState != WaspFlyingState.Attacking) // attacking just started
+            // Check if wasp should start attacking
+            currDist = Vector3.Distance(player.position, transform.position);
+            if (currDist <= minDistance && currState != WaspFlyingState.Recoiling)
             {
-                Debug.Log("Update: REQUESTING");
-                RearviewCameraBehaviour.RequestRearviewOn();
+                if (currState != WaspFlyingState.Attacking) // attacking just started
+                {
+                    Debug.Log("Update: REQUESTING");
+                    RearviewCameraBehaviour.RequestRearviewOn();
+                }
+                currState = WaspFlyingState.Attacking;
             }
-            currState = WaspFlyingState.Attacking;
-        } else if (currState == WaspFlyingState.Attacking)
-        {
-            Debug.Log("Update: Removing");
-            RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
-            currState = WaspFlyingState.Hovering;
-        }
+            else if (currState == WaspFlyingState.Attacking)
+            {
+                Debug.Log("Update: Removing");
+                RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
+                currState = WaspFlyingState.Hovering;
+            }
 
-        // Apply movement based on state
-        if(currState == WaspFlyingState.Recoiling)
-        {
-            float step = Time.deltaTime * recoilRecoverySpeed;
-            
-            // AttackRecoil() applied the recoil, this recovering from said recoil
-            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, step);
-        } else if (currState == WaspFlyingState.Attacking)
-        {
-            float step = Time.deltaTime * (attackSpeed);
+            // Apply movement based on state
+            if (currState == WaspFlyingState.Recoiling)
+            {
+                float step = Time.deltaTime * recoilRecoverySpeed;
 
-            transform.LookAt(player);
-            transform.position = Vector3.MoveTowards(transform.position, player.position, step);
-        } 
-        else if (currState == WaspFlyingState.Hovering)
-        {
-            float step = Time.deltaTime * hoverSpeed;
-            
-            Vector3 target = initPos;
-            target.y += hoverDist * Mathf.Sin(Time.time * hoverSpeed);
-            
-            Vector3 moveTo = Vector3.MoveTowards(transform.position, target, step);
-            transform.position = moveTo;
-            transform.localEulerAngles = initLEulers;
+                // AttackRecoil() applied the recoil, this recovering from said recoil
+                rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, step);
+            }
+            else if (currState == WaspFlyingState.Attacking)
+            {
+                float step = Time.deltaTime * (attackSpeed);
+
+                transform.LookAt(player);
+                transform.position = Vector3.MoveTowards(transform.position, player.position, step);
+            }
+            else if (currState == WaspFlyingState.Hovering)
+            {
+                float step = Time.deltaTime * hoverSpeed;
+
+                Vector3 target = initPos;
+                target.y += hoverDist * Mathf.Sin(Time.time * hoverSpeed);
+
+                Vector3 moveTo = Vector3.MoveTowards(transform.position, target, step);
+                transform.position = moveTo;
+                transform.localEulerAngles = initLEulers;
+            }
+
+
+            if (enemyHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
         
-
-        if(enemyHealth <=0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void ApplyAttackRecoil(float recoilDamage)
