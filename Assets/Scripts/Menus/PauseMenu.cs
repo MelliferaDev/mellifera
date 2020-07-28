@@ -36,6 +36,7 @@ namespace Menus
             lm.currentGameState = GameState.PAUSED;
             Time.timeScale = 0f;
                     
+            
             menu.SetActive(true);
                     
             Cursor.lockState = CursorLockMode.None;

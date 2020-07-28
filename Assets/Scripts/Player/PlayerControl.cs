@@ -28,8 +28,8 @@ namespace Player
         public Vector2 currRotSpeed;
         [Header("Movement Settings")]
         [SerializeField] private float speedIncr = 0.5f;
-        [SerializeField] private float maxSpeed = 15.0f;
-        [SerializeField] private float minSpeed = 5.0f;
+        [SerializeField] public float maxSpeed = 45.0f;
+        [SerializeField] private float minSpeed = 15.0f;
         public float currSpeed;
 
 
@@ -96,7 +96,7 @@ namespace Player
                 currSpeed -= speedIncr;
                 currRotSpeed -= rotSpeedIncr;
             }
-            currSpeed = Mathf.Clamp(currSpeed, minSpeed, maxSpeed);
+            currSpeed = Mathf.Clamp(currSpeed, minSpeed, maxSpeed + PlayerUpgrades.maxSpeedAdd);
 
             float boostedSpeed = currSpeed;
             if (powerup.GetActiveCurrentPowerup() == PlayerPowerup.Vortex)
