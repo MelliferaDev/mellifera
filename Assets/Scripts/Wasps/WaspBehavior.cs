@@ -21,6 +21,7 @@ public class WaspBehavior : MonoBehaviour
     [Header("Hovering")]
     public float hoverDist = 1f;  // Amount to move left and right from the start point
     public float hoverSpeed = 1.5f;
+    public float patrolSpeed = 5f;
 
     private float currDist;
 
@@ -31,6 +32,11 @@ public class WaspBehavior : MonoBehaviour
 
     private Rigidbody rb;
     Animator anim;
+    Vector3 pointA;
+    Vector3 pointB;
+    float patrolDistanceX;
+    float patrolDistanceZ;
+    Vector3 nextPoint;
 
 
     void Start()
@@ -45,6 +51,11 @@ public class WaspBehavior : MonoBehaviour
         initPos = transform.position;
         initLEulers = transform.localEulerAngles;
         anim = GetComponent<Animator>();
+        pointA = transform.position;
+        patrolDistanceX = Random.Range(5, 10);
+        patrolDistanceZ = Random.Range(5, 10);
+        pointB = new Vector3(transform.position.x + patrolDistanceX, transform.position.y, transform.position.z + patrolDistanceZ);
+        nextPoint = pointA;
     }
 
     void Update()
@@ -81,7 +92,10 @@ public class WaspBehavior : MonoBehaviour
 
             transform.LookAt(player);
             transform.position = Vector3.MoveTowards(transform.position, player.position, step);
-        } 
+        } else if (currState == WaspFlyingState.Hovering)
+        {
+            Patrol();
+        }
         
 
         if(enemyHealth <=0)
@@ -109,5 +123,22 @@ public class WaspBehavior : MonoBehaviour
     private enum WaspFlyingState
     {
         Hovering, Attacking, Recoiling
+    }
+
+    void Patrol()
+    {
+
+        if (Vector3.Distance(transform.position, pointA) < 1)
+        {
+            nextPoint = pointB;
+        } else if (Vector3.Distance(transform.position, pointB) < 1)
+        {
+            nextPoint = pointA;
+        }
+        Vector3 directionToTarger = (nextPoint - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(directionToTarger);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10 * Time.deltaTime);
+
+        transform.position = Vector3.MoveTowards(transform.position, nextPoint, patrolSpeed * Time.deltaTime);
     }
 }
