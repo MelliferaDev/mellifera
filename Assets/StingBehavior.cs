@@ -12,6 +12,7 @@ public class StingBehavior : MonoBehaviour
     public int minDamage = 5;
     public int averageDamage = 10;
     public int maxDamage = 20;
+    public GameObject stingIndicator;
 
     GameObject[] wasps;
     GameObject targetWasp;
@@ -25,7 +26,7 @@ public class StingBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (WaspInRange() && Input.GetKeyDown(KeyCode.Q))
+        if (WaspInRange() && Input.GetKeyDown(KeyCode.Q) && !LevelManager.gamePaused)
         {
             StingEnemy();
         }
@@ -39,9 +40,11 @@ public class StingBehavior : MonoBehaviour
             {
                 Debug.Log("Target in my sights");
                 targetWasp = wasp;
+                stingIndicator.SetActive(true);
                 return true;
             }
         }
+        stingIndicator.SetActive(false);
         return false;
     }
 
@@ -78,5 +81,6 @@ public class StingBehavior : MonoBehaviour
             Debug.Log("Option4");
             lm.IncrementHealth(-maxDamage);
         }
+        stingIndicator.SetActive(false);
     }
 }

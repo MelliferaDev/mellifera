@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] Slider healthSlider;
     public GameObject nextLevelUI;
     public GameObject nextLevelGraphics;
+    public GameObject reloadLevelUI;
 
     public static bool gamePaused = false;
 
@@ -99,10 +100,21 @@ public class LevelManager : MonoBehaviour
     {
         currentHealth += amount;
         healthSlider.value = (currentHealth / (1.0f * startingHealth)) * 100 ;
+        if (currentHealth <= 0)
+        {
+            gamePaused = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            reloadLevelUI.SetActive(true);
+        }
     }
 
     public void ReloadLevel()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        reloadLevelUI.SetActive(false);
+        gamePaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
