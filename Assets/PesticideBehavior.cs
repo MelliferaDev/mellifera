@@ -28,8 +28,6 @@ public class PesticideBehavior : MonoBehaviour
     /// <param name="player">The PlayerControl from the OnControllerColliderHit</param>
     public void ControllerCollisionListener(PlayerControl player)
     {
-        if (player.currState == PlayerFlightState.Landed)
-        {
             lm.IncrementHealth(playerDamage);
             if(playerDamage > 0)
             {
@@ -38,6 +36,6 @@ public class PesticideBehavior : MonoBehaviour
             // don't continuously apply pesticide gamage
             playerDamage = 0;
         }
-    }
+    
     
 }
