@@ -82,5 +82,6 @@ public class StingBehavior : MonoBehaviour
             lm.IncrementHealth(-maxDamage);
         }
         stingIndicator.SetActive(false);
+        RearviewCameraBehaviour.RequestRearviewOff();
     }
 }
