@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8829966949825782761}
   - component: {fileID: 3005819887311773456}
   - component: {fileID: 7599265386348600479}
+  - component: {fileID: 6520632506690839265}
   m_Layer: 0
   m_Name: flower_p3
   m_TagString: Pesticide
@@ -96,3 +97,17 @@ MonoBehaviour:
   pesticideHit: {fileID: 6702719563258607702, guid: 659be1d34ec9e4f46a0a9a1bfe1ebada,
     type: 3}
   playerDamage: -5
+--- !u!64 &6520632506690839265
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3569673693340101580}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2451050284989685210, guid: 034b20a99a44e5c479e102d20e78e5fd, type: 3}
