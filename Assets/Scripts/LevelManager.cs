@@ -91,9 +91,10 @@ public class LevelManager : MonoBehaviour
     {
         pollenCollected += pollenAmount;
         // every 2 extra pollen collected gives an extra point
-        if (pollenCollected > pollenTarget && pollenCollected % 2 == 0)
+        if (pollenCollected > pollenTarget && pollenAmount > 0)
         {
-            UpgradeMenu.totalPoints += pollenAmount;
+            UpgradeMenu.totalPoints += 1;
+            Debug.Log("Total Points: " + UpgradeMenu.totalPoints);
         }
     }
 

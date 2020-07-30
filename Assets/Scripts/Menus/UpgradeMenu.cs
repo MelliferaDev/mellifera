@@ -40,7 +40,8 @@ namespace Menus
             pointsToAttack = 0;
             pointsToHealth = 0;
             totalPoints += startingPoints;
-            
+            Debug.Log("Total Points (base): " + UpgradeMenu.totalPoints);
+
             upSpeed.onClick.AddListener(IncrSpeed);
             downSpeed.onClick.AddListener(DecrSpeed);
             
