@@ -8,28 +8,30 @@ using Cursor = UnityEngine.Cursor;
 
 public class LevelManager : MonoBehaviour
 {
-    // public variables set for each level
+    public static bool gamePaused = false;
+    
+    [Header("Player Stats")]
     // pollenAvailable can probably be rewritten to count instances of a Pollen object, but that doesn't exist yet
-    [SerializeField] int pollenAvailable = 0;
+    [SerializeField] int pollenAvailable = 0; 
     [SerializeField] int pollenTarget = 0;
     [SerializeField] public int startingHealth = 100;
     
+    [Header("Level Progression")]
     [SerializeField] public GameState currentGameState = GameState.PLAYING;
     [SerializeField] int pollenCollected = 0;
     [SerializeField] int currentHealth;
     [SerializeField] string nextLevel;
     
+    [Header("UI Elements")]
     // References to other objects
     [SerializeField] Slider pollenSlider;
     [SerializeField] Slider healthSlider;
     [SerializeField] GameObject nextLevelUI; // the UI elements to show when the level is over
     [SerializeField] GameObject nextLevelGraphics; // the target graphics to fly to when the next level is unlocked
-
     [SerializeField] GameObject reloadLevelUI;
 
-    public static bool gamePaused = false;
 
-    // DDR BOIS
+    [Header("DDR BOIS")]
     [SerializeField] GameObject ddrCanvas;
     [SerializeField] GameObject uiCanvas;
 

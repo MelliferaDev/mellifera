@@ -19,6 +19,8 @@ namespace Enemies
 
         private InputManager input;
 
+        private bool stinging = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -32,6 +34,9 @@ namespace Enemies
             if (WaspInRange() && input.GetDanceKeyClicked() && !LevelManager.gamePaused)
             {
                 StingEnemy();
+            } else if (stinging)
+            {
+                gameObject.transform.LookAt(targetWasp.transform);
             }
         }
 
@@ -54,6 +59,7 @@ namespace Enemies
         {
             //SceneManager.LoadScene("BrockDDR", LoadSceneMode.Additive);
             gameObject.transform.LookAt(targetWasp.transform);
+            stinging = true;
             FindObjectOfType<LevelManager>().StartDDR(targetWasp);
         }
 
@@ -61,7 +67,8 @@ namespace Enemies
         public void FinishSting(int score, int maxScore, GameObject target)
         {
             LevelManager lm = FindObjectOfType<LevelManager>();
-            
+
+            stinging = false;
             // killing the wasps can definitely be improved upon
             if (score > maxScore * .9)
             {

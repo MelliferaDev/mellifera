@@ -7135,20 +7135,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Collect enough pollen to bring back to the hive!
+  m_Text: 'Collect enough pollen to bring back to the hive! Collect pollen by landing
+    on a flower (Bee careful!, harmful pesticides have been sprayed on some plants).
 
 
-    Once you have enough
-    pollen, you can continue to explore the area, or look for the entrance to the
-    next level
+    Once
+    you have enough pollen, you can continue to explore the area, or look for the
+    entrance to the next level
 
 
-    Watch out for wasps! If you get to close to them, they''ll sting
-    you and won''t stop following you until you get away.
+    Bee on the look out for wasps! If you get too
+    close to them, they''ll sting you and won''t buzz off you until you get away.
+    However, you might be able waggle dance and do damage to the wasp.
 
 
-    There are powerups
-    in the field that you can use to improve your flying!'
+    There
+    are powerups in the field that you can use to improve your flying!'
 --- !u!1 &3580419818148404770
 GameObject:
   m_ObjectHideFlags: 0

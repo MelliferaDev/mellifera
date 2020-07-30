@@ -23,10 +23,10 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.15
+  m_AmbientIntensity: 0.2
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: b07fad5239e0a424c9c060116f61f109, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 617d9be015db68348a623b01ea51a8c5, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -11673,7 +11673,8 @@ MonoBehaviour:
   mouseSensitivity: 1
   speedUpAxis: Fire1
   slowDownAxis: Fire2
-  powerupKey: 101
+  vortexKey: 101
+  danceKey: 113
   landFlyKey: 32
   pauseKey: 112
 --- !u!1 &1377135261
@@ -18954,7 +18955,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df3b062b09e7b84eadd6c32109888cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupDuration: 3
+  vortexDuration: 3
+  gui: {fileID: 0}
+  vortexCollected: 0
+  stingCollected: 0
+  waggleCollected: 0
 --- !u!95 &7190748348499850843
 Animator:
   serializedVersion: 3

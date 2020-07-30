@@ -54,7 +54,6 @@ public class DDRManager : MonoBehaviour
         movingArrows = new List<GameObject>();
         UpdateScoreText();
         targetY = targetLocation.transform.position.y + pressTolerance / 2;
-        Debug.Log(targetY);
     }
 
     // Update is called once per frame
@@ -176,7 +175,8 @@ public class DDRManager : MonoBehaviour
         endText.gameObject.SetActive(true);
         if (endText != null)
         {
-            endText.text = "Max Score: " + maxScore;
+            string prec = (100f * score / maxScore).ToString("f2");
+            endText.text = $"Max Score: {maxScore} ({prec}%)" + maxScore;
         }
     }
 
