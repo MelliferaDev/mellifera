@@ -23,6 +23,7 @@ TagManager:
   - UICanvas
   - DdrCanvas
   - Pesticide
+  - FlowerGroup
   layers:
   - Default
   - TransparentFX

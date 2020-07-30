@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5010221722332296891}
   m_Layer: 0
   m_Name: Triple Flower
-  m_TagString: Untagged
+  m_TagString: FlowerGroup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
