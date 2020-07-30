@@ -8,7 +8,7 @@ namespace Player
         [Space(20)]
         [SerializeField] public string speedUpAxis = "Fire1";
         [SerializeField] public string slowDownAxis = "Fire2";
-        [SerializeField] public KeyCode powerupKey = KeyCode.E;
+        [SerializeField] public KeyCode vortexKey = KeyCode.E;
         [SerializeField] public KeyCode landFlyKey = KeyCode.Space;
 
         [Header("Non-configurable")] 
@@ -18,7 +18,7 @@ namespace Player
 
         public bool GetSlowDownBtnClicked() => Input.GetButtonDown(slowDownAxis);
 
-        public bool GetPowerUpKeyClicked() => Input.GetKeyDown(powerupKey);
+        public bool GetVortexKeyClicked() => Input.GetKeyDown(vortexKey);
         
         public bool GetLandFlyKeyClicked() => Input.GetKeyDown(landFlyKey);
 

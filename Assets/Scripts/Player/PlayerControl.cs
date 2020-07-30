@@ -77,9 +77,9 @@ namespace Player
 
             }
             
-            if (inputManager.GetPowerUpKeyClicked())
+            if (inputManager.GetVortexKeyClicked())
             {
-                powerup.Activate();
+                powerup.Activate(PlayerPowerup.Vortex);
             }
         }
 

@@ -53,7 +53,7 @@ namespace Utility
             
             powerupKeyIn.onValueChanged.AddListener(delegate(int arg0)
             {
-                inputManager.powerupKey = keys[arg0];
+                inputManager.vortexKey = keys[arg0];
             });
             
             landFlyKeyIn.onValueChanged.AddListener(delegate(int arg0)
