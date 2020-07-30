@@ -4,16 +4,17 @@ using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Utility
+namespace Menus
 {
-    public class InputManagerUI : MonoBehaviour
+    public class ControlsMenuUI : MonoBehaviour
     {
         [SerializeField] private InputManager inputManager;
         [Space(20)]
         [SerializeField] private InputField mSensitivityIn;
         [SerializeField] private Dropdown speedUpAxisIn;
         [SerializeField] private Dropdown slowDownAxisIn;
-        [SerializeField] private Dropdown powerupKeyIn;
+        [SerializeField] private Dropdown vortexKeyIn;
+        [SerializeField] private Dropdown danceKeyIn;
         [SerializeField] private Dropdown landFlyKeyIn;
         [Space(20)] 
         [SerializeField] private List<string> axes;
@@ -26,8 +27,10 @@ namespace Utility
             speedUpAxisIn.AddOptions(axes);
             slowDownAxisIn.ClearOptions();
             slowDownAxisIn.AddOptions(axes);
-            powerupKeyIn.ClearOptions();
-            powerupKeyIn.AddOptions(keys.Select(k => k.ToString()).ToList());
+            vortexKeyIn.ClearOptions();
+            vortexKeyIn.AddOptions(keys.Select(k => k.ToString()).ToList());
+            danceKeyIn.ClearOptions();
+            danceKeyIn.AddOptions(keys.Select(k => k.ToString()).ToList());
             landFlyKeyIn.ClearOptions();
             landFlyKeyIn.AddOptions(keys.Select(k => k.ToString()).ToList());
             
@@ -35,7 +38,9 @@ namespace Utility
             mSensitivityIn.text = inputManager.mouseSensitivity.ToString("f2");
             speedUpAxisIn.value = 0;
             slowDownAxisIn.value = 1;
-            powerupKeyIn.value = 2;
+            
+            vortexKeyIn.value = 2;
+            danceKeyIn.value = 1;
             landFlyKeyIn.value = 0;
             
             // setup the ui interaction listeners
@@ -51,15 +56,21 @@ namespace Utility
                 inputManager.slowDownAxis = MouseNameToAxisName(axes[arg0]);
             });
             
-            powerupKeyIn.onValueChanged.AddListener(delegate(int arg0)
+            vortexKeyIn.onValueChanged.AddListener(delegate(int arg0)
             {
                 inputManager.vortexKey = keys[arg0];
+            });
+            
+            danceKeyIn.onValueChanged.AddListener(delegate(int arg0)
+            {
+                inputManager.danceKey = keys[arg0];
             });
             
             landFlyKeyIn.onValueChanged.AddListener(delegate(int arg0)
             {
                 inputManager.landFlyKey = keys[arg0];
             });
+            
         }
 
         private void MouseSensitivityInput(string arg0)
