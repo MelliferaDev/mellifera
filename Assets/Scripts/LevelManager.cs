@@ -1,4 +1,5 @@
-﻿using Menus;
+﻿using Enemies;
+using Menus;
 using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,9 +25,19 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject nextLevelUI; // the UI elements to show when the level is over
     [SerializeField] GameObject nextLevelGraphics; // the target graphics to fly to when the next level is unlocked
 
+    [SerializeField] GameObject reloadLevelUI;
+
+    public static bool gamePaused = false;
+
+    // DDR BOIS
+    [SerializeField] GameObject ddrCanvas;
+    [SerializeField] GameObject uiCanvas;
+
     [SerializeField] private bool usingUI = true;
 
     private PollenTargetSlider pollenTargetSlider;
+
+    GameObject ddrTarget;
 
 
     // Start is called before the first frame update
@@ -113,10 +124,22 @@ public class LevelManager : MonoBehaviour
     {
         currentHealth += amount;
         healthSlider.value = (currentHealth / (1.0f * startingHealth+ (int)PlayerUpgrades.maxHealthAdd)) * 100 ;
+
+        if (currentHealth <= 0)
+        {
+            gamePaused = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            reloadLevelUI.SetActive(true);
+        }
     }
 
     public void ReloadLevel()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        reloadLevelUI.SetActive(false);
+        gamePaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -135,6 +158,24 @@ public class LevelManager : MonoBehaviour
         nextLevelUI.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void StartDDR(GameObject target)
+    {
+        ddrTarget = target;
+        gamePaused = true;
+        uiCanvas.SetActive(false);
+        ddrCanvas.SetActive(true);
+        FindObjectOfType<DDRManager>().startDDR();
+    }
+
+    public void EndDDR(int score, int maxScore)
+    {
+        gamePaused = false;
+        ddrCanvas.SetActive(false);
+        uiCanvas.SetActive(true);
+        FindObjectOfType<StingBehavior>().FinishSting(score, maxScore, ddrTarget);
+
     }
 }
 

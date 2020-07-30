@@ -54,29 +54,38 @@ namespace Player
 
         void Update()
         {
-            Vector2 mouseInput = inputManager.GetMouseAxes();
 
-            switch (currState)
+            if (!LevelManager.gamePaused)
             {
-                case PlayerFlightState.Flying: FlyingControl(mouseInput);
-                    break;
-                case PlayerFlightState.Landed: LandedControl(mouseInput);
-                    break;
+                
+                Vector2 mouseInput = inputManager.GetMouseAxes();
+                switch (currState)
+                {
+                    case PlayerFlightState.Flying:
+                        FlyingControl(mouseInput);
+                        break;
+                    case PlayerFlightState.Landed:
+                        LandedControl(mouseInput);
+                        break;
+                }
             }
 
             if (inputManager.GetLandFlyKeyClicked())
             {
+
                 switch (currState)
                 {
-                    case PlayerFlightState.Flying: currState = PlayerFlightState.Landed;
+                    case PlayerFlightState.Flying:
+                        currState = PlayerFlightState.Landed;
                         break;
-                    case PlayerFlightState.Landed: currState = PlayerFlightState.Flying;
+                    case PlayerFlightState.Landed:
+                        currState = PlayerFlightState.Flying;
                         break;
                 }
-                // TODO: implement fighting movement control
 
+                // TODO: implement fighting movement control
             }
-            
+
             if (inputManager.GetVortexKeyClicked())
             {
                 powerup.Activate(PlayerPowerup.Vortex);
@@ -142,7 +151,6 @@ namespace Player
             controller.Move(move * Time.deltaTime);
         }
         
-
     }
     
     public enum PlayerFlightState

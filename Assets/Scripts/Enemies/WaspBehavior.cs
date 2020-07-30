@@ -39,22 +39,25 @@ namespace Enemies
         protected override void Update()
         {
             base.Update();
-            
-            // State Updating logic
-            if (distToPlayer <= minDistance && currState != WaspFlyingState.Recoiling)
+            if (!LevelManager.gamePaused)
             {
-                if (currState != WaspFlyingState.Attacking) // attacking just started
+                // State Updating logic
+                if (distToPlayer <= minDistance && currState != WaspFlyingState.Recoiling)
                 {
-                    RearviewCameraBehaviour.RequestRearviewOn();
+                    if (currState != WaspFlyingState.Attacking) // attacking just started
+                    {
+                        RearviewCameraBehaviour.RequestRearviewOn();
+                    }
+                    currState = WaspFlyingState.Attacking;
+                    anim.SetInteger(AnimState, 1);
+                } else if (currState == WaspFlyingState.Attacking)
+                {
+                    RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
+                    currState = WaspFlyingState.Patrolling;
+                    anim.SetInteger(AnimState, 0);
                 }
-                currState = WaspFlyingState.Attacking;
-                anim.SetInteger(AnimState, 1);
-            } else if (currState == WaspFlyingState.Attacking)
-            {
-                RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
-                currState = WaspFlyingState.Patrolling;
-                anim.SetInteger(AnimState, 0);
-            }
+            }   
+  
 
             switch (currState)
             {
