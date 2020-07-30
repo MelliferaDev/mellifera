@@ -53,6 +53,7 @@ namespace Enemies
         void StingEnemy()
         {
             //SceneManager.LoadScene("BrockDDR", LoadSceneMode.Additive);
+            gameObject.transform.LookAt(targetWasp.transform);
             FindObjectOfType<LevelManager>().StartDDR(targetWasp);
         }
 
