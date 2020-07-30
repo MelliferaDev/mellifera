@@ -6,7 +6,7 @@ public class BoundaryDisplayCountDown : MonoBehaviour
 {
 
     public GameObject displayText;
-
+    
     float countDown;
     // Start is called before the first frame update
     void Start()
