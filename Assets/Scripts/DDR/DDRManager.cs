@@ -175,7 +175,7 @@ public class DDRManager : MonoBehaviour
         endText.gameObject.SetActive(true);
         if (endText != null)
         {
-            string prec = (score / maxScore * 100).ToString("f2");
+            string prec = (100f * score / maxScore).ToString("f2");
             endText.text = $"Max Score: {maxScore} ({prec}%)" + maxScore;
         }
     }
