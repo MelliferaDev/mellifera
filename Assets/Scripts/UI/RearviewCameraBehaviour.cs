@@ -1,31 +1,33 @@
-﻿
-using System;
+﻿using System;
 using UnityEngine;
 
-public class RearviewCameraBehaviour : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private GameObject cameraView;
-    private static int cameraRequests;
-
-    void Start()
+    public class RearviewCameraBehaviour : MonoBehaviour
     {
-        cameraRequests = 0;
-    }
+        [SerializeField] private GameObject cameraView;
+        private static int cameraRequests;
 
-    // Update is called once per frame
-    void Update()
-    {
-        cameraView.SetActive(cameraRequests > 0);
-    }
+        void Start()
+        {
+            cameraRequests = 0;
+        }
 
-    public static void RequestRearviewOn()
-    {
-        cameraRequests++;
-        cameraRequests = Math.Max(cameraRequests, 1);
-    }
+        // Update is called once per frame
+        void Update()
+        {
+            cameraView.SetActive(cameraRequests > 0);
+        }
 
-    public static void RequestRearviewOff()
-    {
-        cameraRequests--;
+        public static void RequestRearviewOn()
+        {
+            cameraRequests++;
+            cameraRequests = Math.Max(cameraRequests, 1);
+        }
+
+        public static void RequestRearviewOff()
+        {
+            cameraRequests--;
+        }
     }
 }

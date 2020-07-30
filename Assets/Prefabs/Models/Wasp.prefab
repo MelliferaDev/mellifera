@@ -390,15 +390,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a79900895f9674abe68747c329313b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 10
+  patrolMin: 5
+  patrolMax: 10
   player: {fileID: 0}
   minDistance: 30
   attackSpeed: 35
   recoilForce: 90
   recoilRecoverySpeed: 10
   enemyHealth: 15
-  hoverDist: 5
-  hoverSpeed: 10
-  patrolSpeed: 5
+  patrolSpeed: 10
 --- !u!1 &5561426111781495697
 GameObject:
   m_ObjectHideFlags: 0

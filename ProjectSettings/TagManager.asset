@@ -12,6 +12,7 @@ TagManager:
   - EnemyAttack
   - Collectible
   - Menu Panel Parent
+  - ProjectilesParent
   layers:
   - Default
   - TransparentFX
