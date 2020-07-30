@@ -5,6 +5,7 @@ namespace Wasps
     public class WaspAttack : MonoBehaviour
     {
         public int playerDamage = -5;
+        public int pollenLoss = -5;
         public float recoilDamage = 0;
         // Start is called before the first frame update
     
@@ -20,8 +21,9 @@ namespace Wasps
         {
             if (hit.gameObject.CompareTag("Player"))
             {
-                transform.parent.GetComponent<WaspBehavior>().ApplyAttackRecoil(recoilDamage);
-                lm.IncrementHealth(playerDamage);
+                GetComponent<WaspBehavior>().ApplyAttackRecoil(recoilDamage);
+                lm.IncrementHealth(playerDamage); //decreases health by passing in a negative
+                lm.CollectPollen(pollenLoss); //decreases pollen by passing in a negative
             }
         }
     }
