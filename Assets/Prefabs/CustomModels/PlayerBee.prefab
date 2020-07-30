@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 3054152585756291836}
   - component: {fileID: 6863974020979444369}
   - component: {fileID: -4198268655133958481}
+  - component: {fileID: 3162833644765866081}
   m_Layer: 0
   m_Name: PlayerBee
   m_TagString: Player
@@ -662,7 +663,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df3b062b09e7b84eadd6c32109888cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupDuration: 3
+  vortexDuration: 3
+  gui: {fileID: 0}
+  vortexCollected: 0
+  stingCollected: 0
+  waggleCollected: 0
 --- !u!114 &-4198268655133958481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,3 +680,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb2499f23884b8ab39a710fae8c565e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3162833644765866081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7259016305702027547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ca3fe5b1dbe44440b6caced24980d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stingDistance: 30
+  minDamage: 5
+  averageDamage: 10
+  maxDamage: 20
+  stingIndicator: {fileID: 0}

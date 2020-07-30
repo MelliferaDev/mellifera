@@ -19,7 +19,7 @@ namespace Enemies
         // Start is called before the first frame update
         void Start()
         {
-            wasps = GameObject.FindGameObjectsWithTag("Wasp");
+            wasps = GameObject.FindGameObjectsWithTag("Enemy");
         }
 
         // Update is called once per frame
@@ -57,6 +57,8 @@ namespace Enemies
         public void FinishSting(int score, int maxScore, GameObject target)
         {
             LevelManager lm = FindObjectOfType<LevelManager>();
+            
+            // killing the wasps can definitely be improved upon
             if (score > maxScore * .9)
             {
                 Debug.Log("Option1");
