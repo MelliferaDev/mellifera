@@ -28,13 +28,13 @@ public class PesticideBehavior : MonoBehaviour
     /// <param name="player">The PlayerControl from the OnControllerColliderHit</param>
     public void ControllerCollisionListener(PlayerControl player)
     {
+        if (playerDamage < 0)
+        {
             lm.IncrementHealth(playerDamage);
-            if(playerDamage > 0)
-            {
-                Instantiate(pesticideHit, transform.position, transform.rotation);
-            }
+            Instantiate(pesticideHit, transform.position, transform.rotation);
             // don't continuously apply pesticide gamage
             playerDamage = 0;
+        }
         }
     
     
