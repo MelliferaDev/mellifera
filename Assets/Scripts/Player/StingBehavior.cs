@@ -1,4 +1,5 @@
-﻿using UI;
+﻿using Player;
+using UI;
 using UnityEngine;
 
 namespace Enemies
@@ -16,16 +17,19 @@ namespace Enemies
         GameObject[] wasps;
         GameObject targetWasp;
 
+        private InputManager input;
+
         // Start is called before the first frame update
         void Start()
         {
-            wasps = GameObject.FindGameObjectsWithTag("Wasp");
+            wasps = GameObject.FindGameObjectsWithTag("Enemy");
+            input = FindObjectOfType<InputManager>();
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (WaspInRange() && Input.GetKeyDown(KeyCode.Q) && !LevelManager.gamePaused)
+            if (WaspInRange() && input.GetDanceKeyClicked() && !LevelManager.gamePaused)
             {
                 StingEnemy();
             }
@@ -37,7 +41,6 @@ namespace Enemies
             {
                 if (wasp != null && Vector3.Distance(transform.position, wasp.transform.position) < stingDistance)
                 {
-                    Debug.Log("Target in my sights");
                     targetWasp = wasp;
                     stingIndicator.SetActive(true);
                     return true;
@@ -50,6 +53,7 @@ namespace Enemies
         void StingEnemy()
         {
             //SceneManager.LoadScene("BrockDDR", LoadSceneMode.Additive);
+            gameObject.transform.LookAt(targetWasp.transform);
             FindObjectOfType<LevelManager>().StartDDR(targetWasp);
         }
 
@@ -57,6 +61,8 @@ namespace Enemies
         public void FinishSting(int score, int maxScore, GameObject target)
         {
             LevelManager lm = FindObjectOfType<LevelManager>();
+            
+            // killing the wasps can definitely be improved upon
             if (score > maxScore * .9)
             {
                 Debug.Log("Option1");

@@ -56,17 +56,16 @@ namespace Enemies
                     currState = WaspFlyingState.Patrolling;
                     anim.SetInteger(AnimState, 0);
                 }
-            }   
-  
 
-            switch (currState)
-            {
-                case WaspFlyingState.Patrolling: UpdatePatrolState(); break;
-                case WaspFlyingState.Attacking: UpdateAttackState(); break;
-                case WaspFlyingState.Recoiling: UpdateRecoilState(); break;
+                switch (currState)
+                {
+                    case WaspFlyingState.Patrolling: UpdatePatrolState(); break;
+                    case WaspFlyingState.Attacking: UpdateAttackState(); break;
+                    case WaspFlyingState.Recoiling: UpdateRecoilState(); break;
+                }
             }
 
-            if(enemyHealth <=0)
+            if (enemyHealth <=0)
             {
                 anim.SetInteger(AnimState, 2);
                 Destroy(gameObject, .5f);

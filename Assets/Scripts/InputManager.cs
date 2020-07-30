@@ -9,6 +9,7 @@ namespace Player
         [SerializeField] public string speedUpAxis = "Fire1";
         [SerializeField] public string slowDownAxis = "Fire2";
         [SerializeField] public KeyCode vortexKey = KeyCode.E;
+        [SerializeField] public KeyCode danceKey = KeyCode.Q;
         [SerializeField] public KeyCode landFlyKey = KeyCode.Space;
 
         [Header("Non-configurable")] 
@@ -19,6 +20,9 @@ namespace Player
         public bool GetSlowDownBtnClicked() => Input.GetButtonDown(slowDownAxis);
 
         public bool GetVortexKeyClicked() => Input.GetKeyDown(vortexKey);
+        
+        public bool GetDanceKeyClicked() => Input.GetKeyDown(danceKey);
+
         
         public bool GetLandFlyKeyClicked() => Input.GetKeyDown(landFlyKey);
 
