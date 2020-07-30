@@ -53513,6 +53513,25 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 72.627304
       objectReference: {fileID: 0}
+    - target: {fileID: 1332085171, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
+      propertyPath: m_Text
+      value: 'Collect enough pollen to bring back to the hive! Collect pollen by
+        landing on a flower (Bee careful!, harmful pesticides have been sprayed on
+        some plants).
+
+
+        Once you have enough pollen, you can continue to
+        explore the area, or look for the entrance to the next level
+
+
+        Bee
+        on the look out for wasps! If you get too close to them, they''ll sting you
+        and won''t buzz off you until you get away.
+
+
+        There are powerups
+        in the field that you can use to improve your flying!'
+      objectReference: {fileID: 0}
     - target: {fileID: 1492647958, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -53541,6 +53560,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 72.627304
       objectReference: {fileID: 0}
+    - target: {fileID: 1790188287, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1790188291, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: inputManager
       value: 
@@ -53568,6 +53591,10 @@ PrefabInstance:
     - target: {fileID: 1971197016, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_SizeDelta.y
       value: 72.627304
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124254115, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2125279375, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
