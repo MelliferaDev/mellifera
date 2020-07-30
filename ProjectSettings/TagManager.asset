@@ -11,10 +11,8 @@ TagManager:
   - Enemy
   - EnemyAttack
   - Collectible
-<<<<<<< HEAD
   - Menu Panel Parent
   - ProjectilesParent
-=======
   - KeyCatcher
   - Undefined
   - A
@@ -24,7 +22,7 @@ TagManager:
   - Wasp
   - UICanvas
   - DdrCanvas
->>>>>>> aa5863743ec20c7a6bfe6f0765efcfa3ca6bec05
+  - Pesticide
   layers:
   - Default
   - TransparentFX
