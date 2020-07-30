@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level1_Prototype.unity
+    path: Assets/Scenes/FP2/Level1_Prototype.unity
     guid: bcc9f898defb53c46b22a551baf0a5e1
+  - enabled: 1
+    path: Assets/Scenes/BrockDDR.unity
+    guid: 106ddd1a9d3e37a42a233665327b8954
   m_configObjects: {}

@@ -11,6 +11,18 @@ TagManager:
   - Enemy
   - EnemyAttack
   - Collectible
+  - Menu Panel Parent
+  - ProjectilesParent
+  - KeyCatcher
+  - Undefined
+  - A
+  - S
+  - D
+  - F
+  - Wasp
+  - UICanvas
+  - DdrCanvas
+  - Pesticide
   layers:
   - Default
   - TransparentFX

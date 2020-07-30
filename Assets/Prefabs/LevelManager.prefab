@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5962279020735602771}
   - component: {fileID: 5962279020735602768}
+  - component: {fileID: 108964482881229148}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -46,7 +47,7 @@ MonoBehaviour:
   pollenAvailable: 80
   pollenTarget: 60
   startingHealth: 100
-  canFinishLevel: 0
+  currentGameState: 0
   pollenCollected: 0
   currentHealth: 0
   nextLevel: 
@@ -54,3 +55,22 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   nextLevelUI: {fileID: 0}
   nextLevelGraphics: {fileID: 0}
+  usingUI: 1
+--- !u!114 &108964482881229148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5962279020735602769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751836c900674eafbc378d417b7de007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 1
+  speedUpAxis: Fire1
+  slowDownAxis: Fire2
+  powerupKey: 101
+  landFlyKey: 32
+  pauseKey: 112

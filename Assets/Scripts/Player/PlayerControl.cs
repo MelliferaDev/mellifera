@@ -28,8 +28,8 @@ namespace Player
         public Vector2 currRotSpeed;
         [Header("Movement Settings")]
         [SerializeField] private float speedIncr = 0.5f;
-        [SerializeField] private float maxSpeed = 15.0f;
-        [SerializeField] private float minSpeed = 5.0f;
+        [SerializeField] public float maxSpeed = 45.0f;
+        [SerializeField] private float minSpeed = 15.0f;
         public float currSpeed;
 
 
@@ -39,10 +39,14 @@ namespace Player
         private PlayerPowerupBehavior powerup;
         private Vector3 move;
 
+        private InputManager inputManager;
         void Start()
         {
             controller = GetComponent<CharacterController>();
             powerup = GetComponent<PlayerPowerupBehavior>();
+            inputManager = FindObjectOfType<InputManager>();
+            
+            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
             currState = PlayerFlightState.Flying;
@@ -50,49 +54,58 @@ namespace Player
 
         void Update()
         {
-            Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-            switch (currState)
+            if (!LevelManager.gamePaused)
             {
-                case PlayerFlightState.Flying: FlyingControl(mouseInput);
-                    break;
-                case PlayerFlightState.Landed: LandedControl(mouseInput);
-                    break;
-            }
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
+                
+                Vector2 mouseInput = inputManager.GetMouseAxes();
                 switch (currState)
                 {
-                    case PlayerFlightState.Flying: currState = PlayerFlightState.Landed;
+                    case PlayerFlightState.Flying:
+                        FlyingControl(mouseInput);
                         break;
-                    case PlayerFlightState.Landed: currState = PlayerFlightState.Flying;
+                    case PlayerFlightState.Landed:
+                        LandedControl(mouseInput);
                         break;
                 }
-                // TODO: implement fighting movement control
-
             }
-            
-            if (Input.GetButtonDown("Powerup"))
+
+            if (inputManager.GetLandFlyKeyClicked())
             {
-                powerup.Activate();
+
+                switch (currState)
+                {
+                    case PlayerFlightState.Flying:
+                        currState = PlayerFlightState.Landed;
+                        break;
+                    case PlayerFlightState.Landed:
+                        currState = PlayerFlightState.Flying;
+                        break;
+                }
+
+                // TODO: implement fighting movement control
+            }
+
+            if (inputManager.GetVortexKeyClicked())
+            {
+                powerup.Activate(PlayerPowerup.Vortex);
             }
         }
 
         private void FlyingControl(Vector2 input)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (inputManager.GetSpeedUpBtnClicked())
             {
                 currSpeed += speedIncr;
                 currRotSpeed += rotSpeedIncr;
             }
 
-            if (Input.GetButtonDown("Fire2"))
+            if (inputManager.GetSlowDownBtnClicked())
             {
                 currSpeed -= speedIncr;
                 currRotSpeed -= rotSpeedIncr;
             }
-            currSpeed = Mathf.Clamp(currSpeed, minSpeed, maxSpeed);
+            currSpeed = Mathf.Clamp(currSpeed, minSpeed, maxSpeed + PlayerUpgrades.maxSpeedAdd);
 
             float boostedSpeed = currSpeed;
             if (powerup.GetActiveCurrentPowerup() == PlayerPowerup.Vortex)
@@ -138,7 +151,6 @@ namespace Player
             controller.Move(move * Time.deltaTime);
         }
         
-
     }
     
     public enum PlayerFlightState

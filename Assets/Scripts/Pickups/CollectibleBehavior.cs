@@ -21,7 +21,6 @@ namespace Pickups
         /// <param name="player">The PlayerControl from the OnControllerColliderHit</param>
         public void ControllerCollisionListener(PlayerControl player)
         {
-            Debug.Log("hm");
             if (player.currState == PlayerFlightState.Landed)
             {
                 // TODO right now we just give all the pollen as soon as they land on it,
