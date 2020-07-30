@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDamage: -5
+  pollenLoss: -5
   recoilDamage: 0
 --- !u!114 &3196327193569929311
 MonoBehaviour:
@@ -397,6 +398,7 @@ MonoBehaviour:
   enemyHealth: 15
   hoverDist: 5
   hoverSpeed: 10
+  patrolSpeed: 5
 --- !u!1 &5561426111781495697
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,10 +479,10 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3631159909506098806, guid: 2d7296c4869827f46b2e9fbbe5c754ee, type: 3}
-  - {fileID: -542099470602313509, guid: 2d7296c4869827f46b2e9fbbe5c754ee, type: 3}
-  - {fileID: 5528330064963575384, guid: 2d7296c4869827f46b2e9fbbe5c754ee, type: 3}
-  - {fileID: 3697775073343966865, guid: 2d7296c4869827f46b2e9fbbe5c754ee, type: 3}
+  - {fileID: 2100000, guid: 9a61211feb22c0e4e9c01a98a2e9e818, type: 2}
+  - {fileID: 2100000, guid: 9c82cecd7c8b04b4b96aed7500219eb7, type: 2}
+  - {fileID: 2100000, guid: 31c83225d27c0dc4890b80480a8b16f8, type: 2}
+  - {fileID: 2100000, guid: 41306ef6dc7eeb647b589f1138896e98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

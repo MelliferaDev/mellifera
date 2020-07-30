@@ -12,7 +12,27 @@ ModelImporter:
   - first:
       74: 6478849948891287183
     second: Armature|WaspIdle
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BaseMaterial
+    second: {fileID: 2100000, guid: 9a61211feb22c0e4e9c01a98a2e9e818, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StingerMaterial
+    second: {fileID: 2100000, guid: 9c82cecd7c8b04b4b96aed7500219eb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: StripeMaterial
+    second: {fileID: 2100000, guid: 31c83225d27c0dc4890b80480a8b16f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WingMaterial
+    second: {fileID: 2100000, guid: 41306ef6dc7eeb647b589f1138896e98, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
