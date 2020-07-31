@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b42a8b83d7e9194c8500c44d96a0290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSfx: {fileID: 8300000, guid: b342d0926bc879c47bc0e0589f497405, type: 3}
   playerDamage: -5
   pollenLoss: -5
   recoilDamage: 0
@@ -393,7 +394,7 @@ MonoBehaviour:
   rotationSpeed: 10
   patrolMin: 5
   patrolMax: 10
-  player: {fileID: 0}
+  currState: 0
   minDistance: 30
   attackSpeed: 35
   recoilForce: 90

@@ -14,7 +14,7 @@ namespace Player
         [SerializeField] private int vortexDuration = 3; // seconds
         [SerializeField] private PowerupGUI gui;
         
-        public static int speedBoost = 100; // This will go in the Vortex specific class once it exists.
+        public static int vortexSpeedBoost = 100; // This will go in the Vortex specific class once it exists.
 
         public int vortexCollected;
         public int stingCollected;
@@ -52,14 +52,17 @@ namespace Player
         {
             switch (powerupType)
             {
-                case PlayerPowerup.Vortex: vortexCollected++;
+                case PlayerPowerup.Vortex: 
+                    vortexCollected++;
                     gui.UpdateGUI(powerupType, vortexCollected);
                     break;
-                case PlayerPowerup.FreeSting: stingCollected++;
+                case PlayerPowerup.FreeSting: 
+                    stingCollected++;
                     gui.UpdateGUI(powerupType, stingCollected);
                     break;
-                case PlayerPowerup.WaggleDance: waggleCollected++;
-                    gui.UpdateGUI(powerupType, stingCollected);
+                case PlayerPowerup.WaggleDance: 
+                    waggleCollected++;
+                    gui.UpdateGUI(powerupType, waggleCollected);
                     break;
             }
         }
