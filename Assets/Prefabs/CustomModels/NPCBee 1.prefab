@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 1552659605479597687}
   - component: {fileID: 4976804891556230966}
   - component: {fileID: 4012310414025541233}
+  - component: {fileID: 5573708933162732145}
   m_Layer: 0
   m_Name: bee_model
   m_TagString: Player
@@ -134,6 +135,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5573708933162732145
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2280451204812672082}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8998605553026369596, guid: 4177646ec28fe5549ba4909fe612f626, type: 3}
 --- !u!1 &4124409593917039525
 GameObject:
   m_ObjectHideFlags: 0

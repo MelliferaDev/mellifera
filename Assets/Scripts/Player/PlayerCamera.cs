@@ -6,7 +6,7 @@ namespace Player
     // Follows
     public class PlayerCamera : MonoBehaviour
     {
-        [SerializeField] private PlayerControl lookAt;
+        [SerializeField] private PlayerControl player;
         [SerializeField] private Vector3 flyingOffset = new Vector3(0.0f, 1.5f, -3.5f);
         [SerializeField] private Vector3 landedOffset = new Vector3(0.0f, 1.5f, -3.5f);
 
@@ -14,27 +14,29 @@ namespace Player
         
         private Vector3 desiredPos;
         private Transform lookAtTransform;
-        private PlayerControl playerCtlr;
 
         private Vector3 cameraLag;
-        
-        private void Start()
+
+        public void Start()
         {
-            lookAtTransform = lookAt.transform;
-            playerCtlr = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>();
+            lookAtTransform = player.transform;
         }
+        
+        
         
         void Update()
         {
-            Follow();
+            //Follow();
             Debug.DrawRay(transform.position, cameraLag, Color.magenta);
             
         }
 
-        void Follow()
+        public void Follow()
         {
             Vector3 _offset = flyingOffset;
-            switch (playerCtlr.currState)
+
+            
+            switch (player.currState)
             {
                 case PlayerFlightState.Flying:
                     _offset = flyingOffset;
@@ -52,7 +54,7 @@ namespace Player
             transform.position = Vector3.Lerp(transform.position, desiredPos, speed * Time.deltaTime);
             transform.forward = Vector3.Lerp(transform.forward, lookAtTransform.forward, speed * Time.deltaTime);
             
-            if (playerCtlr.currState == PlayerFlightState.Flying)
+            if (player.currState == PlayerFlightState.Flying)
             {
                 cameraLag = desiredPos - transform.position;
             }

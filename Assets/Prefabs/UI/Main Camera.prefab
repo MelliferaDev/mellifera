@@ -58,7 +58,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 2000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2cba00c692b014890c2b0c6a65b349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookAt: {fileID: 0}
+  player: {fileID: 0}
   flyingOffset: {x: 0, y: 1.5, z: -3.5}
   landedOffset: {x: 0, y: 1.25, z: -9.5}
   speed: 8

@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] int pollenCollected = 0;
     [SerializeField] int currentHealth;
     [SerializeField] string nextLevel;
+    [SerializeField] private bool startPaused;
     
     [Header("UI Elements")]
     // References to other objects
@@ -46,6 +47,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         pollenTargetSlider = FindObjectOfType<PollenTargetSlider>();
+        gamePaused = startPaused;
         SetupPollenSlider();
         SetupHealthSlider();
     }

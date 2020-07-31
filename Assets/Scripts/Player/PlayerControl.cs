@@ -40,11 +40,21 @@ namespace Player
         private Vector3 move;
 
         private InputManager inputManager;
+        private PlayerCamera camera;
+        private bool cameraFound = false;
         void Start()
         {
             controller = GetComponent<CharacterController>();
+            camera = Camera.main.GetComponent<PlayerCamera>();
             powerup = GetComponent<PlayerPowerupBehavior>();
             inputManager = FindObjectOfType<InputManager>();
+
+            cameraFound = camera != null;
+
+            if (cameraFound)
+            {
+                camera.Start();
+            }
             
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -54,6 +64,11 @@ namespace Player
 
         void Update()
         {
+            
+            if (cameraFound)
+            {
+                camera.Follow();
+            }
 
             if (!LevelManager.gamePaused)
             {
@@ -68,6 +83,8 @@ namespace Player
                         LandedControl(mouseInput);
                         break;
                 }
+
+   
             }
 
             if (inputManager.GetLandFlyKeyClicked())
