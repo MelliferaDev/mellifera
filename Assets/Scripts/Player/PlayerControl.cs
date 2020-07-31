@@ -40,22 +40,24 @@ namespace Player
         private Vector3 move;
 
         private InputManager inputManager;
-        private PlayerCamera camera;
-        private bool cameraFound = false;
+        public PlayerCamera camera;
+        private bool cameraStarted = false;
         private AudioSource buzzSfx;
 
         void Start()
         {
             controller = GetComponent<CharacterController>();
-            camera = Camera.main.GetComponent<PlayerCamera>();
+            if (camera == null)
+            {
+                camera = Camera.main.GetComponent<PlayerCamera>();
+            }
             powerup = GetComponent<PlayerPowerupBehavior>();
             inputManager = FindObjectOfType<InputManager>();
             buzzSfx = GetComponent<AudioSource>();
             buzzSfx.Play();
 
-            cameraFound = camera != null;
 
-            if (cameraFound)
+            if (!cameraStarted && camera != null)
             {
                 camera.Start();
             }
@@ -68,8 +70,19 @@ namespace Player
 
         void Update()
         {
-            
-            if (cameraFound)
+            if (camera == null)
+            {
+                camera = Camera.main.GetComponent<PlayerCamera>();
+            }
+            Debug.Log("started : " +  cameraStarted);
+            Debug.Log("recalculate: " + (camera != null));
+            if (!cameraStarted && camera != null)
+            {
+                Debug.Log("in this loop");
+                camera.Start();
+                cameraStarted = true;
+            }
+            if (camera != null)
             {
                 camera.Follow();
             }

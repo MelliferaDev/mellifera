@@ -22,8 +22,6 @@ public class DDRManager : MonoBehaviour
     // holds the possible keys to spawn
     public GameObject[] keys;
 
-    // used for displaying the score
-    public Text scoreText;
     //used for displaying end game info
     public Text endText;
 
@@ -52,7 +50,6 @@ public class DDRManager : MonoBehaviour
         score = 0;
         maxScore = 0;
         movingArrows = new List<GameObject>();
-        UpdateScoreText();
         targetY = targetLocation.transform.position.y + pressTolerance / 2;
     }
 
@@ -73,7 +70,6 @@ public class DDRManager : MonoBehaviour
             }
         }
         UpdateKeyPositions();
-        UpdateScoreText();
         if (!unloaded && movingArrows.Count == 0 && timer <= 0)
         {
             // Do whatever should happen when the game is over - could be calling a level manager script,
@@ -91,7 +87,6 @@ public class DDRManager : MonoBehaviour
         timer = maxTime;
         maxScore = 0;
         movingArrows = new List<GameObject>();
-        UpdateScoreText();
         targetY = targetLocation.transform.position.y + pressTolerance / 2;
         unloaded = false;
     }
@@ -135,14 +130,6 @@ public class DDRManager : MonoBehaviour
         score -= badKeyPressPoints;
     }
 
-    private void UpdateScoreText()
-    {
-        if (scoreText != null)
-        {
-            scoreText.text = "Score: " + score;
-        }
-    }
-
     private void UpdateKeyPositions()
     {
         for (int i = 0; i < movingArrows.Count; i++)
@@ -176,7 +163,7 @@ public class DDRManager : MonoBehaviour
         if (endText != null)
         {
             string prec = (100f * score / maxScore).ToString("f2");
-            endText.text = $"Max Score: {maxScore} ({prec}%)" + maxScore;
+            endText.text = $"Max Score: {maxScore} \nScore: " + score + $"({prec}%)";
         }
     }
 
