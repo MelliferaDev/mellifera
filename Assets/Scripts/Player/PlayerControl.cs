@@ -42,12 +42,16 @@ namespace Player
         private InputManager inputManager;
         private PlayerCamera camera;
         private bool cameraFound = false;
+        private AudioSource buzzSfx;
+
         void Start()
         {
             controller = GetComponent<CharacterController>();
             camera = Camera.main.GetComponent<PlayerCamera>();
             powerup = GetComponent<PlayerPowerupBehavior>();
             inputManager = FindObjectOfType<InputManager>();
+            buzzSfx = GetComponent<AudioSource>();
+            buzzSfx.Play();
 
             cameraFound = camera != null;
 
@@ -94,9 +98,11 @@ namespace Player
                 {
                     case PlayerFlightState.Flying:
                         currState = PlayerFlightState.Landed;
+                        buzzSfx.Stop();
                         break;
                     case PlayerFlightState.Landed:
                         currState = PlayerFlightState.Flying;
+                        buzzSfx.Play();
                         break;
                 }
 
@@ -127,7 +133,7 @@ namespace Player
             float boostedSpeed = currSpeed;
             if (powerup.GetActiveCurrentPowerup() == PlayerPowerup.Vortex)
             {
-                boostedSpeed += PlayerPowerupBehavior.speedBoost;
+                boostedSpeed += PlayerPowerupBehavior.vortexSpeedBoost;
             }
             move = transform.forward * boostedSpeed;
             

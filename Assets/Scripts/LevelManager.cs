@@ -1,6 +1,7 @@
 ﻿using Enemies;
 using Menus;
 using Player;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -102,9 +103,16 @@ public class LevelManager : MonoBehaviour
         pollenSlider.value = 0;
     }
     
+    public bool PollenIsFull()
+    {
+        return pollenCollected == pollenAvailable;
+    }
+
     public void CollectPollen(int pollenAmount)
     {
         pollenCollected += pollenAmount;
+        currentHealth = Mathf.Clamp(pollenCollected, 0, pollenAvailable);
+
         // every 2 extra pollen collected gives an extra point
         if (pollenCollected > pollenTarget && pollenAmount > 0)
         {
@@ -124,10 +132,22 @@ public class LevelManager : MonoBehaviour
         healthSlider.value = currentHealth;
     }
 
+    public bool HealthIsFull()
+    {
+        return currentHealth == GetMaxHealth();
+    }
+
+    private int GetMaxHealth()
+    {
+        return startingHealth + (int) PlayerUpgrades.maxHealthAdd;
+    }
+
     public void IncrementHealth(int amount)
     {
         currentHealth += amount;
-        healthSlider.value = (currentHealth / (1.0f * startingHealth+ (int)PlayerUpgrades.maxHealthAdd)) * 100 ;
+        currentHealth = Mathf.Clamp(currentHealth, 0, GetMaxHealth());
+        healthSlider.value = (currentHealth / (1.0f * GetMaxHealth())) * 100;
+
 
         if (currentHealth <= 0)
         {

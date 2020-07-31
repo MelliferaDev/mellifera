@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead38618bb359954f949ecb6f39537d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pollenAmount: 10
+  collectibleType: 0
+  collectAmount: 5
+  collectSfx: {fileID: 8300000, guid: 0381f471c456859419d646fc2115ac8d, type: 3}
 --- !u!114 &7606505369471231321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead38618bb359954f949ecb6f39537d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pollenAmount: 8
+  collectibleType: 0
+  collectAmount: 8
+  collectSfx: {fileID: 8300000, guid: 0381f471c456859419d646fc2115ac8d, type: 3}
 --- !u!114 &6066307852670486479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,7 +75,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead38618bb359954f949ecb6f39537d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pollenAmount: 5
+  collectibleType: 0
+  collectAmount: 10
+  collectSfx: {fileID: 8300000, guid: 0381f471c456859419d646fc2115ac8d, type: 3}
 --- !u!1001 &2232349043543379336
 PrefabInstance:
   m_ObjectHideFlags: 0

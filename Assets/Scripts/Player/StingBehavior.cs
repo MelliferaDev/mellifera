@@ -17,6 +17,7 @@ namespace Enemies
         GameObject[] wasps;
         GameObject targetWasp;
 
+        private PlayerPowerupBehavior powerup;
         private InputManager input;
 
         private bool stinging = false;
@@ -26,6 +27,7 @@ namespace Enemies
         {
             wasps = GameObject.FindGameObjectsWithTag("Enemy");
             input = FindObjectOfType<InputManager>();
+            powerup = GetComponent<PlayerPowerupBehavior>();
         }
 
         // Update is called once per frame
@@ -34,7 +36,8 @@ namespace Enemies
             if (WaspInRange() && input.GetDanceKeyClicked() && !LevelManager.gamePaused)
             {
                 StingEnemy();
-            } else if (stinging)
+            } 
+            else if (stinging)
             {
                 gameObject.transform.LookAt(targetWasp.transform);
             }
@@ -60,7 +63,15 @@ namespace Enemies
             //SceneManager.LoadScene("BrockDDR", LoadSceneMode.Additive);
             gameObject.transform.LookAt(targetWasp.transform);
             stinging = true;
-            FindObjectOfType<LevelManager>().StartDDR(targetWasp);
+            powerup.Activate(PlayerPowerup.FreeSting);
+            if (powerup.GetActiveCurrentPowerup() == PlayerPowerup.FreeSting)
+            {
+                FinishSting(1, 1, targetWasp);
+            }
+            else
+            {
+                FindObjectOfType<LevelManager>().StartDDR(targetWasp);
+            }
         }
 
         // This can be more fleshed out in future iterations of our game
