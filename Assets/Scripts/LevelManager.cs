@@ -111,7 +111,7 @@ public class LevelManager : MonoBehaviour
     public void CollectPollen(int pollenAmount)
     {
         pollenCollected += pollenAmount;
-        currentHealth = Mathf.Clamp(pollenCollected, 0, pollenAvailable);
+        pollenCollected = Mathf.Clamp(pollenCollected, 0, pollenAvailable);
 
         // every 2 extra pollen collected gives an extra point
         if (pollenCollected > pollenTarget && pollenAmount > 0)
@@ -145,9 +145,7 @@ public class LevelManager : MonoBehaviour
     public void IncrementHealth(int amount)
     {
         currentHealth += amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, GetMaxHealth());
-        healthSlider.value = (currentHealth / (1.0f * GetMaxHealth())) * 100;
-
+        healthSlider.value = (currentHealth / (1.0f * startingHealth + (int)PlayerUpgrades.maxHealthAdd)) * 100;
 
         if (currentHealth <= 0)
         {
