@@ -1,5 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1629342890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1629342891}
+  m_Layer: 5
+  m_Name: ParticleCatcher
+  m_TagString: ParticleCatcher
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1629342891
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629342890}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8035842255282370740}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 77.399994, y: 196}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!1 &8035842255281763330
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +142,7 @@ RectTransform:
   m_Children:
   - {fileID: 8035842256874517006}
   - {fileID: 8035842256797013456}
+  - {fileID: 1629342891}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -284,7 +320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -25, y: -28}
+  m_AnchoredPosition: {x: -25, y: -61.100037}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8035842255723979696
@@ -358,7 +394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 25, y: -28}
+  m_AnchoredPosition: {x: 25, y: -61.100006}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8035842256335444359
@@ -432,7 +468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 75, y: -28}
+  m_AnchoredPosition: {x: 75, y: -61.100037}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8035842256453278024
@@ -506,7 +542,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.7719116, y: -5}
+  m_AnchoredPosition: {x: -0.7719116, y: -58.600006}
   m_SizeDelta: {x: 200, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8035842256464651188
@@ -733,7 +769,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -74.999985, y: -28}
+  m_AnchoredPosition: {x: -74.999985, y: -61.100037}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8035842256730873498
@@ -853,7 +889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 19.100006, y: 0.009643555}
+  m_AnchoredPosition: {x: 19.099976, y: 0.009643555}
   m_SizeDelta: {x: 219.34378, y: -0.019348145}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &8035842256874517106
@@ -917,9 +953,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d5416f95574b134682d61c108e3ddbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 15
-  dropSpeed: 100
-  spawnFrequency: 0.33
+  maxTime: 7
+  dropSpeed: 200
+  spawnFrequency: 0.2
   pressTolerance: 30
   targetLocation: {fileID: 8035842256577880869}
   keys:
@@ -927,11 +963,18 @@ MonoBehaviour:
   - {fileID: 7113102167961860095, guid: e21c550bbaac30c43be0c2d1abc92354, type: 3}
   - {fileID: 3753188585329466129, guid: 65600736967d37c46a409e40c1f52da0, type: 3}
   - {fileID: 236742500424358508, guid: 3f12f0b73d9578742a6f05a5f279822a, type: 3}
-  scoreText: {fileID: 0}
   endText: {fileID: 8035842256464651189}
   pointsForMiss: 2
   badKeyPressPoints: 1
   defaultPointGain: 1
   goodTimingPointGain: 3
   greatTimingPointGain: 5
+  perfectParticleEffects: {fileID: 2284769082936771999, guid: 41b94ab2ee6ee8246b8df0ae32a9b867,
+    type: 3}
+  greatParticleEffects: {fileID: 3360489863024999970, guid: 473b56f0751336d4392f615621117b0e,
+    type: 3}
+  okParticleEffects: {fileID: 335592457321864039, guid: 3512b6f08980b0b4d8a2bc5db096a21f,
+    type: 3}
+  missParticleEffects: {fileID: 7012852882915636713, guid: 18965b51cd1aeec4fbbd1a52f7e21d36,
+    type: 3}
   score: 0
