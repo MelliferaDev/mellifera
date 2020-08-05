@@ -5,7 +5,7 @@ namespace Enemies
 {
     public class WaspBehavior : EnemyBehaviour
     {
-        /*
+     /*
      * When the player gets within minDistance of the wasp, the wasp will attack the player.
      * The wasp will hover up and down when it's not attacking.
      */
@@ -62,14 +62,15 @@ namespace Enemies
                     case WaspFlyingState.Patrolling: UpdatePatrolState(); break;
                     case WaspFlyingState.Attacking: UpdateAttackState(); break;
                     case WaspFlyingState.Recoiling: UpdateRecoilState(); break;
+                    case WaspFlyingState.Dying: UpdateDieState(); break;
                 }
             }
 
-            if (enemyHealth <=0)
+           /* if (enemyHealth <=0)
             {
                 anim.SetInteger(AnimState, 2);
                 Destroy(gameObject, .5f);
-            }
+            }*/
         }
 
 
@@ -114,6 +115,18 @@ namespace Enemies
             Invoke(nameof(FinishAttackRecoil), 1f);
         }
 
+        public void WaspDefeated()
+        {
+            currState = WaspFlyingState.Dying;
+        }
+
+        void UpdateDieState()
+        {
+            Debug.Log("Die State");
+            anim.SetInteger(AnimState, 2);
+            Destroy(gameObject, 2);
+        }
+
         void FinishAttackRecoil()
         {
             currState = WaspFlyingState.Attacking;
@@ -123,7 +136,7 @@ namespace Enemies
 
         public enum WaspFlyingState
         {
-            Patrolling, Attacking, Recoiling
+            Patrolling, Attacking, Recoiling, Dying
         }
     }
 }

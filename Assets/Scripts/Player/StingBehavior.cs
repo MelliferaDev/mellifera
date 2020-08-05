@@ -81,7 +81,7 @@ namespace Enemies
 
             stinging = false;
             // killing the wasps can definitely be improved upon
-            if (score > maxScore * .9)
+            /*if (score > maxScore * .9)
             {
                 Debug.Log("Option1");
                 lm.IncrementHealth(-minDamage);
@@ -103,7 +103,9 @@ namespace Enemies
             {
                 Debug.Log("Option4");
                 lm.IncrementHealth(-maxDamage);
-            }
+            }*/
+            Debug.Log(target.gameObject.name);
+            target.GetComponent<WaspBehavior>().WaspDefeated();
             stingIndicator.SetActive(false);
             RearviewCameraBehaviour.RequestRearviewOff();
         }
