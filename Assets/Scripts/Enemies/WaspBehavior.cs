@@ -42,7 +42,7 @@ namespace Enemies
             if (!LevelManager.gamePaused)
             {
                 // State Updating logic
-                if (distToPlayer <= minDistance && currState != WaspFlyingState.Recoiling)
+                if (distToPlayer <= minDistance && currState != WaspFlyingState.Recoiling && currState != WaspFlyingState.Dying)
                 {
                     if (currState != WaspFlyingState.Attacking) // attacking just started
                     {
@@ -54,7 +54,6 @@ namespace Enemies
                 {
                     RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
                     currState = WaspFlyingState.Patrolling;
-                    anim.SetInteger(AnimState, 0);
                 }
 
                 switch (currState)
@@ -66,11 +65,10 @@ namespace Enemies
                 }
             }
 
-           /* if (enemyHealth <=0)
+            if (enemyHealth <=0)
             {
-                anim.SetInteger(AnimState, 2);
-                Destroy(gameObject, .5f);
-            }*/
+                currState = WaspFlyingState.Dying;
+            }
         }
 
 
@@ -80,6 +78,8 @@ namespace Enemies
       
         public override void UpdatePatrolState()
         {
+
+            anim.SetInteger(AnimState, 0);
 
             FindNextPoint();
             FaceTarget(nextPoint, false);
@@ -115,16 +115,19 @@ namespace Enemies
             Invoke(nameof(FinishAttackRecoil), 1f);
         }
 
-        public void WaspDefeated()
+
+        //Defeated/Dying
+        public override void EnemyDefeated()
         {
             currState = WaspFlyingState.Dying;
+            UpdateDieState();
         }
 
-        void UpdateDieState()
+        private void UpdateDieState()
         {
-            Debug.Log("Die State");
             anim.SetInteger(AnimState, 2);
-            Destroy(gameObject, 2);
+            transform.Translate(Vector3.down * Time.deltaTime * 10, Space.World);
+            Destroy(gameObject, 1f);
         }
 
         void FinishAttackRecoil()

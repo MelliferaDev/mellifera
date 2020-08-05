@@ -193,11 +193,16 @@ public class LevelManager : MonoBehaviour
 
     public void EndDDR(int score, int maxScore)
     {
+        Invoke("EndDDRView", 1.5f);
+        FindObjectOfType<StingBehavior>().FinishSting(score, maxScore, ddrTarget);
+
+    }
+
+    private void EndDDRView()
+    {
         gamePaused = false;
         ddrCanvas.SetActive(false);
         uiCanvas.SetActive(true);
-        FindObjectOfType<StingBehavior>().FinishSting(score, maxScore, ddrTarget);
-
     }
 }
 

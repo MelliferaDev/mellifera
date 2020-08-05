@@ -81,31 +81,29 @@ namespace Enemies
 
             stinging = false;
             // killing the wasps can definitely be improved upon
-            /*if (score > maxScore * .9)
+            if (score > maxScore * .9)
             {
                 Debug.Log("Option1");
                 lm.IncrementHealth(-minDamage);
-                Destroy(target);
+                target.GetComponent<WaspBehavior>().EnemyDefeated();
             }
             else if (score > maxScore * .6)
             {
                 Debug.Log("Option2");
                 lm.IncrementHealth(-averageDamage);
-                Destroy(target);
+                target.GetComponent<WaspBehavior>().EnemyDefeated();
             }
             else if (score > maxScore * .4)
             {
                 Debug.Log("Option3");
                 lm.IncrementHealth(-maxDamage);
-                Destroy(target);
+                target.GetComponent<WaspBehavior>().EnemyDefeated();
             }
             else
             {
                 Debug.Log("Option4");
                 lm.IncrementHealth(-maxDamage);
-            }*/
-            Debug.Log(target.gameObject.name);
-            target.GetComponent<WaspBehavior>().WaspDefeated();
+            }
             stingIndicator.SetActive(false);
             RearviewCameraBehaviour.RequestRearviewOff();
         }

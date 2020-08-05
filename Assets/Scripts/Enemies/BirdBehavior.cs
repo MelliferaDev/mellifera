@@ -66,11 +66,16 @@ namespace Enemies
             }
         }
 
+        //Defeated
+        public override void EnemyDefeated()
+        {
+            //will probably call update disengage here
+        }
 
-    
+
         ///////////////////////////////////////////////
         //// Basic Movement States ////////////////////
-      
+
         public override void UpdatePatrolState()
         {
             if (Time.time - attackTimer > attackDelay)

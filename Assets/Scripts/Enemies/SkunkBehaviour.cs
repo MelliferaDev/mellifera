@@ -66,7 +66,13 @@ namespace Enemies
         }
         
         public override void ApplySelfDamage(float damage) {return;}
-    
+
+        //Defeated
+        public override void EnemyDefeated()
+        {
+            //will probably call update disengage here
+        }
+
         ///////////////////////////////////////////////
         //// Basic Movement States ////////////////////
 
