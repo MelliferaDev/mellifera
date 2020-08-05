@@ -74,8 +74,8 @@ namespace Player
             {
                 camera = Camera.main.GetComponent<PlayerCamera>();
             }
-            Debug.Log("started : " +  cameraStarted);
-            Debug.Log("recalculate: " + (camera != null));
+           // Debug.Log("started : " +  cameraStarted);
+            //Debug.Log("recalculate: " + (camera != null));
             if (!cameraStarted && camera != null)
             {
                 Debug.Log("in this loop");

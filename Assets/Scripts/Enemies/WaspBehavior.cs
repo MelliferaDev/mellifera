@@ -5,7 +5,7 @@ namespace Enemies
 {
     public class WaspBehavior : EnemyBehaviour
     {
-        /*
+     /*
      * When the player gets within minDistance of the wasp, the wasp will attack the player.
      * The wasp will hover up and down when it's not attacking.
      */
@@ -42,7 +42,7 @@ namespace Enemies
             if (!LevelManager.gamePaused)
             {
                 // State Updating logic
-                if (distToPlayer <= minDistance && currState != WaspFlyingState.Recoiling)
+                if (distToPlayer <= minDistance && currState != WaspFlyingState.Recoiling && currState != WaspFlyingState.Dying)
                 {
                     if (currState != WaspFlyingState.Attacking) // attacking just started
                     {
@@ -54,7 +54,6 @@ namespace Enemies
                 {
                     RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
                     currState = WaspFlyingState.Patrolling;
-                    anim.SetInteger(AnimState, 0);
                 }
 
                 switch (currState)
@@ -62,13 +61,13 @@ namespace Enemies
                     case WaspFlyingState.Patrolling: UpdatePatrolState(); break;
                     case WaspFlyingState.Attacking: UpdateAttackState(); break;
                     case WaspFlyingState.Recoiling: UpdateRecoilState(); break;
+                    case WaspFlyingState.Dying: UpdateDieState(); break;
                 }
             }
 
             if (enemyHealth <=0)
             {
-                anim.SetInteger(AnimState, 2);
-                Destroy(gameObject, .5f);
+                currState = WaspFlyingState.Dying;
             }
         }
 
@@ -79,6 +78,8 @@ namespace Enemies
       
         public override void UpdatePatrolState()
         {
+
+            anim.SetInteger(AnimState, 0);
 
             FindNextPoint();
             FaceTarget(nextPoint, false);
@@ -114,6 +115,21 @@ namespace Enemies
             Invoke(nameof(FinishAttackRecoil), 1f);
         }
 
+
+        //Defeated/Dying
+        public override void EnemyDefeated()
+        {
+            currState = WaspFlyingState.Dying;
+            UpdateDieState();
+        }
+
+        private void UpdateDieState()
+        {
+            anim.SetInteger(AnimState, 2);
+            transform.Translate(Vector3.down * Time.deltaTime * 10, Space.World);
+            Destroy(gameObject, 1f);
+        }
+
         void FinishAttackRecoil()
         {
             currState = WaspFlyingState.Attacking;
@@ -123,7 +139,7 @@ namespace Enemies
 
         public enum WaspFlyingState
         {
-            Patrolling, Attacking, Recoiling
+            Patrolling, Attacking, Recoiling, Dying
         }
     }
 }

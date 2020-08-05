@@ -38,6 +38,7 @@ namespace Enemies
 
 
         public abstract void UpdatePatrolState();
+        public abstract void EnemyDefeated();
 
         public abstract void ApplySelfDamage(float damage);
         
