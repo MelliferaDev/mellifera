@@ -24,6 +24,7 @@ TagManager:
   - DdrCanvas
   - Pesticide
   - FlowerGroup
+  - ScoreText
   layers:
   - Default
   - TransparentFX

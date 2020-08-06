@@ -111,6 +111,7 @@ public class LevelManager : MonoBehaviour
     public void CollectPollen(int pollenAmount)
     {
         pollenCollected += pollenAmount;
+        FindObjectOfType<ScoreKeeper>().IncreaseScore(pollenAmount);
         pollenCollected = Mathf.Clamp(pollenCollected, 0, pollenAvailable);
 
         // every 2 extra pollen collected gives an extra point
