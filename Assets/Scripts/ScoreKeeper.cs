@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using Menus;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,17 @@ public class ScoreKeeper : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        Debug.Log("Keeper, Awake!");
+        if (FindObjectsOfType<ScoreKeeper>().Length != 1)
+        {
+            Debug.Log("Being Destroyed");
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -30,12 +41,26 @@ public class ScoreKeeper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Previous score: " + previousScore);
         if (scoreText == null)
         {
             scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Text>();
         }
 
-        SetLevelScoreText();
+        if (upgradeScreen)
+        {
+            SetTotalScoreText();
+        }
+        else
+        {
+
+            SetLevelScoreText();
+        }
+    }
+
+    public int GetLevelScore()
+    {
+        return score;
     }
 
 
@@ -52,7 +77,17 @@ public class ScoreKeeper : MonoBehaviour
     public void SaveLevelScore()
     {
         previousScore += score;
+        LevelManager lm = FindObjectOfType<LevelManager>();
+
+        UpgradeMenu.totalPoints += 1;
+
+        if (score > lm.GetPollenAvailable())
+        {
+            UpgradeMenu.totalPoints += 3;
+        }
         score = 0;
+
+        upgradeScreen = !upgradeScreen;
     }
 
     void SetLevelScoreText()
@@ -62,11 +97,16 @@ public class ScoreKeeper : MonoBehaviour
 
     void SetTotalScoreText()
     {
-        scoreText.text = "Total Score: " + score;
+        scoreText.text = "Total Score: " + previousScore;
     }
 
     void SetUpgradeScreen(bool uScreen)
     {
         upgradeScreen = uScreen;
+    }
+
+    public void ResetLevelScore()
+    {
+        score = 0;
     }
 }

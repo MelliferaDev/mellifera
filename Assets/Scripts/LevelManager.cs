@@ -117,7 +117,7 @@ public class LevelManager : MonoBehaviour
         // every 2 extra pollen collected gives an extra point
         if (pollenCollected > pollenTarget && pollenAmount > 0)
         {
-            UpgradeMenu.totalPoints += 1;
+            //UpgradeMenu.totalPoints += 1;
             Debug.Log("Total Points: " + UpgradeMenu.totalPoints);
         }
     }
@@ -164,6 +164,7 @@ public class LevelManager : MonoBehaviour
         reloadLevelUI.SetActive(false);
         gamePaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        FindObjectOfType<ScoreKeeper>().ResetLevelScore();
     }
 
     public void LoadNextLevel()
@@ -171,6 +172,9 @@ public class LevelManager : MonoBehaviour
         if (!string.IsNullOrEmpty(nextLevel))
         {
             Time.timeScale = 1;
+            ScoreKeeper keeper = FindObjectOfType<ScoreKeeper>();
+
+            keeper.SaveLevelScore();
             SceneManager.LoadScene(nextLevel);
         }
     }
