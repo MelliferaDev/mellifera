@@ -366,7 +366,7 @@ Transform:
   m_LocalScale: {x: 0.011652709, y: 0.010000001, z: 0.00993947}
   m_Children: []
   m_Father: {fileID: 4475761933980326952}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45.668003}
 --- !u!33 &4475761933028394213
 MeshFilter:
@@ -453,6 +453,8 @@ GameObject:
   - component: {fileID: 4475761933432818793}
   - component: {fileID: 4475761933432818792}
   - component: {fileID: 4475761933432818795}
+  - component: {fileID: 6948325778285069720}
+  - component: {fileID: 2592151860975758592}
   m_Layer: 0
   m_Name: EnemySkunk
   m_TagString: Enemy
@@ -469,7 +471,7 @@ Transform:
   m_GameObject: {fileID: 4475761933432818798}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 5.26, y: 24.84, z: 123.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 8892266260772992929}
   - {fileID: 4475761932595203400}
@@ -508,18 +510,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 20
-  patrolMin: 30
-  patrolMax: 40
+  patrolMin: 50
+  patrolMax: 90
   currState: 0
-  enemySpeed: 8
-  maxDistToAttack: 75
-  minDistToAttack: 25
-  shootRate: 3
+  enemySpeed: 100
+  maxDistToAttack: 150
+  minDistToAttack: 75
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  shootRate: 6
   projectilePrefab: {fileID: 1049895169098164, guid: 00c9d73ddcf8e524abff36441c95a4f0,
     type: 3}
   projectilesParent: {fileID: 0}
   projectileSpawn: {fileID: 4475761933573163217}
   guiObject: {fileID: 4475761932595203401}
+--- !u!195 &6948325778285069720
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4475761933432818798}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 10.15
+  m_Speed: 100
+  m_Acceleration: 75
+  avoidancePriority: 99
+  m_AngularSpeed: 120
+  m_StoppingDistance: 80
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 9.1
+  m_BaseOffset: 4
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2592151860975758592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4475761933432818798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5562b79c176d1bc42b6d1ff6a4908d65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyes: {fileID: 676441093646009468}
+  fovDist: -1
+  fovAngle: 160
 --- !u!1 &4475761933573163217
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +626,7 @@ Transform:
   - {fileID: 8216677545657306109}
   - {fileID: 8578142780725750881}
   - {fileID: 3607685344067013173}
+  - {fileID: 676441093646009468}
   - {fileID: 4475761933028394216}
   m_Father: {fileID: 8892266260772992929}
   m_RootOrder: 0
@@ -1295,6 +1338,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 289301614986012343, guid: e5cdb894734eec840bab053f273f233b, type: 3}
+--- !u!1 &7414586245033378501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 676441093646009468}
+  m_Layer: 0
+  m_Name: EyeReference
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &676441093646009468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7414586245033378501}
+  m_LocalRotation: {x: -0.30618617, y: 0.5303301, z: 0.4355958, w: 0.65973955}
+  m_LocalPosition: {x: 0.013263664, y: 0.038562514, z: -0.0000249781}
+  m_LocalScale: {x: 0.13742612, y: 0.1374261, z: 0.13742611}
+  m_Children: []
+  m_Father: {fileID: 4475761933980326952}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: -60, y: 60, z: 30}
 --- !u!1 &8167473012938215142
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,12 +5,12 @@ namespace Enemies
 {
     public abstract class EnemyBehaviour : MonoBehaviour
     {
-        [SerializeField] private float rotationSpeed = 10; // 30 for skunks
+        [SerializeField] protected float rotationSpeed = 10; // 30 for skunks
         [SerializeField] private float patrolMin = 15;
         [SerializeField] private float patrolMax = 20;
-        
-        private Vector3 pointA;
-        private Vector3 pointB;
+
+        protected Vector3 pointA;
+        protected Vector3 pointB;
         private float patrolDistanceX;
         private float patrolDistanceZ;
         protected Vector3 nextPoint;
@@ -44,13 +44,7 @@ namespace Enemies
         
         protected void FindNextPoint()
         {
-            if (Vector3.Distance(transform.position, pointA) < 1)
-            {
-                nextPoint = pointB;
-            } else if (Vector3.Distance(transform.position, pointB) < 1)
-            {
-                nextPoint = pointA;
-            }
+            nextPoint = (nextPoint == pointA) ? pointB : pointA;
         }
 
         protected void FaceTargetReverse(Vector3 target, bool forceGrounded=true)

@@ -11,7 +11,7 @@ public class ProjectileMover : MonoBehaviour
     public GameObject flash;
     private Rigidbody rb;
     public GameObject[] Detached;
-
+    public string[] avoidTags;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -45,7 +45,10 @@ public class ProjectileMover : MonoBehaviour
     //https ://docs.unity3d.com/ScriptReference/Rigidbody.OnCollisionEnter.html
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Enemy")) return;
+        foreach (string _tag in avoidTags)
+        {
+            if (collision.collider.CompareTag(_tag)) return;
+        }
         
         //Lock all axes movement and rotation
         rb.constraints = RigidbodyConstraints.FreezeAll;

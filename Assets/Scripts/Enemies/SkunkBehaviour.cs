@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 namespace Enemies
 {
@@ -14,7 +15,7 @@ namespace Enemies
         [SerializeField] private float enemySpeed = 1.0f;
         [SerializeField] private float maxDistToAttack = 10f;
         [SerializeField] private float minDistToAttack = 5f;
-
+        [SerializeField] private Transform[] patrolPoints;
         [Header("Projectile")]
         [SerializeField] private float shootRate = 2; // shoot every x seconds
         [SerializeField] private GameObject projectilePrefab;
@@ -24,17 +25,29 @@ namespace Enemies
         [SerializeField] private GameObject guiObject;
     
         private Animator anim;
+        private NavMeshAgent agent;
         
-
         private float lastTimeShot;
         private float disengageTimer;
         private static readonly int SkunkMovement = Animator.StringToHash("skunkMovement");
 
+        private EnemySight sight;
 
         protected override void Start()
         {
             base.Start();
             Initalize();
+
+            if (patrolPoints != null && patrolPoints.Length >= 2)
+            {
+                pointA = patrolPoints[0].position;
+                pointB = patrolPoints[1].position;
+                nextPoint = pointA;
+                agent.SetDestination(nextPoint);
+
+            }
+            
+            
             guiObject.SetActive(false);
 
 
@@ -46,7 +59,12 @@ namespace Enemies
         {
             player = GameObject.FindGameObjectWithTag("Player");
             anim = GetComponent<Animator>();
-
+            agent = GetComponent<NavMeshAgent>();
+            sight = GetComponent<EnemySight>();
+            
+            agent.speed = enemySpeed;
+            agent.angularSpeed = rotationSpeed;
+            
             if (projectilesParent == null)
             {
                 projectilesParent = GameObject.FindGameObjectWithTag("ProjectilesParent");
@@ -78,19 +96,25 @@ namespace Enemies
 
         public override void UpdatePatrolState()
         {
-            if (Vector3.Distance(transform.position, nextPoint) < 1 + Mathf.Epsilon)
+            agent.speed = enemySpeed;
+            agent.stoppingDistance = minDistToAttack + 5;
+            bool x = agent.isStopped;
+            if (Vector3.Distance(transform.position, nextPoint) <= minDistToAttack - Mathf.Epsilon)
             {
                 FindNextPoint();
+                agent.SetDestination(nextPoint);
             }
 
-            if (distToPlayer >= minDistToAttack && distToPlayer <= maxDistToAttack)
+            if (distToPlayer >= minDistToAttack && distToPlayer <= maxDistToAttack && sight.InFOV(player.transform))
             {
+                lastTimeShot = Time.time - shootRate - 0.1f;
                 currState = SkunkState.Attacking;
             }
             
             guiObject.SetActive(false);
 
-            transform.position = Vector3.MoveTowards(transform.position, nextPoint, enemySpeed * Time.deltaTime);
+            // transform.position = Vector3.MoveTowards(transform.position, nextPoint, enemySpeed * Time.deltaTime);
+            
             FaceTarget(nextPoint);
             anim.SetInteger(SkunkMovement, 1); // walking
         }
@@ -102,13 +126,14 @@ namespace Enemies
 
         private void UpdateAttackState()
         {
-        
             if (distToPlayer < minDistToAttack || distToPlayer > maxDistToAttack)
             {
                 currState = SkunkState.Disengaging;
                 disengageTimer = Time.time;
             }
-            
+
+            agent.speed = 0;
+
             guiObject.SetActive(true);
     
             FaceTargetReverse(player.transform.position);
@@ -121,8 +146,7 @@ namespace Enemies
 
             anim.SetInteger(SkunkMovement, 3);
             float animDuration = anim.GetCurrentAnimatorStateInfo(0).length;
-        
-
+            
             if (Time.time - disengageTimer >= animDuration)
             {
                 currState = SkunkState.Patrolling;
@@ -134,7 +158,6 @@ namespace Enemies
             }
             
             guiObject.SetActive(false);
-
         }
     
         
@@ -145,6 +168,7 @@ namespace Enemies
                 GameObject proj = Instantiate(projectilePrefab,
                     projectileSpawn.transform.position, projectileSpawn.transform.rotation);
                 proj.transform.parent = projectilesParent.transform;
+                
                 lastTimeShot = Time.time;
             }
         }
@@ -155,7 +179,7 @@ namespace Enemies
                 projectileSpawn.transform.position, projectileSpawn.transform.rotation);
             proj.transform.parent = projectilesParent.transform;
         }
-    
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
@@ -164,7 +188,11 @@ namespace Enemies
         
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(position, maxDistToAttack);
-        
+
+            Gizmos.color = Color.black;
+            Gizmos.DrawSphere(pointA, 3f);
+            Gizmos.DrawSphere(pointB, 3f);
+
         }
     
 
