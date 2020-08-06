@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 366648493}
   m_Layer: 0
   m_Name: RearviewCamera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -636,6 +636,7 @@ MonoBehaviour:
   minSpeed: 15
   currSpeed: 30
   currState: 0
+  camera: {fileID: 0}
 --- !u!114 &3054152585756291836
 MonoBehaviour:
   m_ObjectHideFlags: 0

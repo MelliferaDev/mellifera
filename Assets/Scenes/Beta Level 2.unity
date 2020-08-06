@@ -27206,7 +27206,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1866918690}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19c87ca5ca5dba44a99a1f699cc886e2, type: 3}
   m_Name: 
@@ -70116,10 +70116,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 366648488, guid: 9f3bb6c40ff850a42b0754da94afcded, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 366648488, guid: 9f3bb6c40ff850a42b0754da94afcded, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
@@ -70142,21 +70138,6 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 515298918}
-    - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
-        type: 3}
-      propertyPath: currSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7259016305702027546, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: m_LocalPosition.x
