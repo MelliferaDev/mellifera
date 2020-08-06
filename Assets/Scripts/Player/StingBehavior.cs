@@ -61,6 +61,7 @@ namespace Enemies
         void StingEnemy()
         {
             //SceneManager.LoadScene("BrockDDR", LoadSceneMode.Additive);
+            FindObjectOfType<PlayerControl>().StopBuzzSFX();
             gameObject.transform.LookAt(targetWasp.transform);
             stinging = true;
             powerup.Activate(PlayerPowerup.FreeSting);
@@ -106,6 +107,7 @@ namespace Enemies
             }
             stingIndicator.SetActive(false);
             RearviewCameraBehaviour.RequestRearviewOff();
+            FindObjectOfType<PlayerControl>().StartBuzzSFX();
         }
     }
 }

@@ -186,7 +186,16 @@ namespace Player
             
             controller.Move(move * Time.deltaTime);
         }
-        
+
+        public void StartBuzzSFX()
+        {
+            buzzSfx.Play();
+        }
+
+        public void StopBuzzSFX()
+        {
+            buzzSfx.Stop();
+        }
     }
     
     public enum PlayerFlightState
