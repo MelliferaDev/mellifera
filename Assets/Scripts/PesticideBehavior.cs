@@ -5,7 +5,7 @@ using Player;
 public class PesticideBehavior : MonoBehaviour
 {
     public GameObject pesticideHit;
-    public int playerDamage = -5;
+    public int pesticideAmount = -5;
 
     private LevelManager lm;
     int damageApplied;
@@ -18,7 +18,6 @@ public class PesticideBehavior : MonoBehaviour
    
     void Update()
     {
-
     }
 
     /// <summary>
@@ -28,14 +27,15 @@ public class PesticideBehavior : MonoBehaviour
     /// <param name="player">The PlayerControl from the OnControllerColliderHit</param>
     public void ControllerCollisionListener(PlayerControl player)
     {
-        if (playerDamage < 0)
+        if (pesticideAmount < 0)
         {
-            lm.IncrementHealth(playerDamage);
+            lm.IncrementHealth(pesticideAmount);
             Instantiate(pesticideHit, transform.position, transform.rotation);
             // don't continuously apply pesticide gamage
-            playerDamage = 0;
+            pesticideAmount = 0;
+            gameObject.GetComponent<Renderer>().materials[1].DisableKeyword("_EMISSION");
         }
-        }
+    }
     
     
 }
