@@ -635,6 +635,7 @@ MonoBehaviour:
   maxSpeed: 45
   minSpeed: 15
   currSpeed: 30
+  camera: {fileID: 0}
   currState: 0
 --- !u!114 &3054152585756291836
 MonoBehaviour:
@@ -693,7 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca3fe5b1dbe44440b6caced24980d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stingDistance: 30
+  stingDistance: 45
   minDamage: 5
   averageDamage: 10
   maxDamage: 20

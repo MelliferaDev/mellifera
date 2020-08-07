@@ -65,7 +65,7 @@ namespace Enemies
             gameObject.transform.LookAt(targetWasp.transform);
             stinging = true;
             powerup.Activate(PlayerPowerup.FreeSting);
-            if (powerup.GetActiveCurrentPowerup() == PlayerPowerup.FreeSting)
+            if (PlayerPowerupBehavior.GetActiveCurrentPowerup() == PlayerPowerup.FreeSting)
             {
                 FinishSting(1, 1, targetWasp);
             }
