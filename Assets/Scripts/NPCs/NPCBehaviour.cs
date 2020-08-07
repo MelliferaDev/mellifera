@@ -12,9 +12,8 @@ namespace NPCs
         [SerializeField] private float flySpeed = 10f;
         [SerializeField] private float hoverDist = 3f;
         [SerializeField] private float hoverSpeed = 1f;
-        [SerializeField] private float interactHoverDist = 1f;
         [SerializeField] private float pollinateDuration = 10f;
-
+        
         private GameObject[] flowers;
         private int currFlowerIdx;
         private Vector3 currFlowerPos;
@@ -25,10 +24,13 @@ namespace NPCs
 
         private float flySpeedSave;
 
+        private CharacterController ctrl;
         private void Start()
         {
             flowers = GameObject.FindGameObjectsWithTag("FlowerGroup");
             player = GameObject.FindGameObjectWithTag("Player").transform;
+
+            ctrl = GetComponent<CharacterController>();
             
             currFlowerIdx = -1;
             ChooseNextFlower();
@@ -73,15 +75,25 @@ namespace NPCs
             }
             
             // fly to target
-            Vector3 target =  Vector3.MoveTowards(transform.position, currFlowerPos, Time.deltaTime * flySpeed);
-            FaceTarget(target);
-            target.y = transform.position.y;
+            Vector3 toTarget = (currFlowerPos - transform.position);
             
-            // hover as you go
+            Vector3 move = toTarget.normalized * (flySpeed * Time.deltaTime);
             float hoverOffset = hoverDist * Mathf.Sin(hoverSpeed * Time.time);
-            target.y += hoverOffset;
+            move.y = hoverOffset;
+            ctrl.Move(move);
 
-            transform.position = target;
+            Vector3 ctrlVel = ctrl.velocity;
+            ctrlVel.y = transform.forward.y;
+            FaceDirection(ctrlVel);
+            
+            // Vector3 target =  Vector3.MoveTowards(transform.position, currFlowerPos, Time.deltaTime * flySpeed);
+            // FaceTarget(target);
+            // target.y = transform.position.y;
+            //
+            // // hover as you go
+            // float hoverOffset = hoverDist * Mathf.Sin(hoverSpeed * Time.time);
+            // target.y += hoverOffset;
+            // transform.position = target;
         }
 
         private void UpdatePollinating()
@@ -93,9 +105,11 @@ namespace NPCs
             }
             
             // hover above the flower
-            Vector3 target = transform.position;
-            target.y += hoverDist * Mathf.Sin(hoverSpeed * Time.time);
-            transform.position =  Vector3.MoveTowards(transform.position, target, Time.deltaTime * flySpeed);
+            Vector3 move = Vector3.zero;
+            move.y = hoverDist * Mathf.Sin(hoverSpeed * Time.time);
+            
+            ctrl.Move(move);
+            FaceTarget(currFlowerPos);
         }
         
         private void UpdateInteracting()
@@ -106,14 +120,20 @@ namespace NPCs
         
         private void FaceTarget(Vector3 target)
         {
-            Vector3 dirTarget = (target - transform.position).normalized;
-            Quaternion lookRotation = Quaternion.LookRotation(dirTarget);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10 * Time.deltaTime);
+            FaceDirection((target - transform.position).normalized);
+        }
+        
+        private void FaceDirection(Vector3 dirTarget)
+        {
+            if (Mathf.Abs(dirTarget.magnitude) > Mathf.Epsilon)
+            {
+                Quaternion lookRotation = Quaternion.LookRotation(dirTarget);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10 * Time.deltaTime);  
+            }
         }
 
         private void ChooseNextFlower()
         {
-
             int newFlower =  Random.Range(0, flowers.Length - 1);
             if (newFlower == currFlowerIdx)
             {
@@ -123,7 +143,12 @@ namespace NPCs
             currFlowerPos = flowers[newFlower].transform.position;
         }
 
-
+        public void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.grey;
+            Gizmos.DrawWireSphere(currFlowerPos, 1f);
+            Gizmos.DrawLine(transform.position, currFlowerPos);
+        }
     }
 
     public enum NPCState

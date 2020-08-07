@@ -117,7 +117,6 @@ namespace Player
 
             if (inputManager.GetDanceKeyClicked())
             {
-                Debug.Log("waggle key clicked");
                 powerup.Activate(PlayerPowerup.WaggleDance);
             }
         }

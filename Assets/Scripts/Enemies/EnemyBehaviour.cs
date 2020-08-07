@@ -44,7 +44,6 @@ namespace Enemies
         
         protected void FindNextPoint()
         {
-            Debug.Log("switching to: " + ((nextPoint == pointA) ? "B" : "A"));
             nextPoint = (nextPoint == pointA) ? pointB : pointA;
         }
 
@@ -74,7 +73,7 @@ namespace Enemies
                 dirTarget.y = 0;
             }
 
-            if (dirTarget.magnitude > Mathf.Epsilon)
+            if (Mathf.Abs(dirTarget.magnitude) > Mathf.Epsilon)
             {
                 Quaternion lookRotation = Quaternion.LookRotation(dirTarget);
                 transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
