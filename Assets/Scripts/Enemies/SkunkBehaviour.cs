@@ -75,12 +75,20 @@ namespace Enemies
         protected override void Update()
         {
             base.Update();
-            switch(currState) {
-                case SkunkState.Patrolling: UpdatePatrolState(); break;
-                case SkunkState.Attacking: UpdateAttackState(); break;
-                case SkunkState.Disengaging: UpdateDisengageState(); break;
+
+            if (LevelManager.gamePaused)
+            {
+                agent.speed = 0;
+                FaceTarget(player.transform.position);
             }
-        
+            else
+            {
+                switch(currState) {
+                    case SkunkState.Patrolling: UpdatePatrolState(); break;
+                    case SkunkState.Attacking: UpdateAttackState(); break;
+                    case SkunkState.Disengaging: UpdateDisengageState(); break;
+                }
+            }
         }
         
         public override void ApplySelfDamage(float damage) {return;}
@@ -112,11 +120,9 @@ namespace Enemies
             }
             
             guiObject.SetActive(false);
-
-            // transform.position = Vector3.MoveTowards(transform.position, nextPoint, enemySpeed * Time.deltaTime);
             
             FaceTarget(nextPoint);
-            anim.SetInteger(SkunkMovement, 1); // walking
+            anim.SetInteger(SkunkMovement, 4); // walking
         }
 
 
@@ -188,10 +194,19 @@ namespace Enemies
         
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(position, maxDistToAttack);
+            
+            if (patrolPoints.Length >= 2)
+            {
+                Gizmos.color = Color.grey;
+                Gizmos.DrawSphere(patrolPoints[0].position, 2.5f);
+                Gizmos.DrawSphere(patrolPoints[1].position, 2.5f);
+            }
 
             Gizmos.color = Color.black;
             Gizmos.DrawSphere(pointA, 3f);
             Gizmos.DrawSphere(pointB, 3f);
+
+            
 
         }
     

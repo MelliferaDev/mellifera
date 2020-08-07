@@ -694,7 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca3fe5b1dbe44440b6caced24980d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stingDistance: 30
+  stingDistance: 45
   minDamage: 5
   averageDamage: 10
   maxDamage: 20
