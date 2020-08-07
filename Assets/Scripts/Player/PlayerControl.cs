@@ -30,9 +30,10 @@ namespace Player
         [SerializeField] private float speedIncr = 0.5f;
         [SerializeField] public float maxSpeed = 45.0f;
         [SerializeField] private float minSpeed = 15.0f;
-        public float currSpeed;
-
-
+        [SerializeField] public float currSpeed;
+        [SerializeField] public PlayerCamera camera;
+        private bool cameraFound = false;
+        
         public PlayerFlightState currState;
 
         private CharacterController controller;
@@ -40,27 +41,27 @@ namespace Player
         private Vector3 move;
 
         private InputManager inputManager;
-        public PlayerCamera camera;
         private bool cameraStarted = false;
         private AudioSource buzzSfx;
 
+        void Awake()
+        {
+            if (camera == null)
+                camera = Camera.main.GetComponent<PlayerCamera>();
+            
+            cameraFound = (camera != null);
+            
+            if (cameraFound)
+                camera.SyncStart();
+        }
+        
         void Start()
         {
             controller = GetComponent<CharacterController>();
-            if (camera == null)
-            {
-                camera = Camera.main.GetComponent<PlayerCamera>();
-            }
             powerup = GetComponent<PlayerPowerupBehavior>();
             inputManager = FindObjectOfType<InputManager>();
             buzzSfx = GetComponent<AudioSource>();
             buzzSfx.Play();
-
-
-            if (!cameraStarted && camera != null)
-            {
-                camera.Start();
-            }
             
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -70,26 +71,14 @@ namespace Player
 
         void Update()
         {
-            if (camera == null)
+            // this better be true!
+            if (cameraFound) 
             {
-                camera = Camera.main.GetComponent<PlayerCamera>();
-            }
-           // Debug.Log("started : " +  cameraStarted);
-            //Debug.Log("recalculate: " + (camera != null));
-            if (!cameraStarted && camera != null)
-            {
-                Debug.Log("in this loop");
-                camera.Start();
-                cameraStarted = true;
-            }
-            if (camera != null)
-            {
-                camera.Follow();
+                camera.Follow(); // camera looks laggy if we just call Follow in PlayerCamera.Update()/LateUpdate()/FixedUpdate()
             }
 
             if (!LevelManager.gamePaused)
             {
-                
                 Vector2 mouseInput = inputManager.GetMouseAxes();
                 switch (currState)
                 {
@@ -100,8 +89,6 @@ namespace Player
                         LandedControl(mouseInput);
                         break;
                 }
-
-   
             }
 
             if (inputManager.GetLandFlyKeyClicked())
@@ -144,7 +131,7 @@ namespace Player
             currSpeed = Mathf.Clamp(currSpeed, minSpeed, maxSpeed + PlayerUpgrades.maxSpeedAdd);
 
             float boostedSpeed = currSpeed;
-            if (powerup.GetActiveCurrentPowerup() == PlayerPowerup.Vortex)
+            if (PlayerPowerupBehavior.GetActiveCurrentPowerup() == PlayerPowerup.Vortex)
             {
                 boostedSpeed += PlayerPowerupBehavior.vortexSpeedBoost;
             }
@@ -159,9 +146,8 @@ namespace Player
 
             if (Math.Abs(dir.magnitude) > Mathf.Epsilon)
             {
-                float maxX = Quaternion.LookRotation(dir).eulerAngles.x;
-                
-                // limit rotation to avoid going getting stuck in a loop
+                // limit x rotation to avoid going getting stuck in a loop
+                float maxX = Quaternion.LookRotation(move + dir).eulerAngles.x;
                 bool enteringLoop = (maxX < 90 && maxX > 70 || maxX > 270 && maxX < 290);
                 
                 if (!enteringLoop)
