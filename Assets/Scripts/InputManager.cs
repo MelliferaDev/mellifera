@@ -11,6 +11,7 @@ namespace Player
         [SerializeField] public KeyCode vortexKey = KeyCode.E;
         [SerializeField] public KeyCode danceKey = KeyCode.Q;
         [SerializeField] public KeyCode landFlyKey = KeyCode.Space;
+        [SerializeField] public KeyCode talkKey = KeyCode.R;
 
         [Header("Non-configurable")] 
         [SerializeField] public KeyCode pauseKey = KeyCode.P;
@@ -27,6 +28,10 @@ namespace Player
         public bool GetLandFlyKeyClicked() => Input.GetKeyDown(landFlyKey);
 
         public bool GetPauseBtnClicked() => Input.GetKeyDown(pauseKey);
+        
+        public bool GetNPCTalkBtnClicked() => Input.GetKeyDown(talkKey);
+
+        
 
         public Vector2 GetMouseAxes() => new Vector2(Input.GetAxis("Mouse X") * mouseSensitivity, 
             Input.GetAxis("Mouse Y") * mouseSensitivity);

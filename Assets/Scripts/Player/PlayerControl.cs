@@ -1,4 +1,5 @@
 ﻿using System;
+using NPCs;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
@@ -87,9 +88,8 @@ namespace Player
                 camera.Follow();
             }
 
-            if (!LevelManager.gamePaused)
+            if (!LevelManager.gamePaused && ! NPCInteract.interacting)
             {
-                
                 Vector2 mouseInput = inputManager.GetMouseAxes();
                 switch (currState)
                 {
@@ -100,8 +100,6 @@ namespace Player
                         LandedControl(mouseInput);
                         break;
                 }
-
-   
             }
 
             if (inputManager.GetLandFlyKeyClicked())
