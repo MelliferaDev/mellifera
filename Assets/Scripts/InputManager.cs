@@ -9,7 +9,8 @@ namespace Player
         [SerializeField] public string speedUpAxis = "Fire1";
         [SerializeField] public string slowDownAxis = "Fire2";
         [SerializeField] public KeyCode vortexKey = KeyCode.E;
-        [SerializeField] public KeyCode danceKey = KeyCode.Q;
+        [SerializeField] public KeyCode danceKey = KeyCode.W;
+        [SerializeField] public KeyCode stingKey = KeyCode.Q;
         [SerializeField] public KeyCode landFlyKey = KeyCode.Space;
         [SerializeField] public KeyCode talkKey = KeyCode.R;
 
@@ -24,6 +25,7 @@ namespace Player
         
         public bool GetDanceKeyClicked() => Input.GetKeyDown(danceKey);
 
+        public bool GetStingKeyClicked() => Input.GetKeyDown(stingKey);
         
         public bool GetLandFlyKeyClicked() => Input.GetKeyDown(landFlyKey);
 
