@@ -203,6 +203,11 @@ namespace Player
                     }
                     else if (hit.collider.CompareTag("Collectible"))
                     {
+                        if(GetCBFromCollider(hit.collider, out CollectibleBehavior cb))
+                        {
+                            if (cb.collectibleType == CollectibleType.Health) return;
+                        }
+                        
                         reticleImage.color = Color.Lerp(reticleImage.color, reticleCollectibleColor, Time.deltaTime * reticleChangeSpeed);
 
                         Quaternion targetRotation = Quaternion.AngleAxis(45f, Vector3.forward);
@@ -228,6 +233,27 @@ namespace Player
             reticleImage.transform.localScale = Vector3.Lerp(reticleImage.transform.localScale, Vector3.one, Time.deltaTime * reticleChangeSpeed);
             reticleImage.transform.rotation = Quaternion.Lerp(reticleImage.transform.rotation, Quaternion.AngleAxis(0f, Vector3.forward), Time.deltaTime * reticleChangeSpeed);
             curTarget = null;
+        }
+
+        private bool GetCBFromCollider(Collider col, out CollectibleBehavior cb)
+        {
+            cb = col.GetComponent<CollectibleBehavior>();
+            if (cb == null)
+                cb = col.GetComponentInChildren<CollectibleBehavior>();
+            else 
+                return true;
+
+            if (cb == null)
+                cb = col.GetComponentInParent<CollectibleBehavior>();
+            else 
+                return true;
+            
+            if (cb != null) 
+                return true;
+            
+            Debug.LogWarning("Objected tagged as Collectible w/o CollectibleBehaviour attached");
+            return false;
+
         }
     }
 

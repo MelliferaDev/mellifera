@@ -196,7 +196,7 @@ namespace Enemies
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(position, maxDistToAttack);
             
-            if (patrolPoints.Length >= 2)
+            if (patrolPoints.Length >= 2 && patrolPoints[0] != null && patrolPoints[1] != null)
             {
                 Gizmos.color = Color.grey;
                 Gizmos.DrawSphere(patrolPoints[0].position, 2.5f);
