@@ -24,19 +24,27 @@ namespace Pickups
 
         /// <summary>
         /// A listener method designed to recieve messages from the PlayerCollection
-        /// OnControllerColliderHit
+        /// OnControllerColliderHit.
         /// </summary>
-        /// <param name="player">The PlayerControl from the OnControllerColliderHit</param>
+        /// <param name="args">
+        ///     [0]: The PlayerControl from the OnControllerColliderHit
+        ///     [1]: If calling from waggle dance: multplier
+        /// </param>
         public void ControllerCollisionListener(object[] args)
         {
             PlayerControl player = args[0] as PlayerControl;
             int multiplier = 1;
+            bool fromWaggle = false;
+            
             if (args.Length > 1)
             {
                 multiplier = (int) args[1];
+                fromWaggle = true;
             }
+            
+            bool validCall = player.currState == PlayerFlightState.Landed || fromWaggle; 
 
-            if (player.currState == PlayerFlightState.Landed && collectAmount > 0)
+            if (validCall && collectAmount > 0)
             {
                 bool didCollect = false;
                 // TODO right now we just give it all as soon as they land on it,
