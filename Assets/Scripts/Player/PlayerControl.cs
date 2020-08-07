@@ -1,4 +1,5 @@
 ﻿using System;
+using NPCs;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
@@ -77,7 +78,7 @@ namespace Player
                 camera.Follow(); // camera looks laggy if we just call Follow in PlayerCamera.Update()/LateUpdate()/FixedUpdate()
             }
 
-            if (!LevelManager.gamePaused)
+            if (!LevelManager.gamePaused && ! NPCInteract.interacting)
             {
                 Vector2 mouseInput = inputManager.GetMouseAxes();
                 switch (currState)

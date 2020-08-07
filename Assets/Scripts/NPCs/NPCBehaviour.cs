@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.Assertions.Comparers;
+using UnityEngine.ProBuilder;
 using Random = UnityEngine.Random;
 
 namespace NPCs
@@ -10,27 +12,41 @@ namespace NPCs
         [SerializeField] private float flySpeed = 10f;
         [SerializeField] private float hoverDist = 3f;
         [SerializeField] private float hoverSpeed = 1f;
+        [SerializeField] private float interactHoverDist = 1f;
         [SerializeField] private float pollinateDuration = 10f;
 
         private GameObject[] flowers;
         private int currFlowerIdx;
         private Vector3 currFlowerPos;
-
+        private Transform player;
         private float currDist;
-
+        
         private float pollinateTimer;
+
+        private float flySpeedSave;
 
         private void Start()
         {
             flowers = GameObject.FindGameObjectsWithTag("FlowerGroup");
-
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+            
             currFlowerIdx = -1;
             ChooseNextFlower();
             currDist = 10f;
+
+            flySpeedSave = flySpeed;
         }
 
         private void Update()
         {
+            if (LevelManager.gamePaused)
+            {
+                flySpeed = 0;
+                return;
+            }
+            
+            flySpeed = flySpeedSave;
+
             Vector2 posXZ = new Vector2(transform.position.x, transform.position.z);
             Vector2 flowerXZ = new Vector2(currFlowerPos.x, currFlowerPos.z);
 
@@ -41,6 +57,8 @@ namespace NPCs
                 case NPCState.Flying: UpdateFlying();
                     break;
                 case NPCState.Pollinating: UpdatePollinating();
+                    break;
+                case NPCState.Interacting : UpdateInteracting();
                     break;
             }
             
@@ -80,6 +98,11 @@ namespace NPCs
             transform.position =  Vector3.MoveTowards(transform.position, target, Time.deltaTime * flySpeed);
         }
         
+        private void UpdateInteracting()
+        {
+            transform.LookAt(player.transform.position);
+        }
+        
         
         private void FaceTarget(Vector3 target)
         {
@@ -99,6 +122,8 @@ namespace NPCs
 
             currFlowerPos = flowers[newFlower].transform.position;
         }
+
+
     }
 
     public enum NPCState
