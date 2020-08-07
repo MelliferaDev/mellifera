@@ -33,7 +33,7 @@ namespace Player
         public int waggleCollected;
 
         private float powerupTimeout;
-        private PlayerPowerup curPowerup;
+        private static PlayerPowerup curPowerup;
 
         // Start is called before the first frame update
         void Start()
@@ -175,7 +175,7 @@ namespace Player
             }
         }
 
-        public PlayerPowerup GetActiveCurrentPowerup()
+        public static PlayerPowerup GetActiveCurrentPowerup()
         {
             return curPowerup;
         }
