@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 1049895169098164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children:
   - {fileID: 4410983339199582}
   m_Father: {fileID: 0}
@@ -46,7 +46,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049895169098164}
   serializedVersion: 6
-  lengthInSec: 1.5
+  lengthInSec: 15
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 1
@@ -121,7 +121,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 15
       minScalar: 0.3
       maxCurve:
         serializedVersion: 2
@@ -4830,7 +4830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605a456cfc02f6b499a64717539a27e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 100
   hitOffset: 0.1
   UseFirePointRotation: 1
   rotationOffset: {x: 0, y: 0, z: 0}
@@ -4838,6 +4838,10 @@ MonoBehaviour:
   flash: {fileID: 1554156215293492, guid: b15ff8497c1816242b4531a624ad5784, type: 3}
   Detached:
   - {fileID: 1087620334247294}
+  avoidTags:
+  - Enemy
+  - EnemyAttack
+  - Pickups
 --- !u!54 &54908155343697094
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4879,6 +4883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b42a8b83d7e9194c8500c44d96a0290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSfx: {fileID: 0}
   playerDamage: -15
   pollenLoss: -15
   recoilDamage: 0
@@ -4937,7 +4942,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087620334247294}
   serializedVersion: 6
-  lengthInSec: 3
+  lengthInSec: 15
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
@@ -9703,7 +9708,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604134308945764}
   serializedVersion: 6
-  lengthInSec: 3
+  lengthInSec: 15
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3

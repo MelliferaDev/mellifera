@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3000034729348073462}
   - component: {fileID: 8835722557814176527}
   - component: {fileID: 4379961028866841165}
+  - component: {fileID: 9121143011919189432}
   m_Layer: 0
   m_Name: crops_cornStageC (1)
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -9117483709511198939, guid: 744b756996f70e245843b257ba3ca58a, type: 3}
+  - {fileID: 2100000, guid: 2f3f51574abdc6945a8f9c8798613d42, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,3 +95,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4826666918228385017, guid: 744b756996f70e245843b257ba3ca58a, type: 3}
+--- !u!114 &9121143011919189432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107274871653617619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead38618bb359954f949ecb6f39537d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectibleType: 0
+  collectAmount: 2
+  collectSfx: {fileID: 8300000, guid: 0381f471c456859419d646fc2115ac8d, type: 3}

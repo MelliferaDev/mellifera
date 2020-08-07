@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8499455156932850864}
   m_Layer: 0
   m_Name: crop_melon
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,9 +59,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -9117483709511198939, guid: bfbd5f9b2a78dc64a9eb361f8e0e536d, type: 3}
-  - {fileID: -436311623246891856, guid: bfbd5f9b2a78dc64a9eb361f8e0e536d, type: 3}
-  - {fileID: -6126091556477775235, guid: bfbd5f9b2a78dc64a9eb361f8e0e536d, type: 3}
+  - {fileID: 2100000, guid: 2f3f51574abdc6945a8f9c8798613d42, type: 2}
+  - {fileID: 2100000, guid: cefcc14bf036f3445a519f2d1f7eff36, type: 2}
+  - {fileID: 2100000, guid: fca63cbcae9f974448c0ec84ec3296c6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

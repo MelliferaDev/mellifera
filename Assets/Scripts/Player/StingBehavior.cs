@@ -86,19 +86,19 @@ namespace Enemies
             {
                 Debug.Log("Option1");
                 lm.IncrementHealth(-minDamage);
-                target.GetComponent<WaspBehavior>().EnemyDefeated();
+                target.GetComponent<EnemyBehaviour>().EnemyDefeated();
             }
             else if (score > maxScore * .6)
             {
                 Debug.Log("Option2");
                 lm.IncrementHealth(-averageDamage);
-                target.GetComponent<WaspBehavior>().EnemyDefeated();
+                target.GetComponent<EnemyBehaviour>().EnemyDefeated();
             }
             else if (score > maxScore * .4)
             {
                 Debug.Log("Option3");
                 lm.IncrementHealth(-maxDamage);
-                target.GetComponent<WaspBehavior>().EnemyDefeated();
+                target.GetComponent<EnemyBehaviour>().EnemyDefeated();
             }
             else
             {
