@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 6940542784638926863, guid: 8faf00b108d51b24aa3bcca8bddbc9c4,
     type: 3}
-  playerDamage: -5
+  pesticideAmount: -5
 --- !u!1 &2519742360696649990
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 7635768730618310947}
   - component: {fileID: 4236544054625684954}
   - component: {fileID: 8701308264015329274}
-  - component: {fileID: 7866025447080291201}
+  - component: {fileID: 9093592828909317071}
   m_Layer: 0
   m_Name: pesticide_cornStageD
   m_TagString: Pesticide
@@ -210,7 +210,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -526729801670811904, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
---- !u!114 &7866025447080291201
+--- !u!114 &9093592828909317071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 6940542784638926863, guid: 8faf00b108d51b24aa3bcca8bddbc9c4,
     type: 3}
-  playerDamage: -5
+  pesticideAmount: -5
 --- !u!1 &4500634082249972660
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 6940542784638926863, guid: 8faf00b108d51b24aa3bcca8bddbc9c4,
     type: 3}
-  playerDamage: -5
+  pesticideAmount: -5
 --- !u!1 &7346486390019319637
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 6940542784638926863, guid: 8faf00b108d51b24aa3bcca8bddbc9c4,
     type: 3}
-  playerDamage: -5
+  pesticideAmount: -5
 --- !u!1 &8823711086534882514
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,4 +557,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 6940542784638926863, guid: 8faf00b108d51b24aa3bcca8bddbc9c4,
     type: 3}
-  playerDamage: -5
+  pesticideAmount: -5

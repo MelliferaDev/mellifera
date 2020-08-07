@@ -69,7 +69,7 @@ namespace Enemies
             {
                 FinishSting(1, 1, targetWasp);
             }
-            else
+            else if (targetWasp != null)
             {
                 FindObjectOfType<LevelManager>().StartDDR(targetWasp);
             }
