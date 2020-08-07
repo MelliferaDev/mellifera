@@ -110,6 +110,7 @@ namespace Enemies
                 Debug.Log("Option4");
                 lm.IncrementHealth(-maxDamage);
             }
+            
             stingIndicator.SetActive(false);
             RearviewCameraBehaviour.RequestRearviewOff();
             FindObjectOfType<PlayerControl>().StartBuzzSFX();

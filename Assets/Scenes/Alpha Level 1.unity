@@ -8959,6 +8959,11 @@ PrefabInstance:
       propertyPath: reticleEyes
       value: 
       objectReference: {fileID: 1994081217}
+    - target: {fileID: 6863974020979444369, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: waggleCollected
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7259016305702027546, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -62885,7 +62890,7 @@ PrefabInstance:
       objectReference: {fileID: 1371411640}
     - target: {fileID: 1962326486, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2125279375, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -62894,7 +62899,7 @@ PrefabInstance:
     - target: {fileID: 729746739902850278, guid: fe64349b000855d4e8847e56dd6b4947,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3028987242143612113, guid: fe64349b000855d4e8847e56dd6b4947,
         type: 3}
@@ -63039,7 +63044,7 @@ PrefabInstance:
     - target: {fileID: 8092260817694509265, guid: fe64349b000855d4e8847e56dd6b4947,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8301899762523128515, guid: fe64349b000855d4e8847e56dd6b4947,
         type: 3}
