@@ -58,6 +58,11 @@ namespace Pickups
                     // Nothing left to collect
                     collectAmount = 0;
                     if (collectSfx != null) AudioSource.PlayClipAtPoint(collectSfx, player.transform.position);
+                    for (int i = 0; i < gameObject.GetComponent<Renderer>().materials.Length; i++)
+                    {
+                        gameObject.GetComponent<Renderer>().materials[i].DisableKeyword("_EMISSION");
+                    }
+                    
                 }
             }
         }
