@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 238145564725154289}
   m_Layer: 0
   m_Name: Cone
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 637531887310335843}
   m_Layer: 0
   m_Name: front right
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 4475761932158608964}
   m_Layer: 0
   m_Name: Skunk_tail
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 4475761932595203396}
   m_Layer: 0
   m_Name: TargetingGraphic
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 4475761933028394212}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,13 +464,14 @@ MonoBehaviour:
   patrolMin: 50
   patrolMax: 90
   currState: 0
-  enemySpeed: 100
-  maxDistToAttack: 150
-  minDistToAttack: 75
+  enemySpeed: 50
+  maxDistToAttack: 225
+  minDistToAttack: 50
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
-  shootRate: 6
+  patrolStoppingDist: 1
+  shootRate: 3
   projectilePrefab: {fileID: 1049895169098164, guid: 00c9d73ddcf8e524abff36441c95a4f0,
     type: 3}
   projectilesParent: {fileID: 0}
@@ -487,12 +488,12 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 10.15
   m_Speed: 100
-  m_Acceleration: 75
+  m_Acceleration: 80
   avoidancePriority: 99
-  m_AngularSpeed: 120
+  m_AngularSpeed: 50
   m_StoppingDistance: 80
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 9.1
   m_BaseOffset: 4
@@ -512,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eyes: {fileID: 676441093646009468}
   fovDist: -1
-  fovAngle: 160
+  fovAngle: 270
 --- !u!1 &4475761933573163217
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +525,7 @@ GameObject:
   - component: {fileID: 4475761933573163216}
   m_Layer: 0
   m_Name: ProjectileSpawnPoint
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,7 +555,7 @@ GameObject:
   - component: {fileID: 4475761933980326952}
   m_Layer: 0
   m_Name: Skunk_body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,7 +596,7 @@ GameObject:
   - component: {fileID: 4475761934192817899}
   m_Layer: 0
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -667,7 +668,7 @@ GameObject:
   - component: {fileID: 886815879837356890}
   m_Layer: 0
   m_Name: back left
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -701,7 +702,7 @@ GameObject:
   - component: {fileID: 5565592437447846190}
   m_Layer: 0
   m_Name: Skunk_tail
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -793,7 +794,7 @@ GameObject:
   - component: {fileID: 8892266260876212741}
   m_Layer: 0
   m_Name: Skunk_front_legs
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -828,7 +829,7 @@ GameObject:
   - component: {fileID: 5565592439047472557}
   m_Layer: 0
   m_Name: Skunk_model
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -923,7 +924,7 @@ GameObject:
   - component: {fileID: 8892266261024112839}
   m_Layer: 0
   m_Name: Skunk_back_legs
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -986,7 +987,7 @@ GameObject:
   - component: {fileID: 6142093082409971391}
   m_Layer: 0
   m_Name: Icosphere
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1091,7 +1092,7 @@ GameObject:
   - component: {fileID: 7820264100192676048}
   m_Layer: 0
   m_Name: back right
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1122,7 +1123,7 @@ GameObject:
   - component: {fileID: 676441093646009468}
   m_Layer: 0
   m_Name: EyeReference
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1155,7 +1156,7 @@ GameObject:
   - component: {fileID: 8167473012938215137}
   m_Layer: 0
   m_Name: Icosphere.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1246,7 +1247,7 @@ GameObject:
   - component: {fileID: 2804388740745635917}
   m_Layer: 0
   m_Name: front left
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1280,7 +1281,7 @@ GameObject:
   - component: {fileID: 9196808062023604224}
   m_Layer: 0
   m_Name: Cone.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1442,6 +1443,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: skunk_leg
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c8fffff99d0ea9a4787aeadb8b29aa62,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8fffff99d0ea9a4787aeadb8b29aa62, type: 3}
 --- !u!4 &7505534807571301993 stripped
@@ -1544,6 +1550,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: skunk_leg
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c8fffff99d0ea9a4787aeadb8b29aa62,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8fffff99d0ea9a4787aeadb8b29aa62, type: 3}
 --- !u!4 &8767328124589196191 stripped
@@ -1644,7 +1655,12 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: c8fffff99d0ea9a4787aeadb8b29aa62,
         type: 3}
       propertyPath: m_Name
-      value: back_right
+      value: skunk_leg
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c8fffff99d0ea9a4787aeadb8b29aa62,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8fffff99d0ea9a4787aeadb8b29aa62, type: 3}
@@ -1746,7 +1762,12 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: c8fffff99d0ea9a4787aeadb8b29aa62,
         type: 3}
       propertyPath: m_Name
-      value: back_right
+      value: skunk_leg
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c8fffff99d0ea9a4787aeadb8b29aa62,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8fffff99d0ea9a4787aeadb8b29aa62, type: 3}

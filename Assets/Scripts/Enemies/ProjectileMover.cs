@@ -58,7 +58,7 @@ namespace Enemies
             {
                 if (collision.collider.CompareTag(_tag)) return;
             }
-        
+            
             //Lock all axes movement and rotation
             rb.constraints = RigidbodyConstraints.FreezeAll;
             speed = 0;
