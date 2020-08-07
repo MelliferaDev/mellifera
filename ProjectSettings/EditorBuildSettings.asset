@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Alpha Level 1.5.unity
     guid: e16a2a5a2fa6e9543820e99504938c43
   - enabled: 1
+    path: Assets/Scenes/Beta Level 2.unity
+    guid: 02fb0fc537177604ea4d5001c297abe5
+  - enabled: 1
+    path: Assets/Scenes/Beta Level 2.5.unity
+    guid: 44debaf0b6a335244b60725d2920583e
+  - enabled: 1
     path: Assets/Scenes/Scoring Test Scenes/AlphaScoring 1.unity
     guid: d16c2e2d14f6a8140a9411e7eca584dd
   - enabled: 1

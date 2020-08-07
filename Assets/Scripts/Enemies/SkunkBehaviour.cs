@@ -96,6 +96,7 @@ namespace Enemies
         //Defeated
         public override void EnemyDefeated()
         {
+            Destroy(gameObject);
             //will probably call update disengage here
         }
 

@@ -43408,17 +43408,17 @@ PrefabInstance:
     - target: {fileID: 8035842256874517005, guid: f0e408c7cbc5cf9488a4ce541ff7a922,
         type: 3}
       propertyPath: maxTime
-      value: 15
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8035842256874517005, guid: f0e408c7cbc5cf9488a4ce541ff7a922,
         type: 3}
       propertyPath: dropSpeed
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8035842256874517005, guid: f0e408c7cbc5cf9488a4ce541ff7a922,
         type: 3}
       propertyPath: spawnFrequency
-      value: 0.33
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8035842256874517005, guid: f0e408c7cbc5cf9488a4ce541ff7a922,
         type: 3}
