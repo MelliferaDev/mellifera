@@ -108,5 +108,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectibleType: 0
-  collectAmount: 5
+  collectAmount: 2
   collectSfx: {fileID: 8300000, guid: 0381f471c456859419d646fc2115ac8d, type: 3}
