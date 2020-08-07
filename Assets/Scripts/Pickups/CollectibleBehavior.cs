@@ -27,8 +27,15 @@ namespace Pickups
         /// OnControllerColliderHit
         /// </summary>
         /// <param name="player">The PlayerControl from the OnControllerColliderHit</param>
-        public void ControllerCollisionListener(PlayerControl player)
+        public void ControllerCollisionListener(object[] args)
         {
+            PlayerControl player = args[0] as PlayerControl;
+            int multiplier = 1;
+            if (args.Length > 1)
+            {
+                multiplier = (int) args[1];
+            }
+
             if (player.currState == PlayerFlightState.Landed && collectAmount > 0)
             {
                 bool didCollect = false;
@@ -47,7 +54,7 @@ namespace Pickups
                     case CollectibleType.Pollen:
                         if (!lm.PollenIsFull())
                         {
-                            lm.CollectPollen(collectAmount);
+                            lm.CollectPollen(collectAmount * multiplier);
                             didCollect = true;
                         }
                         break;

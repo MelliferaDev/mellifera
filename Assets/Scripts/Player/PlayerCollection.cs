@@ -24,13 +24,13 @@ namespace Player
             {
                 CollectibleBehavior cb = hit.gameObject.GetComponent<CollectibleBehavior>();
                 if (cb == null) return;
-                cb.SendMessage("ControllerCollisionListener", player);
+                cb.SendMessage("ControllerCollisionListener", new object[] { player });
             } 
             else if (hit.gameObject.CompareTag("Pesticide"))
             {
                 PesticideBehavior pb = hit.gameObject.GetComponent<PesticideBehavior>();
                 if (pb == null) return;
-                pb.SendMessage("ControllerCollisionListener", player);
+                pb.SendMessage("ControllerCollisionListener", new object[] { player });
             }
 
         }
