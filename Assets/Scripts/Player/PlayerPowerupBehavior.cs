@@ -1,5 +1,7 @@
 ﻿using Pickups;
 using UnityEngine;
+using UnityEngine.UI;
+using Enemies;
 
 namespace Player
 {
@@ -12,8 +14,18 @@ namespace Player
     public class PlayerPowerupBehavior : MonoBehaviour
     {
         [SerializeField] private int vortexDuration = 3; // seconds
+        [SerializeField] private int waggleDanceDuration = 3; // seconds
         [SerializeField] private PowerupGUI gui;
-        
+        [SerializeField] private GameObject swarmVfx;
+
+        [Header("Waggle Target Reticle Settings")]
+        [SerializeField] Image reticleImage;
+        [SerializeField] float reticleChangeSpeed = 3;
+        [SerializeField] Color reticleEnemyColor;
+        [SerializeField] Color reticleCollectibleColor;
+        Color originalReticleColor;
+        GameObject curTarget;
+
         public static int vortexSpeedBoost = 100; // This will go in the Vortex specific class once it exists.
 
         public int vortexCollected;
@@ -21,12 +33,14 @@ namespace Player
         public int waggleCollected;
 
         private float powerupTimeout;
-        private PlayerPowerup curPowerup;
+        private static PlayerPowerup curPowerup;
 
         // Start is called before the first frame update
         void Start()
         {
             curPowerup = PlayerPowerup.None;
+            originalReticleColor = reticleImage.color;
+            ReturnToOriginalReticle();
         }
 
         // Update is called once per frame
@@ -43,9 +57,17 @@ namespace Player
             }
         }
 
+        private void FixedUpdate()
+        {
+            ReticleEffect();
+        }
+
         public bool CanPickUp()
         {
-            return curPowerup == PlayerPowerup.None;
+            // This used to check if you've already picked up a powerup. 
+            // Since you can now have multiple of each powerup, the restriction is gone. 
+            // However, we may want to introduce a future mechanic where you can only pick up X number of powerups at once, or something.
+            return true;
         }
 
         public void GivePowerup(PlayerPowerup powerupType)
@@ -62,6 +84,7 @@ namespace Player
                     break;
                 case PlayerPowerup.WaggleDance: 
                     waggleCollected++;
+                    reticleImage.gameObject.SetActive(true);
                     gui.UpdateGUI(powerupType, waggleCollected);
                     break;
             }
@@ -71,11 +94,14 @@ namespace Player
         {
             switch (powerupType)
             {
-                case PlayerPowerup.Vortex: ActivateVortex();
+                case PlayerPowerup.Vortex:
+                    ActivateVortex();
                     break;
-                case PlayerPowerup.FreeSting: ActivateSting();
+                case PlayerPowerup.FreeSting:
+                    ActivateSting();
                     break;
-                case PlayerPowerup.WaggleDance: ActivateWaggleDance();
+                case PlayerPowerup.WaggleDance:
+                    ActivateWaggleDance();
                     break;
             }
         }
@@ -96,7 +122,7 @@ namespace Player
             if (stingCollected <= 0) return;
             
             curPowerup = PlayerPowerup.FreeSting;
-            powerupTimeout = vortexDuration;
+            powerupTimeout = 0; // Sting doesn't have an active duration, it's one-and-done.
             stingCollected--;
             gui.UpdateGUI(PlayerPowerup.FreeSting, stingCollected);
 
@@ -105,21 +131,108 @@ namespace Player
         private void ActivateWaggleDance()
         {
             if (waggleCollected <= 0) return;
+
+            bool didDance = false;
             
-            curPowerup = PlayerPowerup.Vortex;
-            powerupTimeout = vortexDuration;
-            waggleCollected--;
-            gui.UpdateGUI(PlayerPowerup.WaggleDance, waggleCollected);
+            if (curTarget != null)
+            {
+                if (curTarget.CompareTag("Enemy"))
+                {
+                    // This currently just feels like a different version of the free sting...
+                    FindObjectOfType<StingBehavior>().FinishSting(1, 1, curTarget);
+                    didDance = true;
+                }
+                else if (curTarget.CompareTag("Collectible"))
+                {
+                    CollectibleBehavior cb = curTarget.GetComponent<CollectibleBehavior>();
+                    if (cb == null) return;
+
+                    if (cb.collectibleType == CollectibleType.Pollen)
+                    {
+                        cb.SendMessage("ControllerCollisionListener", new object[] { GetComponent<PlayerControl>(), 2 });
+                        didDance = true;
+                    }
+                }
+            }
+            else
+            {
+
+                // Our third dance, Shock, isn't needed till level 3. I'm thinking this is some sort of AoE attack?
+                // However, I don't know what the best way to trigger it would be, and if this `else` case is enough.
+
+                // temp
+                didDance = false;
+            }
+
+            if (didDance)
+            {
+                Instantiate(swarmVfx, curTarget.transform.position, Quaternion.identity);
+
+                curPowerup = PlayerPowerup.WaggleDance;
+                powerupTimeout = waggleDanceDuration;
+                waggleCollected--;
+                gui.UpdateGUI(PlayerPowerup.WaggleDance, waggleCollected);
+            }
         }
 
-        public PlayerPowerup GetActiveCurrentPowerup()
+        public static PlayerPowerup GetActiveCurrentPowerup()
         {
             return curPowerup;
+        }
+
+        private void ReticleEffect()
+        {
+            if (waggleCollected > 0)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))
+                {
+
+                    if (hit.collider.CompareTag("Enemy"))
+                    {
+                        reticleImage.color = Color.Lerp(reticleImage.color, reticleEnemyColor, Time.deltaTime * reticleChangeSpeed);
+
+                        Quaternion targetRotation = Quaternion.AngleAxis(0f, Vector3.forward);
+                        reticleImage.transform.rotation = Quaternion.Lerp(reticleImage.transform.rotation, targetRotation, Time.deltaTime * reticleChangeSpeed);
+
+                        reticleImage.transform.localScale = Vector3.Lerp(reticleImage.transform.localScale, new Vector3(.7f, .7f, 1), Time.deltaTime * reticleChangeSpeed);
+
+                        curTarget = hit.collider.gameObject;
+                        return;
+                    }
+                    else if (hit.collider.CompareTag("Collectible"))
+                    {
+                        reticleImage.color = Color.Lerp(reticleImage.color, reticleCollectibleColor, Time.deltaTime * reticleChangeSpeed);
+
+                        Quaternion targetRotation = Quaternion.AngleAxis(45f, Vector3.forward);
+                        reticleImage.transform.rotation = Quaternion.Lerp(reticleImage.transform.rotation, targetRotation, Time.deltaTime * reticleChangeSpeed);
+
+                        reticleImage.transform.localScale = Vector3.Lerp(reticleImage.transform.localScale, Vector3.one, Time.deltaTime * reticleChangeSpeed);
+
+                        curTarget = hit.collider.gameObject;
+                        return;
+                    }
+                }
+                ReturnToOriginalReticle();
+            } 
+            else
+            {
+                reticleImage.gameObject.SetActive(false);
+            }
+        }
+
+        private void ReturnToOriginalReticle()
+        {
+            reticleImage.color = Color.Lerp(reticleImage.color, originalReticleColor, Time.deltaTime * reticleChangeSpeed);
+            reticleImage.transform.localScale = Vector3.Lerp(reticleImage.transform.localScale, Vector3.one, Time.deltaTime * reticleChangeSpeed);
+            reticleImage.transform.rotation = Quaternion.Lerp(reticleImage.transform.rotation, Quaternion.AngleAxis(0f, Vector3.forward), Time.deltaTime * reticleChangeSpeed);
+            curTarget = null;
         }
     }
 
     public enum PlayerPowerup
     {
-        None = 0, Vortex = 1, FreeSting = 2, WaggleDance = 3
+        None, Vortex, FreeSting, WaggleDance
     }
 }

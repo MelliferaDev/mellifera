@@ -32,6 +32,12 @@ public class DDRManager : MonoBehaviour
     public int goodTimingPointGain = 3;
     public int greatTimingPointGain = 5;
 
+    // Particle Effects
+    public GameObject perfectParticleEffects;
+    public GameObject greatParticleEffects;
+    public GameObject okParticleEffects;
+    public GameObject missParticleEffects;
+
     // not needed to be public but so that it is visible from the inspector
     public int score;
 
@@ -42,6 +48,8 @@ public class DDRManager : MonoBehaviour
     float targetY;
     bool unloaded = false;
 
+    GameObject exclamationCatcher;
+    GameObject previousExclamation;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +59,7 @@ public class DDRManager : MonoBehaviour
         maxScore = 0;
         movingArrows = new List<GameObject>();
         targetY = targetLocation.transform.position.y + pressTolerance / 2;
+        exclamationCatcher = GameObject.FindGameObjectWithTag("ParticleCatcher");
     }
 
     // Update is called once per frame
@@ -89,6 +98,7 @@ public class DDRManager : MonoBehaviour
         movingArrows = new List<GameObject>();
         targetY = targetLocation.transform.position.y + pressTolerance / 2;
         unloaded = false;
+        Destroy(previousExclamation);
     }
 
     private void SpawnKey()
@@ -111,16 +121,21 @@ public class DDRManager : MonoBehaviour
             float yPos = g.transform.position.y;
             if (yPos <= maxY && yPos >= minY)
             {
+                Vector3 targetPosition = new Vector3(g.transform.position.x, targetY, 1);
+                GameObject particles;
                 if (yPos <= targetY + pressTolerance / 5 && yPos >= targetY - pressTolerance / 5)
                 {
+                    UpdateExclamationText(perfectParticleEffects);
                     score += greatTimingPointGain;
                 } 
                 else if (yPos <= targetY + pressTolerance / 3 && yPos >= targetY - pressTolerance / 3)
                 {
+                    UpdateExclamationText(greatParticleEffects);
                     score += goodTimingPointGain;
                 }
                 else
                 {
+                    UpdateExclamationText(okParticleEffects);
                     score += defaultPointGain;
                 }
                 Destroy(g);
@@ -148,6 +163,7 @@ public class DDRManager : MonoBehaviour
                 if (position.y <= targetY - pressTolerance)
                 {
                     Destroy(key);
+                    UpdateExclamationText(missParticleEffects);
                     movingArrows.RemoveAt(i);
                     i--;
                     score -= pointsForMiss;
@@ -176,5 +192,11 @@ public class DDRManager : MonoBehaviour
         }
         endText.gameObject.SetActive(false);
         FindObjectOfType<LevelManager>().EndDDR(score, maxScore);
+    }
+
+    private void UpdateExclamationText(GameObject text)
+    {
+        Destroy(previousExclamation);
+        previousExclamation = Instantiate(text, exclamationCatcher.transform);
     }
 }

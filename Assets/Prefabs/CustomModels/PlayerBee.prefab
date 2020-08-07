@@ -635,6 +635,7 @@ MonoBehaviour:
   maxSpeed: 45
   minSpeed: 15
   currSpeed: 30
+  camera: {fileID: 0}
   currState: 0
   camera: {fileID: 0}
 --- !u!114 &3054152585756291836
@@ -666,7 +667,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vortexDuration: 3
+  waggleDanceDuration: 3
   gui: {fileID: 0}
+  swarmVfx: {fileID: 4972344946706402186, guid: c69720dcf4e8d6645a300a6c3d675d45,
+    type: 3}
+  reticleImage: {fileID: 0}
+  reticleChangeSpeed: 3
+  reticleEnemyColor: {r: 0.8679245, g: 0.38074043, b: 0.38074043, a: 1}
+  reticleCollectibleColor: {r: 0.9528302, g: 0.8937759, b: 0.48989856, a: 1}
   vortexCollected: 0
   stingCollected: 0
   waggleCollected: 0
@@ -694,7 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca3fe5b1dbe44440b6caced24980d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stingDistance: 30
+  stingDistance: 45
   minDamage: 5
   averageDamage: 10
   maxDamage: 20
@@ -711,7 +719,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d8210c2664e654e47a71a6ff8710799f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0
