@@ -18720,7 +18720,7 @@ PrefabInstance:
     - target: {fileID: 5962279020735602768, guid: 0881450cbb9b30046b0b503969b0720a,
         type: 3}
       propertyPath: nextLevel
-      value: Alpha Level 1
+      value: Beta Level 2
       objectReference: {fileID: 0}
     - target: {fileID: 5962279020735602769, guid: 0881450cbb9b30046b0b503969b0720a,
         type: 3}
@@ -18917,6 +18917,7 @@ MonoBehaviour:
   minSpeed: 15
   currSpeed: 30
   currState: 0
+  camera: {fileID: 0}
 --- !u!222 &6656127386292031144
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -21,12 +21,10 @@ namespace Enemies
         [Header("Hovering")]
         public float patrolSpeed = 5f;
         
-
         private Rigidbody rb;
         Animator anim;
         private static readonly int AnimState = Animator.StringToHash("animState");
-
-
+        
         protected override void Start()
         {
             base.Start();
@@ -41,21 +39,6 @@ namespace Enemies
             base.Update();
             if (!LevelManager.gamePaused)
             {
-                // State Updating logic
-                if (distToPlayer <= minDistance && currState != WaspFlyingState.Recoiling && currState != WaspFlyingState.Dying)
-                {
-                    if (currState != WaspFlyingState.Attacking) // attacking just started
-                    {
-                        RearviewCameraBehaviour.RequestRearviewOn();
-                    }
-                    currState = WaspFlyingState.Attacking;
-                    anim.SetInteger(AnimState, 1);
-                } else if (currState == WaspFlyingState.Attacking)
-                {
-                    RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
-                    currState = WaspFlyingState.Patrolling;
-                }
-
                 switch (currState)
                 {
                     case WaspFlyingState.Patrolling: UpdatePatrolState(); break;
@@ -71,19 +54,26 @@ namespace Enemies
             }
         }
 
-
-    
         ///////////////////////////////////////////////
         //// Basic Movement States ////////////////////
       
         public override void UpdatePatrolState()
         {
-
             anim.SetInteger(AnimState, 0);
+            
+            if (Utils.Distance2D(transform.position, nextPoint) <= Mathf.Epsilon)
+            {
+                FindNextPoint();
+            }
 
-            FindNextPoint();
+            if (distToPlayer <= minDistance)
+            {
+                RearviewCameraBehaviour.RequestRearviewOn();
+                currState = WaspFlyingState.Attacking;
+            }
+
+            
             FaceTarget(nextPoint, false);
-
             transform.position = Vector3.MoveTowards(transform.position, nextPoint, patrolSpeed * Time.deltaTime);
         }
         
@@ -94,6 +84,13 @@ namespace Enemies
         {
             float step = Time.deltaTime * (attackSpeed);
 
+            if (distToPlayer > minDistance)
+            {
+                RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
+                currState = WaspFlyingState.Patrolling;
+            }
+            
+            anim.SetInteger(AnimState, 1);
             transform.LookAt(player.transform);
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
         }
@@ -102,7 +99,8 @@ namespace Enemies
         {
             float step = Time.deltaTime * recoilRecoverySpeed;
             
-            // AttackRecoil() applied the recoil, this recovering from said recoil
+            // AttackRecoil() applied the recoil, this is actually
+            // recovering from said recoil
             rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, step);
         }
         
