@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0.1
-  m_AmbientMode: 3
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 169a1b8f06c17c84e8de491f2bfef986, type: 2}
   m_HaloStrength: 0.5
@@ -4899,6 +4899,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 109129097}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &109129100 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 32562836936900804, guid: fe64349b000855d4e8847e56dd6b4947,
+    type: 3}
+  m_PrefabInstance: {fileID: 109129097}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090464783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f06f5bab3264a99a9eec51491464bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &112501097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19867,7 +19879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 0}
-  playerDamage: -5
+  pesticideAmount: -5
 --- !u!4 &548179964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1489765186452917013, guid: 5b045c16d692ef3488b714091df319c0,
@@ -38807,7 +38819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 0}
-  playerDamage: -5
+  pesticideAmount: -5
 --- !u!4 &1046491972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1489765186452917013, guid: 5b045c16d692ef3488b714091df319c0,
@@ -40620,7 +40632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 0}
-  playerDamage: -5
+  pesticideAmount: -5
 --- !u!4 &1098897498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1489765186452917013, guid: 5b045c16d692ef3488b714091df319c0,
@@ -41212,7 +41224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 0}
-  playerDamage: -5
+  pesticideAmount: -5
 --- !u!4 &1114163595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1489765186452917013, guid: 5b045c16d692ef3488b714091df319c0,
@@ -51317,7 +51329,7 @@ PrefabInstance:
     - target: {fileID: 5962279020735602768, guid: 0881450cbb9b30046b0b503969b0720a,
         type: 3}
       propertyPath: pollenCollected
-      value: 60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5962279020735602769, guid: 0881450cbb9b30046b0b503969b0720a,
         type: 3}
@@ -52359,6 +52371,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -6126091556477775235, guid: 729e867725347ee4dabff4c00e78a819,
         type: 3}
+    - target: {fileID: -1504981713932161579, guid: 729e867725347ee4dabff4c00e78a819,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -6126091556477775235, guid: 729e867725347ee4dabff4c00e78a819,
+        type: 3}
+    - target: {fileID: -1504981713932161579, guid: 729e867725347ee4dabff4c00e78a819,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: -7908462029823311255, guid: 729e867725347ee4dabff4c00e78a819,
+        type: 3}
+    - target: {fileID: -1504981713932161579, guid: 729e867725347ee4dabff4c00e78a819,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: d85cc087dd0d7d947be00c4230b6071b, type: 2}
     - target: {fileID: -927199367670048503, guid: 729e867725347ee4dabff4c00e78a819,
         type: 3}
       propertyPath: m_Name
@@ -54725,7 +54754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 0}
-  playerDamage: -5
+  pesticideAmount: -5
 --- !u!4 &1433726207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1489765186452917013, guid: 5b045c16d692ef3488b714091df319c0,
@@ -57339,7 +57368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 0}
-  playerDamage: -5
+  pesticideAmount: -5
 --- !u!4 &1487171331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1489765186452917013, guid: 5b045c16d692ef3488b714091df319c0,
@@ -70592,6 +70621,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -6126091556477775235, guid: 729e867725347ee4dabff4c00e78a819,
         type: 3}
+    - target: {fileID: -1504981713932161579, guid: 729e867725347ee4dabff4c00e78a819,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -6126091556477775235, guid: 729e867725347ee4dabff4c00e78a819,
+        type: 3}
+    - target: {fileID: -1504981713932161579, guid: 729e867725347ee4dabff4c00e78a819,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: d85cc087dd0d7d947be00c4230b6071b, type: 2}
     - target: {fileID: -927199367670048503, guid: 729e867725347ee4dabff4c00e78a819,
         type: 3}
       propertyPath: m_Name
@@ -72266,11 +72306,6 @@ PrefabInstance:
       propertyPath: cameraView
       value: 
       objectReference: {fileID: 1840020260}
-    - target: {fileID: 1539080853690883777, guid: 9f3bb6c40ff850a42b0754da94afcded,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3162833644765866081, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: stingIndicator
@@ -72294,13 +72329,18 @@ PrefabInstance:
     - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: maxSpeed
-      value: 200
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: currSpeed
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 6863974020979444369, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: gui
+      value: 
+      objectReference: {fileID: 109129100}
     - target: {fileID: 7259016305702027546, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73322,7 +73362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 0}
-  playerDamage: -5
+  pesticideAmount: -5
 --- !u!4 &1884882816 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1489765186452917013, guid: 5b045c16d692ef3488b714091df319c0,
