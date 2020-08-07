@@ -8954,6 +8954,11 @@ PrefabInstance:
       propertyPath: reticlePropColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6863974020979444369, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: reticleEyes
+      value: 
+      objectReference: {fileID: 1994081217}
     - target: {fileID: 7259016305702027546, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58001,6 +58006,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3075819168641501547, guid: f491fe78b11c5e44d9dbeafeeddc35cf, type: 3}
+--- !u!4 &1994081217 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1377056157786587315, guid: dec7ab78763e53d4194edf13c74bbac4,
+    type: 3}
+  m_PrefabInstance: {fileID: 510652089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1994302663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62874,7 +62885,7 @@ PrefabInstance:
       objectReference: {fileID: 1371411640}
     - target: {fileID: 1962326486, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2125279375, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -62883,7 +62894,7 @@ PrefabInstance:
     - target: {fileID: 729746739902850278, guid: fe64349b000855d4e8847e56dd6b4947,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3028987242143612113, guid: fe64349b000855d4e8847e56dd6b4947,
         type: 3}
@@ -63028,7 +63039,7 @@ PrefabInstance:
     - target: {fileID: 8092260817694509265, guid: fe64349b000855d4e8847e56dd6b4947,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8301899762523128515, guid: fe64349b000855d4e8847e56dd6b4947,
         type: 3}
