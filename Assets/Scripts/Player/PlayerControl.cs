@@ -113,6 +113,11 @@ namespace Player
             {
                 powerup.Activate(PlayerPowerup.Vortex);
             }
+
+            if (inputManager.GetDanceKeyClicked())
+            {
+                powerup.Activate(PlayerPowerup.WaggleDance);
+            }
         }
 
         private void FlyingControl(Vector2 input)

@@ -25,8 +25,10 @@ public class PesticideBehavior : MonoBehaviour
     /// OnControllerColliderHit
     /// </summary>
     /// <param name="player">The PlayerControl from the OnControllerColliderHit</param>
-    public void ControllerCollisionListener(PlayerControl player)
+    public void ControllerCollisionListener(object[] args)
     {
+        PlayerControl player = args[0] as PlayerControl;
+        
         if (pesticideAmount < 0)
         {
             lm.IncrementHealth(pesticideAmount);

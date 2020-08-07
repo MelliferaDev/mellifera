@@ -33,7 +33,7 @@ namespace Enemies
         // Update is called once per frame
         void Update()
         {
-            if (WaspInRange() && input.GetDanceKeyClicked() && !LevelManager.gamePaused)
+            if (WaspInRange() && input.GetStingKeyClicked() && !LevelManager.gamePaused)
             {
                 StingEnemy();
             } 

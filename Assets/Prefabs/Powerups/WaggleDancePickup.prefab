@@ -10,27 +10,27 @@ PrefabInstance:
     - target: {fileID: 1345286586797686512, guid: 2415ebf2fe91bf64dab530c399049673,
         type: 3}
       propertyPath: m_Name
-      value: FreeStingPickup
+      value: WaggleDancePickup
       objectReference: {fileID: 0}
     - target: {fileID: 1345286586797686515, guid: 2415ebf2fe91bf64dab530c399049673,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 98cfbafec3880bb46b43090d0fb96f0c, type: 2}
+      objectReference: {fileID: 2100000, guid: 36278d3c51679174e86e7123c830e026, type: 2}
     - target: {fileID: 1345286586797686525, guid: 2415ebf2fe91bf64dab530c399049673,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 187.63
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1345286586797686525, guid: 2415ebf2fe91bf64dab530c399049673,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 50.84
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1345286586797686525, guid: 2415ebf2fe91bf64dab530c399049673,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 106.91
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1345286586797686525, guid: 2415ebf2fe91bf64dab530c399049673,
         type: 3}
@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 1345286586797686526, guid: 2415ebf2fe91bf64dab530c399049673,
         type: 3}
       propertyPath: powerupType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2415ebf2fe91bf64dab530c399049673, type: 3}
