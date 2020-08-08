@@ -80,6 +80,7 @@ namespace NPCs
             {
                 // taking too long to get to the flower, probably stuck
                 ChooseNextFlower();
+                lastPatrolTimer = Time.time;
             }
             
             // fly to target
