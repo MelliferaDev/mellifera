@@ -8824,6 +8824,11 @@ PrefabInstance:
       propertyPath: stingIndicator
       value: 
       objectReference: {fileID: 612140010}
+    - target: {fileID: 4430353805182034230, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: camera
