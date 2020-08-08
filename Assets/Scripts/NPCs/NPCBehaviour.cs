@@ -21,7 +21,8 @@ namespace NPCs
         private float currDist;
         
         private float pollinateTimer;
-
+        private float lastPatrolTimer;
+        
         private float flySpeedSave;
 
         private CharacterController ctrl;
@@ -37,12 +38,14 @@ namespace NPCs
             currDist = 10f;
 
             flySpeedSave = flySpeed;
+            lastPatrolTimer = Time.time;
         }
 
         private void Update()
         {
             if (LevelManager.gamePaused)
             {
+                ctrl.Move(Vector3.zero);
                 flySpeed = 0;
                 return;
             }
@@ -72,6 +75,11 @@ namespace NPCs
             {
                 currState = NPCState.Pollinating;
                 pollinateTimer = Time.time;
+                lastPatrolTimer = Time.time;
+            } else if (Time.time - lastPatrolTimer > 30f)
+            {
+                // taking too long to get to the flower, probably stuck
+                ChooseNextFlower();
             }
             
             // fly to target
@@ -85,15 +93,6 @@ namespace NPCs
             Vector3 ctrlVel = ctrl.velocity;
             ctrlVel.y = transform.forward.y;
             FaceDirection(ctrlVel);
-            
-            // Vector3 target =  Vector3.MoveTowards(transform.position, currFlowerPos, Time.deltaTime * flySpeed);
-            // FaceTarget(target);
-            // target.y = transform.position.y;
-            //
-            // // hover as you go
-            // float hoverOffset = hoverDist * Mathf.Sin(hoverSpeed * Time.time);
-            // target.y += hoverOffset;
-            // transform.position = target;
         }
 
         private void UpdatePollinating()
@@ -102,6 +101,7 @@ namespace NPCs
             {
                 ChooseNextFlower();
                 currState = NPCState.Flying;
+                lastPatrolTimer = Time.time;
             }
             
             // hover above the flower
