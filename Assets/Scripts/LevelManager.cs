@@ -23,7 +23,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] int currentHealth;
     [SerializeField] string nextLevel;
     [SerializeField] private bool startPaused;
-    
+    [SerializeField] private AudioClip advanceReadySfx;
+
     [Header("UI Elements")]
     // References to other objects
     [SerializeField] Slider pollenSlider;
@@ -49,6 +50,7 @@ public class LevelManager : MonoBehaviour
     {
         pollenTargetSlider = FindObjectOfType<PollenTargetSlider>();
         gamePaused = startPaused;
+        currentGameState = GameState.PLAYING;
         SetupPollenSlider();
         SetupHealthSlider();
     }
@@ -73,7 +75,12 @@ public class LevelManager : MonoBehaviour
     {
         if (pollenCollected >= pollenTarget)
         {
-            currentGameState = GameState.READY_TO_ADVANCE;
+            if (currentGameState == GameState.PLAYING)
+            {
+                if (advanceReadySfx != null) AudioSource.PlayClipAtPoint(advanceReadySfx, Camera.main.transform.position);
+                currentGameState = GameState.READY_TO_ADVANCE;
+            }
+
             if (usingUI)
             {
                 pollenTargetSlider.SetShouldLerpColor(true);
@@ -82,6 +89,11 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
+            if (currentGameState == GameState.READY_TO_ADVANCE)
+            {
+                currentGameState = GameState.PLAYING;
+            }
+
             if (usingUI)
             {
                 pollenTargetSlider.SetShouldLerpColor(false);

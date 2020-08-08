@@ -4883,7 +4883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b42a8b83d7e9194c8500c44d96a0290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitSfx: {fileID: 0}
+  hitSfx: {fileID: 8300000, guid: b342d0926bc879c47bc0e0589f497405, type: 3}
   playerDamage: -15
   pollenLoss: -15
   recoilDamage: 0
