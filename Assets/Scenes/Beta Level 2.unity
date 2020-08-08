@@ -4326,6 +4326,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.24447632
       objectReference: {fileID: 0}
+    - target: {fileID: 1332085171, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
+      propertyPath: m_Text
+      value: 'Collect enough pollen to bring back to the hive! Collect pollen by
+        landing on a flower (Bee careful!, harmful pesticides have been sprayed on
+        some plants).
+
+
+        Once you have enough pollen, you can continue to
+        explore the area, or look for the entrance to the next level
+
+
+        Bee
+        on the look out for skunks! If you get too close to them, they''ll spray
+        with some nasty stuff! However, you might be able waggle dance and do damage
+        to the skunks.
+
+
+        There are powerups in the field that you can use
+        to improve your flying!'
+      objectReference: {fileID: 0}
     - target: {fileID: 1545959750, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_Text
       value: 'There''re no grown crops over there!
@@ -65659,22 +65679,22 @@ Transform:
   - {fileID: 548179964}
   - {fileID: 1098897498}
   - {fileID: 1114163595}
-  - {fileID: 2096608220}
   - {fileID: 1046491972}
+  - {fileID: 2096608220}
   - {fileID: 2147186409}
-  - {fileID: 1365044723}
   - {fileID: 1271595412}
+  - {fileID: 1365044723}
   - {fileID: 1022948353}
-  - {fileID: 508553369}
   - {fileID: 1568491181}
+  - {fileID: 508553369}
   - {fileID: 33770298}
-  - {fileID: 1523410188}
   - {fileID: 1994807641}
+  - {fileID: 1523410188}
+  - {fileID: 1449466696}
   - {fileID: 522083413}
   - {fileID: 641963548}
-  - {fileID: 1449466696}
-  - {fileID: 127831011}
   - {fileID: 2090011147}
+  - {fileID: 127831011}
   m_Father: {fileID: 623004147}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
