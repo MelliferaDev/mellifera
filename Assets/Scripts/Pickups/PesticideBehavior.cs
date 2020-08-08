@@ -8,7 +8,7 @@ public class PesticideBehavior : MonoBehaviour
     public int pesticideAmount = -5;
 
     private LevelManager lm;
-    int damageApplied;
+    [SerializeField] private AudioClip collectSfx;
 
     private void Start()
     {
@@ -35,6 +35,8 @@ public class PesticideBehavior : MonoBehaviour
             Instantiate(pesticideHit, transform.position, transform.rotation);
             // don't continuously apply pesticide gamage
             pesticideAmount = 0;
+            if (collectSfx != null) AudioSource.PlayClipAtPoint(collectSfx, player.transform.position);
+
             for (int i = 0; i < gameObject.GetComponent<Renderer>().materials.Length; i++)
             {
                 gameObject.GetComponent<Renderer>().materials[i].DisableKeyword("_EMISSION");

@@ -94,9 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8722fb7f26a7b1049ae867e5dc1ddcba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pesticideHit: {fileID: 6702719563258607702, guid: 659be1d34ec9e4f46a0a9a1bfe1ebada,
+  pesticideHit: {fileID: 6702719563258607702, guid: 0b30824a5ccad3341946aa22896763b4,
     type: 3}
-  playerDamage: -5
+  pesticideAmount: -5
+  collectSfx: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
 --- !u!64 &8747568249402758793
 MeshCollider:
   m_ObjectHideFlags: 0

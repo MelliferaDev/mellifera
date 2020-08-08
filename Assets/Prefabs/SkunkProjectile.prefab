@@ -46,7 +46,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049895169098164}
   serializedVersion: 6
-  lengthInSec: 12
+  lengthInSec: 15
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 1
@@ -4884,8 +4884,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSfx: {fileID: 8300000, guid: b342d0926bc879c47bc0e0589f497405, type: 3}
-  playerDamage: -10
-  pollenLoss: -5
+  playerDamage: -15
+  pollenLoss: -15
   recoilDamage: 0
 --- !u!114 &3030534640226541994
 MonoBehaviour:
@@ -4942,7 +4942,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087620334247294}
   serializedVersion: 6
-  lengthInSec: 12
+  lengthInSec: 15
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
@@ -9708,7 +9708,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604134308945764}
   serializedVersion: 6
-  lengthInSec: 12
+  lengthInSec: 15
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 3
