@@ -211,6 +211,8 @@ GameObject:
   - component: {fileID: 6350798751523901730}
   - component: {fileID: 6350798751523901741}
   - component: {fileID: 6350798751523901740}
+  - component: {fileID: 4434933171112199025}
+  - component: {fileID: 5183457271393654471}
   m_Layer: 0
   m_Name: NPCBee 1
   m_TagString: Untagged
@@ -268,6 +270,39 @@ MonoBehaviour:
   hoverDist: 0.5
   hoverSpeed: 5
   pollinateDuration: 3
+--- !u!143 &4434933171112199025
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350798751523901731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 2.99
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5183457271393654471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350798751523901731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9adb88dab44d8c9c94b1db22d864f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDist: 20
+  interactYOffset: 4
+  guiSpeak: {fileID: 0}
 --- !u!1 &6350798753026689729
 GameObject:
   m_ObjectHideFlags: 0

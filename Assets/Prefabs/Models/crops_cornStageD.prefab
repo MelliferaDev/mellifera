@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8469035438358836714}
   - component: {fileID: 8075209665769942177}
   - component: {fileID: 7088233501392263792}
+  - component: {fileID: 2250493281385238306}
+  - component: {fileID: 7263990721381390188}
   m_Layer: 0
   m_Name: corn
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +61,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -9117483709511198939, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
-  - {fileID: 5087450393288282603, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
+  - {fileID: 2100000, guid: 0f9bb2e6d41bb6f4891d271480ecd622, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,6 +82,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2250493281385238306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344397543166100673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead38618bb359954f949ecb6f39537d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectibleType: 0
+  collectAmount: 4
+  collectSfx: {fileID: 8300000, guid: 0381f471c456859419d646fc2115ac8d, type: 3}
+--- !u!64 &7263990721381390188
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344397543166100673}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4794046689979297166, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
 --- !u!1 &3597892119145699142
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,9 +122,11 @@ GameObject:
   - component: {fileID: 7901848940757501919}
   - component: {fileID: 8099927295205873055}
   - component: {fileID: 6072942215305820148}
+  - component: {fileID: 6311835243558501113}
+  - component: {fileID: 549972929817162865}
   m_Layer: 0
   m_Name: corn 1
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +172,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -9117483709511198939, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
-  - {fileID: 5087450393288282603, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
+  - {fileID: 2100000, guid: 0f9bb2e6d41bb6f4891d271480ecd622, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -160,6 +193,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6311835243558501113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3597892119145699142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead38618bb359954f949ecb6f39537d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectibleType: 0
+  collectAmount: 4
+  collectSfx: {fileID: 8300000, guid: 0381f471c456859419d646fc2115ac8d, type: 3}
+--- !u!64 &549972929817162865
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3597892119145699142}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6261010607930718013, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
 --- !u!1 &5461422609983286309
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,9 +233,11 @@ GameObject:
   - component: {fileID: 3126490510532989871}
   - component: {fileID: 8886377271075962967}
   - component: {fileID: 4432899724234622595}
+  - component: {fileID: 4473586355420469952}
+  - component: {fileID: 7193540953089004912}
   m_Layer: 0
   m_Name: corn 2
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,7 +283,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -9117483709511198939, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
-  - {fileID: 5087450393288282603, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
+  - {fileID: 2100000, guid: 0f9bb2e6d41bb6f4891d271480ecd622, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -240,6 +304,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4473586355420469952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461422609983286309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead38618bb359954f949ecb6f39537d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectibleType: 0
+  collectAmount: 4
+  collectSfx: {fileID: 8300000, guid: 0381f471c456859419d646fc2115ac8d, type: 3}
+--- !u!64 &7193540953089004912
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461422609983286309}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8498036980510387034, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
 --- !u!1 &7667597688456227751
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,9 +344,11 @@ GameObject:
   - component: {fileID: 1926916751498284290}
   - component: {fileID: 5309268676112471290}
   - component: {fileID: 7860213852773925024}
+  - component: {fileID: 320918552475159676}
+  - component: {fileID: 5339732149773293975}
   m_Layer: 0
   m_Name: corn 3
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,7 +394,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -9117483709511198939, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
-  - {fileID: 5087450393288282603, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
+  - {fileID: 2100000, guid: 0f9bb2e6d41bb6f4891d271480ecd622, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -320,6 +415,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &320918552475159676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7667597688456227751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead38618bb359954f949ecb6f39537d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectibleType: 0
+  collectAmount: 4
+  collectSfx: {fileID: 8300000, guid: 0381f471c456859419d646fc2115ac8d, type: 3}
+--- !u!64 &5339732149773293975
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7667597688456227751}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -125891193643295434, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
 --- !u!1 &8568764528603384085
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +458,7 @@ GameObject:
   - component: {fileID: 3232722930072897513}
   m_Layer: 0
   m_Name: crops_cornStageD
-  m_TagString: Untagged
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,7 +507,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -9117483709511198939, guid: e971a9f9eb3c08745946e144b3d72eec, type: 3}
+  - {fileID: 2100000, guid: 2f3f51574abdc6945a8f9c8798613d42, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

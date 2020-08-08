@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 366648493}
   m_Layer: 0
   m_Name: RearviewCamera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -637,7 +637,6 @@ MonoBehaviour:
   currSpeed: 30
   camera: {fileID: 0}
   currState: 0
-  camera: {fileID: 0}
 --- !u!114 &3054152585756291836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,8 +670,9 @@ MonoBehaviour:
   gui: {fileID: 0}
   swarmVfx: {fileID: 4972344946706402186, guid: c69720dcf4e8d6645a300a6c3d675d45,
     type: 3}
+  reticleEyes: {fileID: 0}
   reticleImage: {fileID: 0}
-  reticleChangeSpeed: 3
+  reticleChangeSpeed: 5
   reticleEnemyColor: {r: 0.8679245, g: 0.38074043, b: 0.38074043, a: 1}
   reticleCollectibleColor: {r: 0.9528302, g: 0.8937759, b: 0.48989856, a: 1}
   vortexCollected: 0

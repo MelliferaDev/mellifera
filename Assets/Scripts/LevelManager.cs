@@ -189,6 +189,7 @@ public class LevelManager : MonoBehaviour
 
     public void StartDDR(GameObject target)
     {
+        Debug.Log("target: " + target);
         ddrTarget = target;
         gamePaused = true;
         uiCanvas.SetActive(false);

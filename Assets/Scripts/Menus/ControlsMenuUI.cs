@@ -14,8 +14,9 @@ namespace Menus
         [SerializeField] private Dropdown speedUpAxisIn;
         [SerializeField] private Dropdown slowDownAxisIn;
         [SerializeField] private Dropdown vortexKeyIn;
-        [SerializeField] private Dropdown danceKeyIn;
+        [SerializeField] private Dropdown stingKeyIn;
         [SerializeField] private Dropdown landFlyKeyIn;
+        [SerializeField] private Dropdown danceKeyIn;
         [Space(20)] 
         [SerializeField] private List<string> axes;
         [SerializeField] private List<KeyCode> keys;
@@ -29,10 +30,12 @@ namespace Menus
             slowDownAxisIn.AddOptions(axes);
             vortexKeyIn.ClearOptions();
             vortexKeyIn.AddOptions(keys.Select(k => k.ToString()).ToList());
-            danceKeyIn.ClearOptions();
-            danceKeyIn.AddOptions(keys.Select(k => k.ToString()).ToList());
+            stingKeyIn.ClearOptions();
+            stingKeyIn.AddOptions(keys.Select(k => k.ToString()).ToList());
             landFlyKeyIn.ClearOptions();
             landFlyKeyIn.AddOptions(keys.Select(k => k.ToString()).ToList());
+            danceKeyIn.ClearOptions();
+            danceKeyIn.AddOptions(keys.Select(k => k.ToString()).ToList());
             
             // pre-populate with default values (TODO: make this variable)
             mSensitivityIn.text = inputManager.mouseSensitivity.ToString("f2");
@@ -40,8 +43,9 @@ namespace Menus
             slowDownAxisIn.value = 1;
             
             vortexKeyIn.value = 2;
-            danceKeyIn.value = 1;
+            stingKeyIn.value = 1;
             landFlyKeyIn.value = 0;
+            danceKeyIn.value = 7;
             
             // setup the ui interaction listeners
             mSensitivityIn.onEndEdit.AddListener(MouseSensitivityInput);
@@ -61,7 +65,7 @@ namespace Menus
                 inputManager.vortexKey = keys[arg0];
             });
             
-            danceKeyIn.onValueChanged.AddListener(delegate(int arg0)
+            stingKeyIn.onValueChanged.AddListener(delegate(int arg0)
             {
                 inputManager.danceKey = keys[arg0];
             });
