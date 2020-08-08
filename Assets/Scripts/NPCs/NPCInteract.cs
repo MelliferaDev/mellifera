@@ -100,9 +100,9 @@ namespace NPCs
             guiSpeak.SetActive(false);
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, interactDist);
         }
     }

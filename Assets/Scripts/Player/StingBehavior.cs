@@ -69,7 +69,7 @@ namespace Enemies
             {
                 FinishSting(1, 1, targetWasp);
             }
-            else
+            else if (targetWasp != null)
             {
                 FindObjectOfType<LevelManager>().StartDDR(targetWasp);
             }
@@ -79,6 +79,11 @@ namespace Enemies
         public void FinishSting(int score, int maxScore, GameObject target)
         {
             LevelManager lm = FindObjectOfType<LevelManager>();
+            EnemyBehaviour targetEB = target.GetComponent<EnemyBehaviour>();
+            if (targetEB == null)
+            {
+                targetEB = target.GetComponentInParent<EnemyBehaviour>();
+            }
 
             stinging = false;
             // killing the wasps can definitely be improved upon
@@ -86,25 +91,26 @@ namespace Enemies
             {
                 Debug.Log("Option1");
                 lm.IncrementHealth(-minDamage);
-                target.GetComponent<EnemyBehaviour>().EnemyDefeated();
+                targetEB.EnemyDefeated();
             }
             else if (score > maxScore * .6)
             {
                 Debug.Log("Option2");
                 lm.IncrementHealth(-averageDamage);
-                target.GetComponent<EnemyBehaviour>().EnemyDefeated();
+                targetEB.EnemyDefeated();
             }
             else if (score > maxScore * .4)
             {
                 Debug.Log("Option3");
                 lm.IncrementHealth(-maxDamage);
-                target.GetComponent<EnemyBehaviour>().EnemyDefeated();
+                targetEB.EnemyDefeated();
             }
             else
             {
                 Debug.Log("Option4");
                 lm.IncrementHealth(-maxDamage);
             }
+            
             stingIndicator.SetActive(false);
             RearviewCameraBehaviour.RequestRearviewOff();
             FindObjectOfType<PlayerControl>().StartBuzzSFX();

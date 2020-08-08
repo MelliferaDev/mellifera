@@ -1,4 +1,5 @@
-﻿using Pickups;
+﻿using System.Dynamic;
+using Pickups;
 using UnityEngine;
 using UnityEngine.UI;
 using Enemies;
@@ -18,7 +19,8 @@ namespace Player
         [SerializeField] private PowerupGUI gui;
         [SerializeField] private GameObject swarmVfx;
 
-        [Header("Waggle Target Reticle Settings")]
+        [Header("Waggle Target Reticle Settings")] 
+        [SerializeField] private Transform reticleEyes;
         [SerializeField] Image reticleImage;
         [SerializeField] float reticleChangeSpeed = 3;
         [SerializeField] Color reticleEnemyColor;
@@ -40,7 +42,8 @@ namespace Player
         {
             curPowerup = PlayerPowerup.None;
             originalReticleColor = reticleImage.color;
-            ReturnToOriginalReticle();
+            reticleImage.gameObject.SetActive(waggleCollected > 0);
+            ReticleEffect();
         }
 
         // Update is called once per frame
@@ -139,6 +142,7 @@ namespace Player
                 if (curTarget.CompareTag("Enemy"))
                 {
                     // This currently just feels like a different version of the free sting...
+                    Debug.Log("here: " + curTarget.name);
                     FindObjectOfType<StingBehavior>().FinishSting(1, 1, curTarget);
                     didDance = true;
                 }
@@ -186,9 +190,9 @@ namespace Player
             {
                 RaycastHit hit;
 
-                if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity))
+                if (Physics.Raycast(reticleEyes.position, reticleEyes.forward, out hit))
                 {
-
+                    
                     if (hit.collider.CompareTag("Enemy"))
                     {
                         reticleImage.color = Color.Lerp(reticleImage.color, reticleEnemyColor, Time.deltaTime * reticleChangeSpeed);
@@ -203,6 +207,11 @@ namespace Player
                     }
                     else if (hit.collider.CompareTag("Collectible"))
                     {
+                        if(GetCBFromCollider(hit.collider, out CollectibleBehavior cb))
+                        {
+                            if (cb.collectibleType == CollectibleType.Health) return;
+                        }
+                        
                         reticleImage.color = Color.Lerp(reticleImage.color, reticleCollectibleColor, Time.deltaTime * reticleChangeSpeed);
 
                         Quaternion targetRotation = Quaternion.AngleAxis(45f, Vector3.forward);
@@ -228,6 +237,27 @@ namespace Player
             reticleImage.transform.localScale = Vector3.Lerp(reticleImage.transform.localScale, Vector3.one, Time.deltaTime * reticleChangeSpeed);
             reticleImage.transform.rotation = Quaternion.Lerp(reticleImage.transform.rotation, Quaternion.AngleAxis(0f, Vector3.forward), Time.deltaTime * reticleChangeSpeed);
             curTarget = null;
+        }
+
+        private bool GetCBFromCollider(Collider col, out CollectibleBehavior cb)
+        {
+            cb = col.GetComponent<CollectibleBehavior>();
+            if (cb == null)
+                cb = col.GetComponentInChildren<CollectibleBehavior>();
+            else 
+                return true;
+
+            if (cb == null)
+                cb = col.GetComponentInParent<CollectibleBehavior>();
+            else 
+                return true;
+            
+            if (cb != null) 
+                return true;
+            
+            Debug.LogWarning("Objected tagged as Collectible w/o CollectibleBehaviour attached");
+            return false;
+
         }
     }
 

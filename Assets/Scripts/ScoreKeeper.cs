@@ -41,7 +41,6 @@ public class ScoreKeeper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Previous score: " + previousScore);
         if (scoreText == null)
         {
             scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Text>();

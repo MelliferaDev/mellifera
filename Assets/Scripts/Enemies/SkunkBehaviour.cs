@@ -16,8 +16,10 @@ namespace Enemies
         [SerializeField] private float maxDistToAttack = 10f;
         [SerializeField] private float minDistToAttack = 5f;
         [SerializeField] private Transform[] patrolPoints;
+        [SerializeField] private float patrolStoppingDist;
         [Header("Projectile")]
         [SerializeField] private float shootRate = 2; // shoot every x seconds
+        [SerializeField] private float projectileSpeed = -1; // if negative, speed will be prefab's default
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private GameObject projectilesParent;
         [SerializeField] private GameObject projectileSpawn;
@@ -106,11 +108,13 @@ namespace Enemies
         public override void UpdatePatrolState()
         {
             agent.speed = enemySpeed;
-            agent.stoppingDistance = minDistToAttack + 5;
-            bool x = agent.isStopped;
-            if (Vector3.Distance(transform.position, nextPoint) <= minDistToAttack - Mathf.Epsilon)
+            agent.stoppingDistance = patrolStoppingDist;
+
+            float dist = Utils.Distance2D(transform.position, nextPoint);
+            if (Utils.Distance2D(transform.position, nextPoint) <= patrolStoppingDist)
             {
                 FindNextPoint();
+                agent.velocity = Vector3.zero;
                 agent.SetDestination(nextPoint);
             }
 
@@ -185,9 +189,15 @@ namespace Enemies
             GameObject proj = Instantiate(projectilePrefab,
                 projectileSpawn.transform.position, projectileSpawn.transform.rotation);
             proj.transform.parent = projectilesParent.transform;
+
+            if (projectileSpeed > 0)
+            {
+                ProjectileMover mover = proj.GetComponent<ProjectileMover>();
+                mover.speed = projectileSpeed;
+            }
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
             Vector3 position = transform.position;
@@ -196,12 +206,14 @@ namespace Enemies
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(position, maxDistToAttack);
             
-            if (patrolPoints.Length >= 2)
+            Gizmos.color = Color.grey;
+            Gizmos.DrawWireSphere(position, patrolStoppingDist);
+            if (patrolPoints.Length >= 2 && patrolPoints[0] != null && patrolPoints[1] != null)
             {
-                Gizmos.color = Color.grey;
                 Gizmos.DrawSphere(patrolPoints[0].position, 2.5f);
                 Gizmos.DrawSphere(patrolPoints[1].position, 2.5f);
             }
+            Gizmos.DrawLine(position, nextPoint);
 
             Gizmos.color = Color.black;
             Gizmos.DrawSphere(pointA, 3f);
