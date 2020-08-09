@@ -51,10 +51,15 @@ MonoBehaviour:
   pollenCollected: 0
   currentHealth: 0
   nextLevel: 
+  startPaused: 0
+  advanceReadySfx: {fileID: 8300000, guid: 180cb50b84604b44bb85498826c63dd8, type: 3}
   pollenSlider: {fileID: 0}
   healthSlider: {fileID: 0}
   nextLevelUI: {fileID: 0}
   nextLevelGraphics: {fileID: 0}
+  reloadLevelUI: {fileID: 0}
+  ddrCanvas: {fileID: 0}
+  uiCanvas: {fileID: 0}
   usingUI: 1
 --- !u!114 &108964482881229148
 MonoBehaviour:
@@ -71,6 +76,9 @@ MonoBehaviour:
   mouseSensitivity: 1
   speedUpAxis: Fire1
   slowDownAxis: Fire2
-  powerupKey: 101
+  vortexKey: 101
+  danceKey: 119
+  stingKey: 113
   landFlyKey: 32
+  talkKey: 114
   pauseKey: 112

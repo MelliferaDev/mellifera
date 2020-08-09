@@ -2926,6 +2926,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3580419818613373932, guid: de9d004ace95c9c45ba7fbe681138081,
+        type: 3}
+      propertyPath: inputManager
+      value: 
+      objectReference: {fileID: 1371411641}
     - target: {fileID: 3580419818691307084, guid: de9d004ace95c9c45ba7fbe681138081,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -11873,6 +11878,18 @@ MonoBehaviour:
   landFlyKey: 32
   talkKey: 114
   pauseKey: 112
+--- !u!114 &1371411641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 108964482881229148, guid: 0881450cbb9b30046b0b503969b0720a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5962279021685710573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371411639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751836c900674eafbc378d417b7de007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1377135261
 GameObject:
   m_ObjectHideFlags: 0
@@ -18788,7 +18805,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7259016306015159417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cb2499f23884b8ab39a710fae8c565e, type: 3}
   m_Name: 
@@ -19148,7 +19165,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7259016306015159417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9df3b062b09e7b84eadd6c32109888cd, type: 3}
   m_Name: 
@@ -19157,6 +19174,7 @@ MonoBehaviour:
   waggleDanceDuration: 3
   gui: {fileID: 0}
   swarmVfx: {fileID: 0}
+  reticleEyes: {fileID: 0}
   reticleImage: {fileID: 0}
   reticleChangeSpeed: 3
   reticleEnemyColor: {r: 0, g: 0, b: 0, a: 0}

@@ -21,6 +21,9 @@ namespace NPCs
         private InputManager input;
 
         private bool requested;
+
+        private float currInteractDist;
+        
         private void Start()
         {
             fsm = GetComponent<NPCBehaviour>();
@@ -32,6 +35,7 @@ namespace NPCs
                 guiSpeak = GameObject.FindGameObjectWithTag("Interact Speech");
             }
 
+            currInteractDist = interactDist;
             requested = false;
         }
 
@@ -41,7 +45,7 @@ namespace NPCs
             {
                 // probably some redundancy here but ¯\_(ツ)_/¯
                 if (interacting && requested && input.GetNPCTalkBtnClicked())
-                {
+                { 
                     DeactivateTalk();
                 }
 
@@ -49,7 +53,7 @@ namespace NPCs
             }
 
             float dist = Vector3.Distance(transform.position, player.transform.position);
-            if (dist <= interactDist)
+            if (dist <= currInteractDist)
             {
                 if (!requested)
                 {
@@ -74,24 +78,31 @@ namespace NPCs
         private void ActivateTalk()
         {
             fsm.currState = NPCState.Interacting;
-            player.transform.LookAt(transform);
+            // player.transform.LookAt(transform);
             transform.position = (player.position 
-                                  + (player.forward * interactDist)
-                                  + (player.up * interactYOffset)) ; 
+                                  + player.forward * (2 * interactDist)
+                                  + player.up * (2 * interactYOffset));
+            currInteractDist = 2 * interactDist;
             transform.LookAt(player.transform);
-            
-            LevelManager.gamePaused = true;
-            interacting = true;
             
             guiSpeak.SetActive(true);
             TMP_Text text = guiSpeak.GetComponentInChildren<TMP_Text>();
             
             int rIdx = Random.Range(0, NPCLines.NPC_LINES.Count - 1);
             text.text = NPCLines.NPC_LINES[rIdx];
+            
+            Invoke(nameof(Pause), 0.5f);
+        }
+
+        private void Pause()
+        {
+            LevelManager.gamePaused = true;
+            interacting = true;
         }
 
         private void DeactivateTalk()
         {
+            currInteractDist = interactDist;
             fsm.currState = NPCState.Flying;
             
             LevelManager.gamePaused = false;

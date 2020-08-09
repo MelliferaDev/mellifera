@@ -8824,6 +8824,11 @@ PrefabInstance:
       propertyPath: stingIndicator
       value: 
       objectReference: {fileID: 612140010}
+    - target: {fileID: 4430353805182034230, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: camera
@@ -8968,7 +8973,7 @@ PrefabInstance:
     - target: {fileID: 5183457271393654471, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
       propertyPath: interactDist
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6350798751523901730, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
@@ -16435,6 +16440,11 @@ PrefabInstance:
       propertyPath: guiSpeak
       value: 
       objectReference: {fileID: 40720786}
+    - target: {fileID: 5183457271393654471, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
+        type: 3}
+      propertyPath: interactDist
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6350798751523901730, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17798,6 +17808,11 @@ PrefabInstance:
       propertyPath: guiSpeak
       value: 
       objectReference: {fileID: 40720786}
+    - target: {fileID: 5183457271393654471, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
+        type: 3}
+      propertyPath: interactDist
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6350798751523901730, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20465,7 +20480,7 @@ PrefabInstance:
     - target: {fileID: 5183457271393654471, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
       propertyPath: interactDist
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6350798751523901730, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
@@ -24105,7 +24120,7 @@ PrefabInstance:
     - target: {fileID: 5183457271393654471, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
       propertyPath: interactDist
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6350798751523901730, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
@@ -26171,6 +26186,11 @@ PrefabInstance:
       propertyPath: guiSpeak
       value: 
       objectReference: {fileID: 40720786}
+    - target: {fileID: 5183457271393654471, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
+        type: 3}
+      propertyPath: interactDist
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6350798751523901730, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27759,6 +27779,11 @@ PrefabInstance:
       propertyPath: guiSpeak
       value: 
       objectReference: {fileID: 40720786}
+    - target: {fileID: 5183457271393654471, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
+        type: 3}
+      propertyPath: interactDist
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6350798751523901730, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38953,6 +38978,11 @@ PrefabInstance:
       propertyPath: guiSpeak
       value: 
       objectReference: {fileID: 40720786}
+    - target: {fileID: 5183457271393654471, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
+        type: 3}
+      propertyPath: interactDist
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6350798751523901730, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41647,6 +41677,11 @@ PrefabInstance:
       propertyPath: guiSpeak
       value: 
       objectReference: {fileID: 40720786}
+    - target: {fileID: 5183457271393654471, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
+        type: 3}
+      propertyPath: interactDist
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6350798751523901730, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53308,6 +53343,11 @@ PrefabInstance:
       propertyPath: guiSpeak
       value: 
       objectReference: {fileID: 40720786}
+    - target: {fileID: 5183457271393654471, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
+        type: 3}
+      propertyPath: interactDist
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6350798751523901730, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53499,6 +53539,11 @@ PrefabInstance:
       propertyPath: guiSpeak
       value: 
       objectReference: {fileID: 40720786}
+    - target: {fileID: 5183457271393654471, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
+        type: 3}
+      propertyPath: interactDist
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6350798751523901730, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -63083,6 +63128,11 @@ PrefabInstance:
       propertyPath: guiSpeak
       value: 
       objectReference: {fileID: 40720786}
+    - target: {fileID: 5183457271393654471, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
+        type: 3}
+      propertyPath: interactDist
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 6350798751523901730, guid: 29d21f7b8106f754fa7a2a8eacfa5c10,
         type: 3}
       propertyPath: m_LocalPosition.x

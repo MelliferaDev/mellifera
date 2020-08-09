@@ -35,10 +35,10 @@ namespace Player
         
         void Update()
         {
-            if (!synced)
+            if (!synced || LevelManager.gamePaused)
             {
                 Follow();
-            }
+            } 
         }
 
         public void Follow()

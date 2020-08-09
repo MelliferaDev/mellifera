@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Pesticide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &7585250100071950046
 Transform:
@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6854303947895477453}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 76.69, y: 19.01, z: 40}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.98, y: 0, z: 0}
 --- !u!33 &1449946290246376680
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -96,7 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 6702719563258607702, guid: 0b30824a5ccad3341946aa22896763b4,
     type: 3}
-  playerDamage: -5
+  pesticideAmount: -5
+  collectSfx: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
 --- !u!64 &3541130178693586377
 MeshCollider:
   m_ObjectHideFlags: 0
