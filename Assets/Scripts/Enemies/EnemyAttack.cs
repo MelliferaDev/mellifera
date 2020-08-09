@@ -22,7 +22,6 @@ namespace Enemies
             eb = GetComponent<EnemyBehaviour>();
             hm = FindObjectOfType<HiveManager>();
             ebFound = eb != null;
-            Debug.Log(ebFound);
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -37,7 +36,6 @@ namespace Enemies
 
         public void RegisterHit(Collider hit)
         {
-            Debug.Log("Collision detecteD");
             GameObject other = hit.gameObject;
             if (other.CompareTag("Player"))
             {
@@ -52,7 +50,6 @@ namespace Enemies
 
             else if (other.CompareTag("Hive"))
             {
-                Debug.Log("Hit the hive");
                 if (ebFound)
                     eb.ApplySelfDamage(recoilDamage);
 

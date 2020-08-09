@@ -65,7 +65,6 @@ namespace Enemies
 
         protected void FaceTargetReverse(Vector3 target, bool forceGrounded=true)
         {
-            Debug.Log(target);
             Vector3 dirTarget = (target - transform.position).normalized;
             dirTarget *= -1;
             

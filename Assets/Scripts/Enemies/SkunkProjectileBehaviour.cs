@@ -13,9 +13,10 @@ namespace Enemies
         
         private void Start()
         {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
+            //player = GameObject.FindGameObjectWithTag("Player").transform;
             damage = GetComponent<EnemyAttack>();
             RearviewCameraBehaviour.RequestRearviewOn();
+            Debug.Log(player);
         }
 
         private void Update()
@@ -29,6 +30,14 @@ namespace Enemies
 
         private void OnDestroy()
         {
+            RearviewCameraBehaviour.RequestRearviewOff();
+        }
+
+        public void SetTarget(Transform target)
+        {
+            Debug.Log(target);
+            player = target;
+            Debug.Log("Target aquired");
             RearviewCameraBehaviour.RequestRearviewOff();
         }
     }

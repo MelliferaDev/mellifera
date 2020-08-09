@@ -146,7 +146,6 @@ namespace Enemies
 
         private void UpdateAttackState()
         {
-            Debug.Log("attack hive: " + attackHive);
             if (!attackHive)
             {
                 FaceTargetReverse(player.transform.position);
@@ -158,13 +157,11 @@ namespace Enemies
             if (!attackHive && distToPlayer < minDistToAttack || !attackHive && distToPlayer > maxDistToAttack)
             {
                 currState = SkunkState.Disengaging;
-                Debug.Log("Here" + player.transform.position);
                 disengageTimer = Time.time;
             }
 
             if (attackHive && distToHive < minDistToAttack || attackHive && distToHive > maxDistToAttack)
             {
-                Debug.Log("Shouldnt be here");
                 currState = SkunkState.Disengaging;
                 
                 disengageTimer = Time.time;
@@ -207,8 +204,17 @@ namespace Enemies
         {
             if (Time.time - lastTimeShot > shootRate)
             {
+                Debug.Log("Attacking enemy:  " + attackHive);
                 GameObject proj = Instantiate(projectilePrefab,
                     projectileSpawn.transform.position, projectileSpawn.transform.rotation);
+                if (attackHive)
+                {
+                    proj.GetComponent<SkunkProjectileBehaviour>().SetTarget(hive.transform);
+                }
+                else
+                {
+                    proj.GetComponent<SkunkProjectileBehaviour>().SetTarget(player.transform);
+                }
                 proj.transform.parent = projectilesParent.transform;
                 
                 lastTimeShot = Time.time;
