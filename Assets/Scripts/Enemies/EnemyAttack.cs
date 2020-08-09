@@ -12,6 +12,7 @@ namespace Enemies
         // Start is called before the first frame update
     
         private LevelManager lm;
+        private HiveManager hm;
         private EnemyBehaviour eb;
         private bool ebFound;
 
@@ -19,7 +20,9 @@ namespace Enemies
         {
             lm = FindObjectOfType<LevelManager>();
             eb = GetComponent<EnemyBehaviour>();
+            hm = FindObjectOfType<HiveManager>();
             ebFound = eb != null;
+            Debug.Log(ebFound);
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -34,6 +37,7 @@ namespace Enemies
 
         public void RegisterHit(Collider hit)
         {
+            Debug.Log("Collision detecteD");
             GameObject other = hit.gameObject;
             if (other.CompareTag("Player"))
             {
@@ -44,6 +48,15 @@ namespace Enemies
                 lm.CollectPollen(pollenLoss); //decreases pollen by passing in a negative
 
                 if (hitSfx != null) AudioSource.PlayClipAtPoint(hitSfx, other.transform.position);
+            }
+
+            else if (other.CompareTag("Hive"))
+            {
+                Debug.Log("Hit the hive");
+                if (ebFound)
+                    eb.ApplySelfDamage(recoilDamage);
+
+                hm.IncrementHealth(playerDamage);
             }
         }
         

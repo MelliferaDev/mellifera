@@ -24,6 +24,8 @@ namespace Enemies
         private Rigidbody rb;
         Animator anim;
         private static readonly int AnimState = Animator.StringToHash("animState");
+
+        private bool attackHive;
         
         protected override void Start()
         {
@@ -72,6 +74,11 @@ namespace Enemies
                 currState = WaspFlyingState.Attacking;
             }
 
+            if (distToHive <= minDistance)
+            {
+                currState = WaspFlyingState.Attacking;
+            }
+
             
             FaceTarget(nextPoint, false);
             transform.position = Vector3.MoveTowards(transform.position, nextPoint, patrolSpeed * Time.deltaTime);
@@ -84,23 +91,38 @@ namespace Enemies
         {
             float step = Time.deltaTime * (attackSpeed);
 
-            if (distToPlayer > minDistance)
+            if (distToPlayer > minDistance && distToHive > minDistance)
             {
                 RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
                 currState = WaspFlyingState.Patrolling;
             }
             
             anim.SetInteger(AnimState, 1);
-            transform.LookAt(player.transform);
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
+            if (distToPlayer <= minDistance)
+            {
+                transform.LookAt(player.transform);
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
+                attackHive = false;
+            }
+            else
+            {
+                transform.LookAt(hive.transform);
+                transform.position = Vector3.MoveTowards(transform.position, hive.transform.position, step);
+                attackHive = true;
+            }
         }
 
         private void UpdateRecoilState()
         {
             float step = Time.deltaTime * recoilRecoverySpeed;
-            
+
             // AttackRecoil() applied the recoil, this is actually
             // recovering from said recoil
+            if (attackHive)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, hive.transform.position, -1 * step);
+            }
+            
             rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, step);
         }
         

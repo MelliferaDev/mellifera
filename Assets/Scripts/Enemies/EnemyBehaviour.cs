@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,11 +17,17 @@ namespace Enemies
         protected Vector3 nextPoint;
         
         protected GameObject player;
+        protected GameObject hive;
         protected float distToPlayer;
+        protected float distToHive;
 
         protected virtual void Start()
         {
-            player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null)
+            {
+                player = GameObject.FindGameObjectWithTag("Player");
+            }
+            hive = GameObject.FindGameObjectWithTag("Hive");
             
             Vector3 position = transform.position;
             
@@ -34,6 +41,15 @@ namespace Enemies
         protected virtual void Update()
         {
             distToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            if (hive != null)
+            {
+                distToHive = Vector3.Distance(transform.position, hive.transform.position);
+            }
+            else
+            {
+                // this is the definition of bad coding practices
+                distToHive = 10000000;
+            }
         }
 
 
@@ -49,6 +65,7 @@ namespace Enemies
 
         protected void FaceTargetReverse(Vector3 target, bool forceGrounded=true)
         {
+            Debug.Log(target);
             Vector3 dirTarget = (target - transform.position).normalized;
             dirTarget *= -1;
             

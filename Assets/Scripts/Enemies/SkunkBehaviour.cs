@@ -5,6 +5,7 @@ namespace Enemies
 {
     /// <summary>
     /// Skunks patrol just like wasps, but they do not follow the player, instead they will shoot projectiles at them.
+    /// Skunks patrol just like wasps, but they do not follow the player, instead they will shoot projectiles at them.
     /// Because they are very big, they won't shoot if the player is really close to them.
     /// (maybe touching the skunk does damage to the wasp as well?)
     /// </summary>
@@ -32,6 +33,8 @@ namespace Enemies
         private float lastTimeShot;
         private float disengageTimer;
         private static readonly int SkunkMovement = Animator.StringToHash("skunkMovement");
+
+        private bool attackHive;
 
         private EnemySight sight;
 
@@ -117,13 +120,19 @@ namespace Enemies
                 agent.velocity = Vector3.zero;
                 agent.SetDestination(nextPoint);
             }
-
-            if (distToPlayer >= minDistToAttack && distToPlayer <= maxDistToAttack && sight.InFOV(player.transform))
+            if (distToPlayer >= minDistToAttack && distToPlayer <= maxDistToAttack && sight.InFOV(player.transform, "Player"))
             {
                 lastTimeShot = Time.time - shootRate - 0.1f;
+                attackHive = false;
                 currState = SkunkState.Attacking;
             }
-            
+            else if (hive != null && distToHive >= minDistToAttack && distToHive <= maxDistToAttack && sight.InFOV(hive.transform, "Hive"))
+            {
+                lastTimeShot = Time.time - shootRate - 0.1f;
+                attackHive = true;
+                currState = SkunkState.Attacking;
+            }
+
             guiObject.SetActive(false);
             
             FaceTarget(nextPoint);
@@ -137,9 +146,27 @@ namespace Enemies
 
         private void UpdateAttackState()
         {
-            if (distToPlayer < minDistToAttack || distToPlayer > maxDistToAttack)
+            Debug.Log("attack hive: " + attackHive);
+            if (!attackHive)
+            {
+                FaceTargetReverse(player.transform.position);
+            }
+            else
+            {
+                FaceTargetReverse(hive.transform.position);
+            }
+            if (!attackHive && distToPlayer < minDistToAttack || !attackHive && distToPlayer > maxDistToAttack)
             {
                 currState = SkunkState.Disengaging;
+                Debug.Log("Here" + player.transform.position);
+                disengageTimer = Time.time;
+            }
+
+            if (attackHive && distToHive < minDistToAttack || attackHive && distToHive > maxDistToAttack)
+            {
+                Debug.Log("Shouldnt be here");
+                currState = SkunkState.Disengaging;
+                
                 disengageTimer = Time.time;
             }
 
@@ -147,7 +174,7 @@ namespace Enemies
 
             guiObject.SetActive(true);
     
-            FaceTargetReverse(player.transform.position);
+            
             anim.SetInteger(SkunkMovement, 2); // attack
             EnemyAttack();
         }
@@ -163,11 +190,15 @@ namespace Enemies
                 currState = SkunkState.Patrolling;
             } 
         
-            if (distToPlayer >= minDistToAttack && distToPlayer <= maxDistToAttack)
+            if (!attackHive && distToPlayer >= minDistToAttack && distToPlayer <= maxDistToAttack)
             {
                 currState = SkunkState.Attacking;
             }
-            
+            if (attackHive && distToHive >= minDistToAttack && distToHive <= maxDistToAttack)
+            {
+                currState = SkunkState.Attacking;
+            }
+
             guiObject.SetActive(false);
         }
     

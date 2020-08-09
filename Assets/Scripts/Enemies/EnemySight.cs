@@ -14,7 +14,7 @@ public class EnemySight : MonoBehaviour
         }
     }
 
-    public bool InFOV(Transform target)
+    public bool InFOV(Transform target, string tag)
     {
         Vector3 dirToTarget = target.transform.position - eyes.position;
 
@@ -22,7 +22,7 @@ public class EnemySight : MonoBehaviour
         {
             if (Physics.Raycast(eyes.position, dirToTarget, out RaycastHit hit, fovDist))
             {
-                if (hit.collider.CompareTag("Player"))
+                if (hit.collider.CompareTag(tag))
                 {
                     return true;
                 }

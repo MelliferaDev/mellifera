@@ -28,6 +28,7 @@ TagManager:
   - Interact Indicator
   - ScoreText
   - ParticleCatcher
+  - Hive
   layers:
   - Default
   - TransparentFX
