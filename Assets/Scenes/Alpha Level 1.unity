@@ -2198,7 +2198,7 @@ Transform:
   - {fileID: 1103665983}
   - {fileID: 1287748886}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &83157356
 GameObject:
@@ -4290,36 +4290,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 175705433}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &189517098
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 189517099}
-  m_Layer: 0
-  m_Name: BirdPatrolCenter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &189517099
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189517098}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 132.7, y: 170.6, z: 6}
-  m_LocalScale: {x: 10, y: 10, z: 10}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &190757717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11704,7 +11674,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &402374186
 PrefabInstance:
@@ -39528,7 +39498,7 @@ Transform:
   - {fileID: 2039721010}
   - {fileID: 2026332567}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1325711057
 PrefabInstance:
@@ -51015,7 +50985,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1769134429
 PrefabInstance:
@@ -56011,7 +55981,7 @@ PrefabInstance:
     - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
         type: 3}

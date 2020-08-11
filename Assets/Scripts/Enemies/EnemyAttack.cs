@@ -22,6 +22,14 @@ namespace Enemies
             eb = GetComponent<EnemyBehaviour>();
             hm = FindObjectOfType<HiveManager>();
             ebFound = eb != null;
+            
+            if (!ebFound)
+            {
+                eb = GetComponentInParent<EnemyBehaviour>();
+                ebFound = eb != null;
+            }
+            
+            Debug.Log("ebFound: " + (ebFound? "T" : "F"));
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -37,10 +45,13 @@ namespace Enemies
         public void RegisterHit(Collider hit)
         {
             GameObject other = hit.gameObject;
+            
+            Debug.Log(gameObject.name + " hit " +  other.name );
+
             if (other.CompareTag("Player"))
             {
                 if (ebFound)
-                    eb.ApplySelfDamage(recoilDamage);
+                    eb.ApplyDamage(recoilDamage);
 
                 lm.IncrementHealth(playerDamage); //decreases health by passing in a negative
                 lm.CollectPollen(pollenLoss); //decreases pollen by passing in a negative
@@ -51,7 +62,7 @@ namespace Enemies
             else if (other.CompareTag("Hive"))
             {
                 if (ebFound)
-                    eb.ApplySelfDamage(recoilDamage);
+                    eb.ApplyDamage(recoilDamage);
 
                 hm.IncrementHealth(playerDamage);
             }

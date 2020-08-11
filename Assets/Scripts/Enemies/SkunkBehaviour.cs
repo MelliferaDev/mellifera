@@ -49,12 +49,9 @@ namespace Enemies
                 pointB = patrolPoints[1].position;
                 nextPoint = pointA;
                 agent.SetDestination(nextPoint);
-
             }
-            
-            
-            guiObject.SetActive(false);
 
+            guiObject.SetActive(false);
 
             lastTimeShot = Time.time;
             disengageTimer = Time.time;
@@ -96,7 +93,7 @@ namespace Enemies
             }
         }
         
-        public override void ApplySelfDamage(float damage) {return;}
+        public override void ApplyDamage(float damage) {return;}
 
         //Defeated
         public override void EnemyDefeated()
@@ -120,15 +117,22 @@ namespace Enemies
                 agent.velocity = Vector3.zero;
                 agent.SetDestination(nextPoint);
             }
-            if (distToPlayer >= minDistToAttack && distToPlayer <= maxDistToAttack && sight.InFOV(player.transform, "Player"))
+            if (distToPlayer >= minDistToAttack && distToPlayer <= maxDistToAttack 
+                && sight.InFOV(player.transform, "Player"))
             {
+                // Player is in attacking radius
                 lastTimeShot = Time.time - shootRate - 0.1f;
                 attackHive = false;
                 currState = SkunkState.Attacking;
             }
-            else if (hive != null && distToHive >= minDistToAttack && distToHive <= maxDistToAttack && sight.InFOV(hive.transform, "Hive"))
+            else if (hiveFound 
+                     && distToHive >= minDistToAttack && distToHive <= maxDistToAttack 
+                     && sight.InFOV(hive.transform, "Hive") 
+                     && (Time.time - hiveAttackTimer) >= hiveAttackCooldown)
             {
+                // Hive is in attacking radius and hiveAttack has cooled down
                 lastTimeShot = Time.time - shootRate - 0.1f;
+                hiveAttackTimer = Time.time;
                 attackHive = true;
                 currState = SkunkState.Attacking;
             }
@@ -138,12 +142,12 @@ namespace Enemies
             FaceTarget(nextPoint);
             anim.SetInteger(SkunkMovement, 4); // walking
         }
-
-
+        
 
         ///////////////////////////////////////////////
         //// Attacking State //////////////////////////
-
+        
+        
         private void UpdateAttackState()
         {
             if (!attackHive)
@@ -154,24 +158,25 @@ namespace Enemies
             {
                 FaceTargetReverse(hive.transform.position);
             }
-            if (!attackHive && distToPlayer < minDistToAttack || !attackHive && distToPlayer > maxDistToAttack)
+            if (!attackHive && distToPlayer < minDistToAttack || 
+                !attackHive && distToPlayer > maxDistToAttack)
             {
+                // Player was being attacked but is out of the radius
                 currState = SkunkState.Disengaging;
                 disengageTimer = Time.time;
             }
 
-            if (attackHive && distToHive < minDistToAttack || attackHive && distToHive > maxDistToAttack)
+            if (attackHive && distToHive < minDistToAttack || 
+                attackHive && distToHive > maxDistToAttack)
             {
+                // Hive was being attacked but is out of radius
                 currState = SkunkState.Disengaging;
-                
                 disengageTimer = Time.time;
             }
 
             agent.speed = 0;
-
             guiObject.SetActive(true);
-    
-            
+
             anim.SetInteger(SkunkMovement, 2); // attack
             EnemyAttack();
         }
@@ -187,12 +192,18 @@ namespace Enemies
                 currState = SkunkState.Patrolling;
             } 
         
-            if (!attackHive && distToPlayer >= minDistToAttack && distToPlayer <= maxDistToAttack)
+            if (!attackHive && distToPlayer >= minDistToAttack 
+                            && distToPlayer <= maxDistToAttack)
             {
+                // Disengaging from player, but player has returned to attacking radius
                 currState = SkunkState.Attacking;
             }
-            if (attackHive && distToHive >= minDistToAttack && distToHive <= maxDistToAttack)
+            if (attackHive 
+                && distToHive >= minDistToAttack 
+                && distToHive <= maxDistToAttack
+                && (Time.time - hiveAttackTimer) >= hiveAttackCooldown)
             {
+                // Disengaging from hive, but hive has returned to attacking radius and cooldown isn't in effect
                 currState = SkunkState.Attacking;
             }
 
@@ -209,6 +220,10 @@ namespace Enemies
                 if (attackHive)
                 {
                     proj.GetComponent<SkunkProjectileBehaviour>().SetTarget(hive.transform);
+                    // cooldown hive attacks
+                    disengageTimer = Time.time;
+                    currState = SkunkState.Disengaging;
+                    
                 }
                 else
                 {
@@ -219,19 +234,7 @@ namespace Enemies
                 lastTimeShot = Time.time;
             }
         }
-    
-        void ProjectileInstantiate()
-        {
-            GameObject proj = Instantiate(projectilePrefab,
-                projectileSpawn.transform.position, projectileSpawn.transform.rotation);
-            proj.transform.parent = projectilesParent.transform;
-
-            if (projectileSpeed > 0)
-            {
-                ProjectileMover mover = proj.GetComponent<ProjectileMover>();
-                mover.speed = projectileSpeed;
-            }
-        }
+        
 
         private void OnDrawGizmosSelected()
         {
