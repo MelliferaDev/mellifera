@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Beta Level 2.5.unity
     guid: 44debaf0b6a335244b60725d2920583e
+  - enabled: 1
+    path: Assets/Scenes/Gold Level 3.unity
+    guid: b21b27d209d2285438418bbe3221ab33
   m_configObjects: {}
