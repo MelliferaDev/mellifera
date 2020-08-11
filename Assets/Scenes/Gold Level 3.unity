@@ -2250,6 +2250,11 @@ PrefabInstance:
       propertyPath: nextLevelGraphics
       value: 
       objectReference: {fileID: 2099072496}
+    - target: {fileID: 5962279020735602768, guid: 0881450cbb9b30046b0b503969b0720a,
+        type: 3}
+      propertyPath: nextLevel
+      value: ExitCutScene
+      objectReference: {fileID: 0}
     - target: {fileID: 5962279020735602769, guid: 0881450cbb9b30046b0b503969b0720a,
         type: 3}
       propertyPath: m_Name
@@ -5831,6 +5836,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1549937866, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.020996094
+      objectReference: {fileID: 0}
     - target: {fileID: 2125279375, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5838,6 +5847,16 @@ PrefabInstance:
     - target: {fileID: 2125279375, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResetNextLevelUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278569196026782198, guid: fe64349b000855d4e8847e56dd6b4947,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -14.289978
+      objectReference: {fileID: 0}
+    - target: {fileID: 2278569196026782198, guid: fe64349b000855d4e8847e56dd6b4947,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9.610001
       objectReference: {fileID: 0}
     - target: {fileID: 3028987242143612113, guid: fe64349b000855d4e8847e56dd6b4947,
         type: 3}
