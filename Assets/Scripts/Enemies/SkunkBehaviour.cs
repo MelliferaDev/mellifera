@@ -204,7 +204,6 @@ namespace Enemies
         {
             if (Time.time - lastTimeShot > shootRate)
             {
-                Debug.Log("Attacking enemy:  " + attackHive);
                 GameObject proj = Instantiate(projectilePrefab,
                     projectileSpawn.transform.position, projectileSpawn.transform.rotation);
                 if (attackHive)

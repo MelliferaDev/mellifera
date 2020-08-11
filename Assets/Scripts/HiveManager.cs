@@ -29,8 +29,8 @@ public class HiveManager : MonoBehaviour
     public void IncrementHealth(int amount)
     {
         currentHealth += amount;
-        healthSlider.value = (currentHealth / (1.0f * maxHealth)) * 100;
-
+        healthSlider.value = currentHealth;
+        
         if (currentHealth <= 0)
         {
             LevelManager.gamePaused = true;
