@@ -185,6 +185,7 @@ public class LevelManager : MonoBehaviour
         {
             if (nextLevel == "ExitCutScene")
             {
+                EndGame.isGameOver = true;
                 FindObjectOfType<EndGame>().SetWinScreen();
             }
 

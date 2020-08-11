@@ -11,41 +11,51 @@ public class EndGame : MonoBehaviour
     public GameObject winScreen;
     public GameObject loseScreen;
 
+    public static bool isGameOver = false;
+
     int currentScore;
     int storedScore;
     bool didWin = false;
     void Start()
     {
+        if(isGameOver)
+        {
         ScoreKeeper sk = FindObjectOfType<ScoreKeeper>();
         currentScore = sk.GetTotalScore();
 
         storedScore = PlayerPrefs.GetInt("highScore", 0);
+        
+            if (didWin)
+            {
+                winScreen.SetActive(true);
+                loseScreen.SetActive(false);
+            }
+            else
+            {
+                winScreen.SetActive(false);
+                loseScreen.SetActive(true);
+            }
 
-        if(didWin)
-        {
-            winScreen.SetActive(true);
-            loseScreen.SetActive(false);
-        }
-        else
-        {
-            winScreen.SetActive(false);
-            loseScreen.SetActive(true);
         }
     }
 
     void Update()
     {
-        if (currentScoreText == null)
+        if(isGameOver)
         {
-            currentScoreText = GameObject.FindGameObjectWithTag("CurrentScoreText").GetComponent<Text>();
-        }
-        if (highScoreText == null)
-        {
-            highScoreText = GameObject.FindGameObjectWithTag("HighScoreText").GetComponent<Text>();
+            if (currentScoreText == null)
+            {
+                currentScoreText = GameObject.FindGameObjectWithTag("CurrentScoreText").GetComponent<Text>();
+            }
+            if (highScoreText == null)
+            {
+                highScoreText = GameObject.FindGameObjectWithTag("HighScoreText").GetComponent<Text>();
+            }
+
+            SetHighScore();
+            SetScoreText();
         }
 
-        SetHighScore();
-        SetScoreText();
     }
 
     void SetHighScore()
