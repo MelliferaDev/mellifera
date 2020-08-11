@@ -7,6 +7,7 @@ namespace Enemies
         [SerializeField] private AudioClip hitSfx;
 
         public int playerDamage = -5;
+        public int hiveDamage = -10;
         public int pollenLoss = -5;
         public float recoilDamage = 0;
         // Start is called before the first frame update
@@ -29,7 +30,6 @@ namespace Enemies
                 ebFound = eb != null;
             }
             
-            Debug.Log("ebFound: " + (ebFound? "T" : "F"));
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -46,8 +46,6 @@ namespace Enemies
         {
             GameObject other = hit.gameObject;
             
-            Debug.Log(gameObject.name + " hit " +  other.name );
-
             if (other.CompareTag("Player"))
             {
                 if (ebFound)
@@ -58,13 +56,12 @@ namespace Enemies
 
                 if (hitSfx != null) AudioSource.PlayClipAtPoint(hitSfx, other.transform.position);
             }
-
             else if (other.CompareTag("Hive"))
             {
                 if (ebFound)
                     eb.ApplyDamage(recoilDamage);
 
-                hm.IncrementHealth(playerDamage);
+                hm.IncrementHealth(hiveDamage);
             }
         }
         

@@ -377,6 +377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitSfx: {fileID: 8300000, guid: b342d0926bc879c47bc0e0589f497405, type: 3}
   playerDamage: -5
+  hiveDamage: -5
   pollenLoss: -5
   recoilDamage: 0
 --- !u!114 &3196327193569929311
@@ -394,6 +395,7 @@ MonoBehaviour:
   rotationSpeed: 10
   patrolMin: 5
   patrolMax: 10
+  hiveAttackCooldown: 10
   currState: 0
   minDistance: 30
   attackSpeed: 35

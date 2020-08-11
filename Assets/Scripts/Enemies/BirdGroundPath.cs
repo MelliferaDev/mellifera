@@ -15,6 +15,16 @@ namespace Enemies
         {
             trail = GetComponent<TrailRenderer>();
             bird = GetComponentInParent<BirdBehavior>();
+
+            trail.emitting = false;
+            trail.enabled = false;
+            Invoke(nameof(DelayedTrailStart), 1f);
+        }
+
+        private void DelayedTrailStart()
+        {
+            trail.enabled = true;
+            trail.emitting = true;
         }
 
         private void Update()

@@ -39,7 +39,7 @@ namespace Enemies
             patrolDistanceZ = Random.Range(patrolMin, patrolMax);
             pointB = new Vector3(position.x + patrolDistanceX, position.y, position.z + patrolDistanceZ);
             nextPoint = pointA;
-            hiveAttackTimer = Time.time - hiveAttackCooldown;
+            hiveAttackTimer = Time.time - hiveAttackCooldown - 0.1f;
         }
 
         protected virtual void Update()
@@ -52,6 +52,7 @@ namespace Enemies
             else
             {
                 // this is the definition of bad coding practices
+                // lolll.... it works tho!
                 distToHive = Mathf.Infinity;
             }
         }

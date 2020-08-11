@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace Enemies
@@ -15,6 +16,7 @@ namespace Enemies
         [Header("Settings")]
         [SerializeField] private float enemySpeed = 1.0f;
         [SerializeField] private float maxDistToAttack = 10f;
+        [SerializeField] private float maxDistToAttackHive = 10f;
         [SerializeField] private float minDistToAttack = 5f;
         [SerializeField] private Transform[] patrolPoints;
         [SerializeField] private float patrolStoppingDist;
@@ -126,7 +128,7 @@ namespace Enemies
                 currState = SkunkState.Attacking;
             }
             else if (hiveFound 
-                     && distToHive >= minDistToAttack && distToHive <= maxDistToAttack 
+                     && distToHive <= maxDistToAttackHive 
                      && sight.InFOV(hive.transform, "Hive") 
                      && (Time.time - hiveAttackTimer) >= hiveAttackCooldown)
             {
@@ -166,8 +168,7 @@ namespace Enemies
                 disengageTimer = Time.time;
             }
 
-            if (attackHive && distToHive < minDistToAttack || 
-                attackHive && distToHive > maxDistToAttack)
+            if (attackHive && distToHive > maxDistToAttackHive)
             {
                 // Hive was being attacked but is out of radius
                 currState = SkunkState.Disengaging;
@@ -199,8 +200,7 @@ namespace Enemies
                 currState = SkunkState.Attacking;
             }
             if (attackHive 
-                && distToHive >= minDistToAttack 
-                && distToHive <= maxDistToAttack
+                && distToHive <= maxDistToAttackHive
                 && (Time.time - hiveAttackTimer) >= hiveAttackCooldown)
             {
                 // Disengaging from hive, but hive has returned to attacking radius and cooldown isn't in effect
@@ -234,7 +234,22 @@ namespace Enemies
                 lastTimeShot = Time.time;
             }
         }
-        
+
+        private void OnDrawGizmos()
+        {
+            if (patrolPoints.Length >= 2 && patrolPoints[0] != null && patrolPoints[1] != null)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawSphere(patrolPoints[0].position, 2.5f);
+                Gizmos.DrawSphere(patrolPoints[1].position, 2.5f);
+                Gizmos.DrawLine(patrolPoints[0].position, patrolPoints[1].position);
+            }
+
+            if (hive != null && distToHive <= maxDistToAttackHive)
+            {
+                Gizmos.DrawLine(transform.position, hive.transform.position);
+            }
+        }
 
         private void OnDrawGizmosSelected()
         {
@@ -245,14 +260,14 @@ namespace Enemies
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(position, maxDistToAttack);
             
-            Gizmos.color = Color.grey;
-            Gizmos.DrawWireSphere(position, patrolStoppingDist);
-            if (patrolPoints.Length >= 2 && patrolPoints[0] != null && patrolPoints[1] != null)
+            Gizmos.color = new Color(0.25f, 0.47f, 0.13f);
+            Gizmos.DrawWireSphere(position, maxDistToAttackHive);
+
+            if (nextPoint != Vector3.zero)
             {
-                Gizmos.DrawSphere(patrolPoints[0].position, 2.5f);
-                Gizmos.DrawSphere(patrolPoints[1].position, 2.5f);
+                Gizmos.color = Color.grey;
+                Gizmos.DrawLine(position, nextPoint);
             }
-            Gizmos.DrawLine(position, nextPoint);
 
             Gizmos.color = Color.black;
             Gizmos.DrawSphere(pointA, 3f);

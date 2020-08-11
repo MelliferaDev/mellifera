@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 1860689939957659386}
   - component: {fileID: 1771848288343684524}
   - component: {fileID: 1856052747427908436}
+  - component: {fileID: 6977093885579624507}
   m_Layer: 0
   m_Name: EnemyBird
   m_TagString: Untagged
@@ -290,18 +291,37 @@ MonoBehaviour:
   tipToCenter: 9
   patrolCenter: {fileID: 0}
   currAngle: 0
-  circleSpeed: 30
-  circleRadius: 8
-  patrolHover: 8
-  patrolHoverSpeed: 0
-  attackDuration: 7
-  attackDelayMin: 5
-  attackDelayMax: 15
-  attackSpeed: 75
+  circleSpeed: 20
+  circleRadius: 100
+  patrolHover: 5
+  patrolHoverSpeed: 5
+  attackDuration: 10
+  attackDelayMin: 9
+  attackDelayMax: 12
+  attackSpeed: 1.5
+  attackHiveDist: 90
   enemyHealth: 100
   healthBar: {fileID: 0}
   timeBar: {fileID: 0}
   attackDelay: 0
+--- !u!143 &6977093885579624507
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856762876688347936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 180
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.003
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0.4}
 --- !u!1 &1856804325387088348
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,9 +549,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1860960472009200832}
   - component: {fileID: 1739722610281499612}
+  - component: {fileID: 4815973020960179735}
+  - component: {fileID: 7567460416605831449}
+  - component: {fileID: 1251872896961081982}
   m_Layer: 0
   m_Name: Bird1_Model
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -568,7 +591,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79c2511799a05394eacdeda576d89295, type: 2}
+  - {fileID: 2100000, guid: 91b0641b7bbd7b04580c8a6eda5e0532, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -612,6 +635,53 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.42695105, y: -0.021750055, z: 0.00000011920929}
     m_Extent: {x: 1.3498513, y: 0.23005244, z: 2.6919188}
   m_DirtyAABB: 0
+--- !u!54 &4815973020960179735
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857449697820538146}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &7567460416605831449
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857449697820538146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.69
+  m_Height: 0.5
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.4}
+--- !u!114 &1251872896961081982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857449697820538146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b42a8b83d7e9194c8500c44d96a0290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSfx: {fileID: 8300000, guid: b342d0926bc879c47bc0e0589f497405, type: 3}
+  playerDamage: -10
+  hiveDamage: -20
+  pollenLoss: -5
+  recoilDamage: 0
 --- !u!1 &1857475857430798912
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,4 +1022,4 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
-  m_Emitting: 1
+  m_Emitting: 0

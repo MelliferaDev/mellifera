@@ -26,24 +26,31 @@ namespace Enemies
         public float attackDelayMin = 5f;
         public float attackDelayMax = 15f;
         public float attackSpeed = 5f;
+        [Tooltip("attackHiveDist - tipToCenter is the \"real\" distance")]
+        public float attackHiveDist = 10f;
         [Header("Attack Reactions")]
         public float enemyHealth = 100f;
         [SerializeField] private Slider healthBar;
         [SerializeField] private Slider timeBar;
+        [SerializeField] private Color patrolColor;
+        [SerializeField] private Color attackColor;
 
         private CharacterController ctlr;
         Animator anim;
         private static readonly int BirdMovement = Animator.StringToHash("birdMovement");
 
         private bool playerInRange;
+        
         private float attackTimer;
         public float attackDelay;
         private Vector3 lastPatrolPos;
-
+        private bool attackHive; // true if bird should be attacking hive 
+        
         private bool healthBarFound;
         private bool timeBarFound;
         private Image timeBarFill;
         private bool timeBarFillFound = false;
+        
         protected override void Start()
         {
             base.Start();
@@ -103,7 +110,7 @@ namespace Enemies
 
         public override void UpdatePatrolState()
         {
-
+            // figure out if the player is in the circle
             if (distToPlayer <= circleRadius)
             {
                 if (!playerInRange)
@@ -118,13 +125,22 @@ namespace Enemies
             else
             {
                 SetTimeSlider(false, 0);
+                playerInRange = false;
             }
 
+            // State Logic
             if (playerInRange && Time.time - attackTimer > attackDelay)
             {
                 currState = BirdFlyingState.Diving;
                 attackTimer = Time.time; // time how long the bird is diving
                 playerInRange = false;
+                attackHive = false;
+            } else if (distToHive <= attackHiveDist && Time.time - attackTimer > attackDelay)
+            {
+                currState = BirdFlyingState.Diving;
+                attackTimer = Time.time;
+                playerInRange = false;
+                attackHive = true;
             }
 
             currAngle += circleSpeed * Time.deltaTime;
@@ -142,8 +158,7 @@ namespace Enemies
             nextPoint = patrolCenter.TransformPoint(localPos);
             lastPatrolPos = nextPoint;
             Vector3 moveDir = (nextPoint - transform.position);
-
-
+            
             ctlr.Move((nextPoint - transform.position));
             FaceTarget(transform.position + moveDir.normalized);
         }
@@ -153,29 +168,42 @@ namespace Enemies
 
         private void UpdateDivingState()
         {
-            if (distToPlayer <= tipToCenter || Time.time - attackTimer > attackDuration)
+            if ((!attackHive && distToPlayer <= tipToCenter) 
+                // || (attackHive && distToHive > attackHiveDist)
+                || (Time.time - attackTimer > attackDuration))
             {
                 ExitDive();
             }
-            
-            SetTimeSlider(true, attackDelay);
+
+            if (!attackHive)
+            {
+                SetTimeSlider(true, attackDelay);
+            }
 
             float step = Time.deltaTime * attackSpeed;
-            nextPoint = player.transform.position;
+            nextPoint = attackHive ?  
+                hive.transform.position :
+                player.transform.position;
 
             ctlr.Move((nextPoint - transform.position) * step);
             FaceTarget(nextPoint, false);
         }
 
+        // bird has been diving for set amount of time or hit the player
         private void ExitDive()
         {
-            // bird has been diving for set amount of time or hit the player
-            RearviewCameraBehaviour.RequestRearviewOff();
+            if (!attackHive)
+            {
+                RearviewCameraBehaviour.RequestRearviewOff();
+            }
+            
             attackDelay = Random.Range(attackDelayMin, attackDelayMax);
                 
-            attackTimer = Time.time; // back to timing how long the player is in range
+            // back to timing how long the player is in range
+            attackTimer = Time.time; 
             attackDelay = Random.Range(attackDelayMin, attackDelayMax);
-                
+            
+            attackHive = false;
             currState = BirdFlyingState.Returning;
         }
 
@@ -271,7 +299,7 @@ namespace Enemies
             {
                 if (timeBarFillFound)
                 {
-                    timeBarFill.color = (currState == BirdFlyingState.Patrolling) ? new Color(1f, 0.57f, 0.05f) : Color.red;
+                    timeBarFill.color = (currState == BirdFlyingState.Patrolling) ? patrolColor : attackColor;
                 }
                 
                 timeBar.gameObject.SetActive(true);
@@ -285,23 +313,29 @@ namespace Enemies
             }
         }
 
-        public void OnDrawGizmosSelected()
+        public void OnDrawGizmos()
         {
-            if (player != null)
+            if (ctlr != null)
             {
-                if (distToPlayer <= circleRadius)
-                {
-                    Gizmos.color = Color.red;
-                }
-                else
-                {
-                    Gizmos.color = Color.yellow;
-                }
-                Gizmos.DrawLine(patrolCenter.position, player.transform.position);
+                Gizmos.color = Color.blue;
+                Gizmos.DrawLine(transform.position, transform.position + ctlr.velocity);
+            }
+
+            if (patrolCenter != null)
+            {
+                Gizmos.color = Color.gray;
+                Gizmos.DrawWireSphere(patrolCenter.position, circleRadius);
             }
             
-            Gizmos.color = Color.gray;
-            Gizmos.DrawWireSphere(patrolCenter.position, circleRadius);
+        }
+
+        public void OnDrawGizmosSelected()
+        {
+            if (hive != null)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireSphere(transform.position, attackHiveDist);
+            }
         }
 
         public enum BirdFlyingState
