@@ -108,4 +108,9 @@ public class ScoreKeeper : MonoBehaviour
     {
         score = 0;
     }
+
+    public int GetTotalScore()
+    {
+        return previousScore;
+    }
 }

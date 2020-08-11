@@ -29,6 +29,8 @@ TagManager:
   - ScoreText
   - ParticleCatcher
   - Hive
+  - HighScoreText
+  - CurrentScoreText
   layers:
   - Default
   - TransparentFX
