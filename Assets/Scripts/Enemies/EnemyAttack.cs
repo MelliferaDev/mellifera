@@ -45,8 +45,7 @@ namespace Enemies
         public void RegisterHit(Collider hit)
         {
             GameObject other = hit.gameObject;
-            
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") || other.CompareTag("ProjectileShield"))
             {
                 if (ebFound)
                     eb.ApplyDamage(recoilDamage);

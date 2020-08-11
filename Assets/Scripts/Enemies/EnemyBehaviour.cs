@@ -57,7 +57,6 @@ namespace Enemies
             }
         }
 
-
         public abstract void UpdatePatrolState();
         public abstract void EnemyDefeated();
 
