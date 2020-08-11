@@ -26,6 +26,9 @@ namespace Player
         [SerializeField] Color reticleEnemyColor;
         [SerializeField] Color reticleCollectibleColor;
         [SerializeField] Color reticleHiveColor;
+        [SerializeField] bool canWagglePollen = true;
+        [SerializeField] bool canWaggleEnemies = true;
+        [SerializeField] bool canWaggleHive = true;
         Color originalReticleColor;
         GameObject curTarget;
 
@@ -200,7 +203,7 @@ namespace Player
                 if (Physics.Raycast(reticleEyes.position, reticleEyes.forward, out hit))
                 {
                     
-                    if (hit.collider.CompareTag("Enemy"))
+                    if (hit.collider.CompareTag("Enemy") && canWaggleEnemies)
                     {
                         reticleImage.color = Color.Lerp(reticleImage.color, reticleEnemyColor, Time.deltaTime * reticleChangeSpeed);
 
@@ -212,7 +215,7 @@ namespace Player
                         curTarget = hit.collider.gameObject;
                         return;
                     }
-                    else if (hit.collider.CompareTag("Collectible"))
+                    else if (hit.collider.CompareTag("Collectible") && canWagglePollen)
                     {
                         if(GetCBFromCollider(hit.collider, out CollectibleBehavior cb))
                         {
@@ -229,7 +232,7 @@ namespace Player
                         curTarget = hit.collider.gameObject;
                         return;
                     }
-                    else if (hit.collider.CompareTag("Hive"))
+                    else if (hit.collider.CompareTag("Hive") && canWaggleHive)
                     {
                         reticleImage.color = Color.Lerp(reticleImage.color, reticleHiveColor, Time.deltaTime * reticleChangeSpeed);
 
