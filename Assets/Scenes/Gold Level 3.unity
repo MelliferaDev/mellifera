@@ -4241,7 +4241,7 @@ PrefabInstance:
     - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
@@ -4337,7 +4337,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 784791935}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19c87ca5ca5dba44a99a1f699cc886e2, type: 3}
   m_Name: 
@@ -9640,6 +9640,18 @@ PrefabInstance:
     - target: {fileID: 1527899184, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962326487, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962326487, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962326487, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2125279375, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
