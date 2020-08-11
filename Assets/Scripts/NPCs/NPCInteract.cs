@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Player;
 using TMPro;
 using UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace NPCs
@@ -23,6 +26,9 @@ namespace NPCs
         private bool requested;
 
         private float currInteractDist;
+
+        private static int linesRead;
+        private List<string> levelTips;
         
         private void Start()
         {
@@ -37,6 +43,20 @@ namespace NPCs
 
             currInteractDist = interactDist;
             requested = false;
+
+            string sceneName = SceneManager.GetActiveScene().name;
+            if (sceneName.EndsWith("1"))
+            {
+                levelTips = NPCLines.INTRO_LINES_LVL1;
+            } else if (sceneName.EndsWith("2"))
+            {
+                levelTips = NPCLines.INTRO_LINES_LVL2;
+            } else if (sceneName.EndsWith("3"))
+            {
+                levelTips = NPCLines.INTRO_LINES_LVL3;
+            }
+
+            linesRead = 0;
         }
 
         private void Update()
@@ -87,11 +107,23 @@ namespace NPCs
             
             guiSpeak.SetActive(true);
             TMP_Text text = guiSpeak.GetComponentInChildren<TMP_Text>();
-            
-            int rIdx = Random.Range(0, NPCLines.NPC_LINES.Count - 1);
-            text.text = NPCLines.NPC_LINES[rIdx];
+
+            text.text = ChooseLine();
             
             Invoke(nameof(Pause), 0.5f);
+        }
+
+        private string ChooseLine()
+        {
+            if (linesRead < levelTips.Count)
+            {
+                string tip = levelTips[linesRead];
+                linesRead++;
+                return tip;
+            }
+            
+            int rIdx = Random.Range(0, NPCLines.NPC_LINES.Count - 1);
+            return NPCLines.NPC_LINES[rIdx];
         }
 
         private void Pause()
