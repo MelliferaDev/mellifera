@@ -7,8 +7,12 @@ public class HiveManager : MonoBehaviour
 {
 
     public int maxHealth = 100;
+    public int waggleRestoreAmount = 50;
     public Slider healthSlider;
     public GameObject hiveDefeatedUI;
+    public GameObject hiveProtector;
+
+    bool hiveInvulnerable;
 
     int currentHealth;
     // Start is called before the first frame update
@@ -18,6 +22,7 @@ public class HiveManager : MonoBehaviour
         healthSlider.value = currentHealth;
         healthSlider.maxValue = maxHealth;
         healthSlider.minValue = 0;
+        hiveInvulnerable = false;
     }
 
     // Update is called once per frame
@@ -28,20 +33,37 @@ public class HiveManager : MonoBehaviour
 
     public void IncrementHealth(int amount)
     {
-        currentHealth += amount;
-        healthSlider.value = currentHealth;
-        
-        if (currentHealth <= 0)
+        if (amount > 0 || !hiveInvulnerable)
         {
-            LevelManager.gamePaused = true;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            hiveDefeatedUI.SetActive(true);
+            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+            healthSlider.value = currentHealth;
+
+            if (currentHealth <= 0)
+            {
+                LevelManager.gamePaused = true;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                hiveDefeatedUI.SetActive(true);
+            }
         }
     }
 
     public void SetHiveUIInactive()
     {
         hiveDefeatedUI.SetActive(false);
+    }
+
+    public void ActivateHiveDefence()
+    {
+        IncrementHealth(waggleRestoreAmount);
+        hiveInvulnerable = true;
+        hiveProtector.SetActive(true);
+        Invoke("DeactivateHiveDefence", 5);
+    }
+
+    public void DeactivateHiveDefence()
+    {
+        hiveProtector.SetActive(false);
+        hiveInvulnerable = false;
     }
 }

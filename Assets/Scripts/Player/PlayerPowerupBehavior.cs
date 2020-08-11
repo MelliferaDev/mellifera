@@ -25,6 +25,7 @@ namespace Player
         [SerializeField] float reticleChangeSpeed = 3;
         [SerializeField] Color reticleEnemyColor;
         [SerializeField] Color reticleCollectibleColor;
+        [SerializeField] Color reticleHiveColor;
         Color originalReticleColor;
         GameObject curTarget;
 
@@ -157,6 +158,12 @@ namespace Player
                         didDance = true;
                     }
                 }
+                else if (curTarget.CompareTag("Hive"))
+                {
+                    HiveManager hm = FindObjectOfType<HiveManager>();
+                    hm.ActivateHiveDefence();
+                    didDance = true;
+                }
             }
             else
             {
@@ -213,6 +220,18 @@ namespace Player
                         }
                         
                         reticleImage.color = Color.Lerp(reticleImage.color, reticleCollectibleColor, Time.deltaTime * reticleChangeSpeed);
+
+                        Quaternion targetRotation = Quaternion.AngleAxis(45f, Vector3.forward);
+                        reticleImage.transform.rotation = Quaternion.Lerp(reticleImage.transform.rotation, targetRotation, Time.deltaTime * reticleChangeSpeed);
+
+                        reticleImage.transform.localScale = Vector3.Lerp(reticleImage.transform.localScale, Vector3.one, Time.deltaTime * reticleChangeSpeed);
+
+                        curTarget = hit.collider.gameObject;
+                        return;
+                    }
+                    else if (hit.collider.CompareTag("Hive"))
+                    {
+                        reticleImage.color = Color.Lerp(reticleImage.color, reticleHiveColor, Time.deltaTime * reticleChangeSpeed);
 
                         Quaternion targetRotation = Quaternion.AngleAxis(45f, Vector3.forward);
                         reticleImage.transform.rotation = Quaternion.Lerp(reticleImage.transform.rotation, targetRotation, Time.deltaTime * reticleChangeSpeed);
