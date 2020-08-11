@@ -29,6 +29,7 @@ TagManager:
   - ScoreText
   - ParticleCatcher
   - Hive
+  - ProjectileShield
   layers:
   - Default
   - TransparentFX

@@ -3,13 +3,63 @@ using System.Collections.Generic;
 
 namespace NPCs
 {
+
     public static class NPCLines
     {
+        public static List<string> INTRO_LINES_LVL1 = new List<string>(new string[]
+        {
+            "Press 'R' when you're close to another bee to talk to them. Press 'P' for more" +
+            "instructions and controls. (Press 'R' again to cont.)",
+
+            "Press space when you flying over a flower to land on it an pollinate it, and again to take off",
+            
+            "Pollinate enough flowers in the area to move onto the next field. You can even collect extra pollen!",
+            
+            "Some flowers have harmful pesticides! Bee careful!",
+
+            "Bee's have a lot of great skills! Look around the scene for Vortex, Waggle Dance, or Free Sting powerups",
+            
+            "Land in some water to get hydrated and gain some health!",
+
+            "Press 'Q' to Sting an enemy when they're close. If you don't have a Sting powerup, you'll have to " +
+            "do some fancy finger work!",
+            
+            "Press 'E' to create a Vortex under your wings and zoom around.",
+            
+            "If your bee vision has crosshairs, you have a Waggle Dance. Click 'W' when the crosshairs are active to " +
+            "ask your swarm for help!",
+
+            "All controls are listed and customizable through the pause menu. But us bees have some great knowledge " +
+            "too!",
+        });
+        
+        public static List<string> INTRO_LINES_LVL2 = new List<string>(new string[]
+        {
+            "Bee careful of skunks! They're a main predator and will spray harmful stuff at you!",
+
+            "Looks like there's a lot of predators! Maybe if you use a Waggle Dance ('W' with crosshairs), we can " +
+            "handle them together!",
+            
+            "Many farms use bees to help pollinate their crops. Try landing on some crops!",
+
+        });
+        
+        public static List<string> INTRO_LINES_LVL3 = new List<string>(new string[]
+        {
+            "Birds are one of the worst predators for bees! If you fly anywhere in their patrol circle, they'll swoop in" +
+            " and hurt you!",
+            
+            "Looks like all the predators have teamed up to attack our hive. Collect pollen, Waggle Dance, and defend the" +
+            " hive",
+             
+            "FOR THE QUEEEEEN!!!!!!"
+        });
+    
         // had to shorten some of these to fit the speech bubble
         public static List<string> NPC_LINES = new List<string>(new string[]
         {
            "We bees communicate through movement called waggle dances! Click 'Q' to let other bees know you're being attacked",
-           
+
            "Pollen collecting is tiring, and we get thirsty. Try landing in water to take a drink and restore some health!",
            
             "Pesticides are a major threat to bees. Beware the some flowers covered in damaging spray!",
@@ -28,8 +78,6 @@ namespace NPCs
             "The round vortex pickups will give you a speed boost!",
             
             "If you pick up the free sting item, you can defeat an enemy without fighting it!",
-            
-            "Press ‘Q’ when an enemy starts attacking you to start fighting!",
             
             "Buzz off - this is my flower!",
             
@@ -59,10 +107,5 @@ namespace NPCs
 
         });
         
-        private static List<string> FUTURE_LINES = new List<string>(new string[]
-        {
-            "We bees communicate through movement called waggle dances! Try clicking 'W'  while in a fight " +
-            "to activate a waggle dance that will summon other bees to give you a pollen boost/help you fight an enemy"
-        });
     }
 }
