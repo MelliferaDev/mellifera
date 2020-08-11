@@ -43,17 +43,24 @@ public class ScoreKeeper : MonoBehaviour
     {
         if (scoreText == null)
         {
-            scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Text>();
+            GameObject st = GameObject.FindGameObjectWithTag("ScoreText");
+            if (st != null)
+            {
+                scoreText = st.GetComponent<Text>();
+            }
         }
 
-        if (upgradeScreen)
+        if (scoreText != null)
         {
-            SetTotalScoreText();
-        }
-        else
-        {
+            if (upgradeScreen)
+            {
+                SetTotalScoreText();
+            }
+            else
+            {
 
-            SetLevelScoreText();
+                SetLevelScoreText();
+            }
         }
     }
 
