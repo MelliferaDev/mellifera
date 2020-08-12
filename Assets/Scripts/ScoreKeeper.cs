@@ -125,9 +125,5 @@ public class ScoreKeeper : MonoBehaviour
     {
         return previousScore;
     }
-
-    public void OnGUI()
-    {
-        GUI.Box(new Rect(0, 0, 150, 20),"prev: " + previousScore);
-    }
+    
 }
