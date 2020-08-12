@@ -9,7 +9,7 @@ namespace Enemies
         [SerializeField] protected float rotationSpeed = 10; // 30 for skunks
         [SerializeField] private float patrolMin = 15;
         [SerializeField] private float patrolMax = 20;
-
+        [SerializeField] protected float hiveAttackCooldown = 10f;
         protected Vector3 pointA;
         protected Vector3 pointB;
         private float patrolDistanceX;
@@ -18,8 +18,10 @@ namespace Enemies
         
         protected GameObject player;
         protected GameObject hive;
+        protected bool hiveFound;
         protected float distToPlayer;
         protected float distToHive;
+        protected float hiveAttackTimer;
 
         protected virtual void Start()
         {
@@ -28,6 +30,7 @@ namespace Enemies
                 player = GameObject.FindGameObjectWithTag("Player");
             }
             hive = GameObject.FindGameObjectWithTag("Hive");
+            hiveFound = hive != null;
             
             Vector3 position = transform.position;
             
@@ -36,6 +39,7 @@ namespace Enemies
             patrolDistanceZ = Random.Range(patrolMin, patrolMax);
             pointB = new Vector3(position.x + patrolDistanceX, position.y, position.z + patrolDistanceZ);
             nextPoint = pointA;
+            hiveAttackTimer = Time.time - hiveAttackCooldown - 0.1f;
         }
 
         protected virtual void Update()
@@ -48,14 +52,15 @@ namespace Enemies
             else
             {
                 // this is the definition of bad coding practices
-                distToHive = 10000000;
+                // lolll.... it works tho!
+                distToHive = Mathf.Infinity;
             }
         }
 
         public abstract void UpdatePatrolState();
         public abstract void EnemyDefeated();
 
-        public abstract void ApplySelfDamage(float damage);
+        public abstract void ApplyDamage(float damage);
         
         protected void FindNextPoint()
         {

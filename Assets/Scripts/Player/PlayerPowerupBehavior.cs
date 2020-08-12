@@ -25,6 +25,10 @@ namespace Player
         [SerializeField] float reticleChangeSpeed = 3;
         [SerializeField] Color reticleEnemyColor;
         [SerializeField] Color reticleCollectibleColor;
+        [SerializeField] Color reticleHiveColor;
+        [SerializeField] bool canWagglePollen = true;
+        [SerializeField] bool canWaggleEnemies = true;
+        [SerializeField] bool canWaggleHive = true;
         Color originalReticleColor;
         GameObject curTarget;
 
@@ -157,6 +161,12 @@ namespace Player
                         didDance = true;
                     }
                 }
+                else if (curTarget.CompareTag("Hive"))
+                {
+                    HiveManager hm = FindObjectOfType<HiveManager>();
+                    hm.ActivateHiveDefence();
+                    didDance = true;
+                }
             }
             else
             {
@@ -193,7 +203,7 @@ namespace Player
                 if (Physics.Raycast(reticleEyes.position, reticleEyes.forward, out hit))
                 {
                     
-                    if (hit.collider.CompareTag("Enemy"))
+                    if (hit.collider.CompareTag("Enemy") && canWaggleEnemies)
                     {
                         reticleImage.color = Color.Lerp(reticleImage.color, reticleEnemyColor, Time.deltaTime * reticleChangeSpeed);
 
@@ -205,7 +215,7 @@ namespace Player
                         curTarget = hit.collider.gameObject;
                         return;
                     }
-                    else if (hit.collider.CompareTag("Collectible"))
+                    else if (hit.collider.CompareTag("Collectible") && canWagglePollen)
                     {
                         if(GetCBFromCollider(hit.collider, out CollectibleBehavior cb))
                         {
@@ -213,6 +223,18 @@ namespace Player
                         }
                         
                         reticleImage.color = Color.Lerp(reticleImage.color, reticleCollectibleColor, Time.deltaTime * reticleChangeSpeed);
+
+                        Quaternion targetRotation = Quaternion.AngleAxis(45f, Vector3.forward);
+                        reticleImage.transform.rotation = Quaternion.Lerp(reticleImage.transform.rotation, targetRotation, Time.deltaTime * reticleChangeSpeed);
+
+                        reticleImage.transform.localScale = Vector3.Lerp(reticleImage.transform.localScale, Vector3.one, Time.deltaTime * reticleChangeSpeed);
+
+                        curTarget = hit.collider.gameObject;
+                        return;
+                    }
+                    else if (hit.collider.CompareTag("Hive") && canWaggleHive)
+                    {
+                        reticleImage.color = Color.Lerp(reticleImage.color, reticleHiveColor, Time.deltaTime * reticleChangeSpeed);
 
                         Quaternion targetRotation = Quaternion.AngleAxis(45f, Vector3.forward);
                         reticleImage.transform.rotation = Quaternion.Lerp(reticleImage.transform.rotation, targetRotation, Time.deltaTime * reticleChangeSpeed);

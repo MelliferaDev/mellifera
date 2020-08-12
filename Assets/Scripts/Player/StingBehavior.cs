@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using System;
+using Player;
 using UI;
 using UnityEngine;
 
@@ -72,6 +73,16 @@ namespace Enemies
             else if (targetWasp != null)
             {
                 FindObjectOfType<LevelManager>().StartDDR(targetWasp);
+            }
+        }
+
+        public void FinishSting(int enemyDamage, GameObject target, bool autoKill = false)
+        {
+            EnemyBehaviour targetEB = target.GetComponent<EnemyBehaviour>();
+            targetEB.ApplyDamage(-Math.Abs(enemyDamage));
+            if (autoKill)
+            {
+                targetEB.EnemyDefeated();
             }
         }
 

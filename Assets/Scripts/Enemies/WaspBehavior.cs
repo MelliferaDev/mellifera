@@ -1,4 +1,5 @@
-﻿using UI;
+﻿using System.Timers;
+using UI;
 using UnityEngine;
 
 namespace Enemies
@@ -74,11 +75,14 @@ namespace Enemies
                 currState = WaspFlyingState.Attacking;
             }
 
-            if (distToHive <= minDistance)
+            if (distToHive <= minDistance && (Time.time - hiveAttackTimer) >= hiveAttackCooldown)
             {
+                hiveAttackTimer = Time.time;
                 currState = WaspFlyingState.Attacking;
+            } else if (distToHive <= minDistance)
+            {
+                Debug.Log("Waiting to attack: " + (Time.time - hiveAttackTimer));
             }
-
             
             FaceTarget(nextPoint, false);
             transform.position = Vector3.MoveTowards(transform.position, nextPoint, patrolSpeed * Time.deltaTime);
@@ -127,7 +131,7 @@ namespace Enemies
         }
         
         
-        public override void ApplySelfDamage(float damage)
+        public override void ApplyDamage(float damage)
         {
             enemyHealth -= damage;
             currState = WaspFlyingState.Recoiling;
@@ -152,7 +156,7 @@ namespace Enemies
 
         void FinishAttackRecoil()
         {
-            currState = WaspFlyingState.Attacking;
+            currState = attackHive ? WaspFlyingState.Patrolling : WaspFlyingState.Attacking;
             rb.velocity = Vector3.zero;
         }
 
