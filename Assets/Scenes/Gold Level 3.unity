@@ -4301,7 +4301,7 @@ PrefabInstance:
     - target: {fileID: 6863974020979444369, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: waggleCollected
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7259016305702027546, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
