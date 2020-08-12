@@ -8,10 +8,11 @@ public class HiveManager : MonoBehaviour
 
     public int maxHealth = 100;
     public int waggleRestoreAmount = 50;
+    public float waggleShieldTime = 5f;
     public Slider healthSlider;
     public GameObject hiveDefeatedUI;
     public GameObject hiveProtector;
-
+    
     bool hiveInvulnerable;
 
     int currentHealth;
@@ -58,7 +59,7 @@ public class HiveManager : MonoBehaviour
         IncrementHealth(waggleRestoreAmount);
         hiveInvulnerable = true;
         hiveProtector.SetActive(true);
-        Invoke("DeactivateHiveDefence", 5);
+        Invoke(nameof(DeactivateHiveDefence), waggleShieldTime);
     }
 
     public void DeactivateHiveDefence()
