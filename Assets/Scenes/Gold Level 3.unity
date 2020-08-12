@@ -3898,6 +3898,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1038480054}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &668445632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 108964482881229148, guid: 0881450cbb9b30046b0b503969b0720a,
+    type: 3}
+  m_PrefabInstance: {fileID: 869747495}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751836c900674eafbc378d417b7de007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &696676064
 GameObject:
   m_ObjectHideFlags: 0
@@ -4582,6 +4594,16 @@ PrefabInstance:
       propertyPath: nextLevelGraphics
       value: 
       objectReference: {fileID: 2099072496}
+    - target: {fileID: 5962279020735602768, guid: 0881450cbb9b30046b0b503969b0720a,
+        type: 3}
+      propertyPath: nextLevel
+      value: ExitCutScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962279020735602768, guid: 0881450cbb9b30046b0b503969b0720a,
+        type: 3}
+      propertyPath: pollenCollected
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5962279020735602769, guid: 0881450cbb9b30046b0b503969b0720a,
         type: 3}
       propertyPath: m_Name
@@ -7504,7 +7526,7 @@ PrefabInstance:
     - target: {fileID: 7040890347768630280, guid: 990ea6442672b1c4584145662f44c6c5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7040890347768630283, guid: 990ea6442672b1c4584145662f44c6c5,
         type: 3}
@@ -7514,7 +7536,7 @@ PrefabInstance:
     - target: {fileID: 7040890347768630295, guid: 990ea6442672b1c4584145662f44c6c5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.4
+      value: -32.2
       objectReference: {fileID: 0}
     - target: {fileID: 7040890347768630295, guid: 990ea6442672b1c4584145662f44c6c5,
         type: 3}
@@ -7524,7 +7546,7 @@ PrefabInstance:
     - target: {fileID: 7040890347768630295, guid: 990ea6442672b1c4584145662f44c6c5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 7040890347768630295, guid: 990ea6442672b1c4584145662f44c6c5,
         type: 3}
@@ -9621,10 +9643,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadNextLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 1026856605, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.24447632
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116566125, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1527899184, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1790188291, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
+      propertyPath: inputManager
+      value: 
+      objectReference: {fileID: 668445632}
     - target: {fileID: 1962326487, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 0

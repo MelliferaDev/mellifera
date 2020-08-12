@@ -183,6 +183,12 @@ public class LevelManager : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(nextLevel))
         {
+            if (nextLevel == "ExitCutScene")
+            {
+                EndGame.isGameOver = true;
+                FindObjectOfType<EndGame>().SetWinScreen();
+            }
+
             Time.timeScale = 1;
             ScoreKeeper keeper = FindObjectOfType<ScoreKeeper>();
 

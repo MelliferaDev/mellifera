@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 using Menus;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ public class ScoreKeeper : MonoBehaviour
 
     public static bool upgradeScreen = false;
 
-    int previousScore;
+    private static int previousScore;
 
     private void Awake()
     {
@@ -31,11 +32,15 @@ public class ScoreKeeper : MonoBehaviour
         }
         
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         score = 0;
-        previousScore = 0;
+
+        if (!EndGame.isGameOver)
+        {
+            previousScore = 0;
+        }
     }
 
     // Update is called once per frame
@@ -43,17 +48,24 @@ public class ScoreKeeper : MonoBehaviour
     {
         if (scoreText == null)
         {
-            scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Text>();
+            GameObject st = GameObject.FindGameObjectWithTag("ScoreText");
+            if (st != null)
+            {
+                scoreText = st.GetComponent<Text>();
+            }
         }
 
-        if (upgradeScreen)
+        if (scoreText != null)
         {
-            SetTotalScoreText();
-        }
-        else
-        {
+            if (upgradeScreen)
+            {
+                SetTotalScoreText();
+            }
+            else
+            {
 
-            SetLevelScoreText();
+                SetLevelScoreText();
+            }
         }
     }
 
@@ -107,5 +119,15 @@ public class ScoreKeeper : MonoBehaviour
     public void ResetLevelScore()
     {
         score = 0;
+    }
+
+    public static int GetTotalScore()
+    {
+        return previousScore;
+    }
+
+    public void OnGUI()
+    {
+        GUI.Box(new Rect(0, 0, 150, 20),"prev: " + previousScore);
     }
 }
