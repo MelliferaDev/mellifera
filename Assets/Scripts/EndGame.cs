@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndGame : MonoBehaviour
@@ -16,14 +15,22 @@ public class EndGame : MonoBehaviour
     int currentScore;
     int storedScore;
     bool didWin = false;
+
+    private bool foundCurrScoreText = false;
+    private bool foundHighScoreText = false;
+    
     void Start()
     {
+        foundCurrScoreText = currentScoreText != null;
+        foundCurrScoreText = highScoreText != null;
+        LoadTextObjects();
+        
         if(isGameOver)
         {
-        ScoreKeeper sk = FindObjectOfType<ScoreKeeper>();
-        currentScore = sk.GetTotalScore();
+            ScoreKeeper sk = FindObjectOfType<ScoreKeeper>();
+            currentScore = sk.GetTotalScore();
 
-        storedScore = PlayerPrefs.GetInt("highScore", 0);
+            storedScore = PlayerPrefs.GetInt("highScore", 0);
         
             if (didWin)
             {
@@ -35,7 +42,6 @@ public class EndGame : MonoBehaviour
                 winScreen.SetActive(false);
                 loseScreen.SetActive(true);
             }
-
         }
     }
 
@@ -43,15 +49,6 @@ public class EndGame : MonoBehaviour
     {
         if(isGameOver)
         {
-            if (currentScoreText == null)
-            {
-                currentScoreText = GameObject.FindGameObjectWithTag("CurrentScoreText").GetComponent<Text>();
-            }
-            if (highScoreText == null)
-            {
-                highScoreText = GameObject.FindGameObjectWithTag("HighScoreText").GetComponent<Text>();
-            }
-
             SetHighScore();
             SetScoreText();
         }
@@ -68,15 +65,42 @@ public class EndGame : MonoBehaviour
 
     void SetScoreText()
     {
-        if (currentScore > storedScore)
+        string s = SceneManager.GetActiveScene().name;
+
+        if (!foundCurrScoreText || !foundHighScoreText)
         {
-            currentScoreText.text = "Total Score: " + currentScore;
-            highScoreText.text = "New High Score!";
+            LoadTextObjects();
         }
-        else
+        
+        if (foundCurrScoreText && foundHighScoreText)
         {
-            currentScoreText.text = "Total Score: " + currentScore;
-            highScoreText.text = "High Score: " + storedScore;
+            if (currentScore > storedScore)
+            {
+                currentScoreText.text = "Total Score: " + currentScore;
+                highScoreText.text = "New High Score!";
+            }
+            else
+            {
+                currentScoreText.text = "Total Score: " + currentScore;
+                highScoreText.text = "High Score: " + storedScore;
+            }
+        }
+    }
+
+    private void LoadTextObjects()
+    {
+        GameObject csText = GameObject.FindGameObjectWithTag("CurrentScoreText");
+        if (!foundCurrScoreText && csText != null)
+        {
+            currentScoreText = csText.GetComponent<Text>();
+            foundCurrScoreText = currentScoreText != null;
+        }
+        
+        GameObject hsText = GameObject.FindGameObjectWithTag("HighScoreText");
+        if (!foundHighScoreText & hsText != null)
+        {
+            highScoreText = hsText.GetComponent<Text>();
+            foundHighScoreText = highScoreText != null;
         }
     }
 

@@ -1236,43 +1236,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e0f73a4fb5869841bbac03f516e8387, type: 3}
---- !u!1 &1681955573 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7885686746798232460, guid: 2e0f73a4fb5869841bbac03f516e8387,
-    type: 3}
-  m_PrefabInstance: {fileID: 1681955572}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1681955574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681955573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0010ee86b42cc44594a66edecd71b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highScoreText: {fileID: 0}
-  currentScoreText: {fileID: 0}
-  winScreen: {fileID: 0}
-  loseScreen: {fileID: 0}
---- !u!114 &1681955575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1681955573}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6093dca6989f6ac4980d1fae1f1722f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthSlider: {fileID: 0}
-  hiveDefeatedUI: {fileID: 0}
 --- !u!1 &1700029653
 GameObject:
   m_ObjectHideFlags: 0
