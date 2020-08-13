@@ -157,7 +157,7 @@ public class LevelManager : MonoBehaviour
 
     public void IncrementHealth(int amount)
     {
-        currentHealth = Mathf.Max(currentHealth + amount, GetMaxHealth());
+        currentHealth = Mathf.Clamp(currentHealth + amount, -1, GetMaxHealth());
         healthSlider.value = (currentHealth / (1.0f * startingHealth + (int)PlayerUpgrades.maxHealthAdd)) * 100;
 
         if (currentHealth <= 0)

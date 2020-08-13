@@ -28,8 +28,14 @@ public class PesticideBehavior : MonoBehaviour
     public void ControllerCollisionListener(object[] args)
     {
         PlayerControl player = args[0] as PlayerControl;
-        
-        if (pesticideAmount < 0)
+
+        bool validCall = true;
+        if (player == null)
+        {
+            validCall = player.currState == PlayerFlightState.Landed;
+        }
+
+        if (validCall && pesticideAmount < 0)
         {
             lm.IncrementHealth(pesticideAmount);
             Instantiate(pesticideHit, transform.position, transform.rotation);

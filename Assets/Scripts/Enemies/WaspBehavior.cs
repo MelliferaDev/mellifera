@@ -45,6 +45,10 @@ namespace Enemies
 
             ctrl = GetComponent<CharacterController>();
             anim = GetComponent<Animator>();
+            if (anim == null)
+            {
+                anim = GetComponentInChildren<Animator>();
+            }
 
             patrolStuckTimer = Time.time;
             recoilTimer = Time.time;
@@ -242,13 +246,6 @@ namespace Enemies
             Patrolling, Attacking, Recoiling, Dying
         }
 
-        public void OnGUI()
-        {
-            GUI.Box(new Rect(0, 25, 150, 25),  "dth: " + distToHive);
-            GUI.Box(new Rect(0, 55, 150, 25),  "hTime: " + (Time.time - hiveAttackTimer));
-
-        }
-        
         public void OnDrawGizmos()
         {
             Gizmos.color = Color.grey;

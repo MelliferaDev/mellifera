@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Enemies
@@ -30,8 +31,6 @@ namespace Enemies
                 eb = GetComponentInParent<EnemyBehaviour>();
                 ebFound = eb != null;
             }
-
-
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -53,7 +52,6 @@ namespace Enemies
         public void RegisterHit(Collider hit)
         {
             GameObject other = hit.gameObject;
-
             if (other.CompareTag("Player") || other.CompareTag("ProjectileShield"))
             {
                 if (ebFound)
