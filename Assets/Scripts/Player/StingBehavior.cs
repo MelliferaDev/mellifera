@@ -20,6 +20,7 @@ namespace Enemies
 
         private PlayerPowerupBehavior powerup;
         private InputManager input;
+        private LevelManager lm;
 
         private bool stinging = false;
 
@@ -29,6 +30,7 @@ namespace Enemies
             wasps = GameObject.FindGameObjectsWithTag("Enemy");
             input = FindObjectOfType<InputManager>();
             powerup = GetComponent<PlayerPowerupBehavior>();
+            lm = FindObjectOfType<LevelManager>();
         }
 
         // Update is called once per frame
@@ -36,7 +38,11 @@ namespace Enemies
         {
             if (WaspInRange() && input.GetStingKeyClicked() && !LevelManager.gamePaused)
             {
-                StingEnemy();
+                if(lm.currentGameState != GameState.DEAD)
+                {
+                    StingEnemy();
+
+                }
             } 
             else if (stinging)
             {

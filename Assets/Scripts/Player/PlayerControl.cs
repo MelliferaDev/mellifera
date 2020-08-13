@@ -42,6 +42,7 @@ namespace Player
         private Vector3 move;
 
         private InputManager inputManager;
+        private LevelManager lm;
         private bool cameraStarted = false;
         private AudioSource buzzSfx;
 
@@ -61,6 +62,7 @@ namespace Player
             controller = GetComponent<CharacterController>();
             powerup = GetComponent<PlayerPowerupBehavior>();
             inputManager = FindObjectOfType<InputManager>();
+            lm = FindObjectOfType<LevelManager>();
             buzzSfx = GetComponent<AudioSource>();
             buzzSfx.Play();
             
@@ -78,7 +80,7 @@ namespace Player
                 camera.Follow(); // camera looks laggy if we just call Follow in PlayerCamera.Update()/LateUpdate()/FixedUpdate()
             }
 
-            if (!LevelManager.gamePaused && ! NPCInteract.interacting)
+            if (!LevelManager.gamePaused && ! NPCInteract.interacting && lm.currentGameState != GameState.DEAD)
             {
                 Vector2 mouseInput = inputManager.GetMouseAxes();
                 switch (currState)
