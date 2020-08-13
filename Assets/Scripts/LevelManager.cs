@@ -147,7 +147,7 @@ public class LevelManager : MonoBehaviour
 
     public bool HealthIsFull()
     {
-        return currentHealth == GetMaxHealth();
+        return currentHealth >= GetMaxHealth();
     }
 
     private int GetMaxHealth()
@@ -157,7 +157,7 @@ public class LevelManager : MonoBehaviour
 
     public void IncrementHealth(int amount)
     {
-        currentHealth += amount;
+        currentHealth = Mathf.Max(currentHealth + amount, GetMaxHealth());
         healthSlider.value = (currentHealth / (1.0f * startingHealth + (int)PlayerUpgrades.maxHealthAdd)) * 100;
 
         if (currentHealth <= 0)
