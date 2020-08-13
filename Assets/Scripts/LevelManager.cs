@@ -166,6 +166,7 @@ public class LevelManager : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             reloadLevelUI.SetActive(true);
+            currentGameState = GameState.DEAD;
         }
     }
 
