@@ -1,4 +1,5 @@
-﻿using System.Timers;
+﻿using System;
+using System.Timers;
 using UI;
 using UnityEngine;
 
@@ -15,25 +16,34 @@ namespace Enemies
         public float minDistance = 5f;
         public float attackSpeed = 5f;
         [Header("Attack Reactions")]
-        public float recoilForce = 0.75f;
+        public float recoilImpactSpeed = 0.75f;
         public float recoilRecoverySpeed = 5f;
+        public float recoilMaxTime;
         public float enemyHealth = 10;
+        
         // public float playerAttack = 2;
         [Header("Hovering")]
         public float patrolSpeed = 5f;
         
-        private Rigidbody rb;
+        private CharacterController ctrl;
         Animator anim;
         private static readonly int AnimState = Animator.StringToHash("animState");
 
+        private float patrolStuckTimer;
         private bool attackHive;
-        
+
+        private Vector3 currentRecoil;
+        private float recoilTimer;
         protected override void Start()
         {
             base.Start();
 
-            rb = GetComponent<Rigidbody>();
+            ctrl = GetComponent<CharacterController>();
             anim = GetComponent<Animator>();
+
+            patrolStuckTimer = Time.time;
+            recoilTimer = Time.time;
+            currentRecoil = Vector3.zero;
 
         }
 
@@ -55,6 +65,8 @@ namespace Enemies
             {
                 currState = WaspFlyingState.Dying;
             }
+            
+            Debug.DrawLine(transform.position, nextPoint, Color.blue);
         }
 
         ///////////////////////////////////////////////
@@ -64,8 +76,10 @@ namespace Enemies
         {
             anim.SetInteger(AnimState, 0);
             
-            if (Utils.Distance2D(transform.position, nextPoint) <= Mathf.Epsilon)
+            if (Utils.Distance2D(transform.position, nextPoint) <= ctrl.radius ||
+                (Time.time - patrolStuckTimer) > 25f)
             {
+                patrolStuckTimer = Time.time;
                 FindNextPoint();
             }
 
@@ -79,13 +93,17 @@ namespace Enemies
             {
                 hiveAttackTimer = Time.time;
                 currState = WaspFlyingState.Attacking;
-            } else if (distToHive <= minDistance)
-            {
-                Debug.Log("Waiting to attack: " + (Time.time - hiveAttackTimer));
             }
             
+            Vector3 toTarget = nextPoint - transform.position;
+            MoveInDir(toTarget, patrolSpeed);
             FaceTarget(nextPoint, false);
-            transform.position = Vector3.MoveTowards(transform.position, nextPoint, patrolSpeed * Time.deltaTime);
+        }
+
+        private void MoveInDir(Vector3 dir, float speed)
+        {
+            Vector3 move = dir.normalized * (speed * Time.deltaTime);
+            ctrl.Move(move);
         }
         
         ///////////////////////////////////////////////
@@ -93,50 +111,74 @@ namespace Enemies
 
         private void UpdateAttackState()
         {
-            float step = Time.deltaTime * (attackSpeed);
-
             if (distToPlayer > minDistance && distToHive > minDistance)
             {
                 RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
                 currState = WaspFlyingState.Patrolling;
+                patrolStuckTimer = Time.time;
             }
             
             anim.SetInteger(AnimState, 1);
+            
+            Vector3 toTarget = (player.transform.position - transform.position);
+            Transform lookAt = null;
             if (distToPlayer <= minDistance)
             {
-                transform.LookAt(player.transform);
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
+                toTarget = player.transform.position - transform.position;
+                lookAt = player.transform;
                 attackHive = false;
             }
-            else
+            else if (hiveFound)
             {
-                transform.LookAt(hive.transform);
-                transform.position = Vector3.MoveTowards(transform.position, hive.transform.position, step);
+                toTarget = hive.transform.position - transform.position;
+                lookAt = hive.transform;
                 attackHive = true;
+            }
+
+            if (lookAt != null)
+            {
+                MoveInDir(toTarget, attackSpeed);
+                transform.LookAt(lookAt);
             }
         }
 
+        // AttackRecoil() applied the recoil, this is actually
+        // recovering from said recoil
         private void UpdateRecoilState()
         {
+            
             float step = Time.deltaTime * recoilRecoverySpeed;
-
-            // AttackRecoil() applied the recoil, this is actually
-            // recovering from said recoil
-            if (attackHive)
+            
+            if (Mathf.Abs(currentRecoil.magnitude) <= 0.1f ||
+                Time.time - recoilTimer > recoilMaxTime)
             {
-                transform.position = Vector3.MoveTowards(transform.position, hive.transform.position, -1 * step);
+                FinishAttackRecoil();
             }
             
-            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, step);
+            if (attackHive)
+            {
+                transform.position = 
+                    Vector3.MoveTowards(transform.position, hive.transform.position, -1 * step);
+            }
+
+            currentRecoil = Vector3.Lerp(currentRecoil, Vector3.zero, step);
+            ctrl.Move(currentRecoil);
+            
         }
         
         
         public override void ApplyDamage(float damage)
         {
             enemyHealth -= damage;
+            
             currState = WaspFlyingState.Recoiling;
-            rb.AddForce(Vector3.back * recoilForce, ForceMode.VelocityChange);
-            Invoke(nameof(FinishAttackRecoil), 1f);
+            recoilTimer = Time.time;
+
+            Vector3 dir = (transform.position - player.transform.position);
+            dir.y = 0;
+            currentRecoil = dir.normalized * recoilImpactSpeed;
+            
+            ctrl.Move(currentRecoil * Time.deltaTime);
         }
 
 
@@ -157,7 +199,10 @@ namespace Enemies
         void FinishAttackRecoil()
         {
             currState = attackHive ? WaspFlyingState.Patrolling : WaspFlyingState.Attacking;
-            rb.velocity = Vector3.zero;
+            patrolStuckTimer = Time.time;
+
+            currentRecoil = Vector3.zero;
+            ctrl.SimpleMove(Vector3.zero);
         }
 
 
@@ -165,5 +210,20 @@ namespace Enemies
         {
             Patrolling, Attacking, Recoiling, Dying
         }
+        
+
+        public void OnDrawGizmos()
+        {
+            Gizmos.color = Color.grey;
+            Gizmos.DrawWireSphere(transform.position, minDistance);
+        }
+
+        // void OnGUI()
+        // {
+        //     GUI.Box(new Rect(0, 25, 150, 25), "d: " + Utils.Distance2D(transform.position, nextPoint));
+        //     GUI.Box(new Rect(0, 55, 150, 25), "s: " + ctrl.velocity.ToString("f3"));
+        //     GUI.Box(new Rect(0, 85, 150, 25), "rs: " + currentRecoil.ToString("f3"));
+        //     GUI.Box(new Rect(0, 115, 150, 25), "rs mag: " + currentRecoil.magnitude);
+        // }
     }
 }

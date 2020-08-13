@@ -1442,46 +1442,6 @@ PrefabInstance:
       propertyPath: playerDamage
       value: -10
       objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: minDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: patrolMin
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: patrolMax
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: recoilForce
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: attackSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: recoilRecoverySpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: enemyHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: patrolSpeed
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d2e1e631403e7f458e9647ef59477dd, type: 3}
 --- !u!4 &193790328 stripped
@@ -1706,46 +1666,6 @@ PrefabInstance:
         type: 3}
       propertyPath: playerDamage
       value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: minDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: patrolMin
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: patrolMax
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: recoilForce
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: attackSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: recoilRecoverySpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: enemyHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: patrolSpeed
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d2e1e631403e7f458e9647ef59477dd, type: 3}
@@ -2559,7 +2479,7 @@ PrefabInstance:
     - target: {fileID: 1795146334104251944, guid: 6290dd4d1d3dd0049be631cfdd77b23f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1795146334104251944, guid: 6290dd4d1d3dd0049be631cfdd77b23f,
         type: 3}
@@ -3317,46 +3237,6 @@ PrefabInstance:
         type: 3}
       propertyPath: playerDamage
       value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: minDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: patrolMin
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: patrolMax
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: recoilForce
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: attackSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: recoilRecoverySpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: enemyHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
-        type: 3}
-      propertyPath: patrolSpeed
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d2e1e631403e7f458e9647ef59477dd, type: 3}
@@ -10930,7 +10810,7 @@ PrefabInstance:
     - target: {fileID: 1795146334104251944, guid: 6290dd4d1d3dd0049be631cfdd77b23f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1795146334104251944, guid: 6290dd4d1d3dd0049be631cfdd77b23f,
         type: 3}
@@ -13355,7 +13235,7 @@ PrefabInstance:
     - target: {fileID: 1795146334104251944, guid: 6290dd4d1d3dd0049be631cfdd77b23f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1795146334104251944, guid: 6290dd4d1d3dd0049be631cfdd77b23f,
         type: 3}

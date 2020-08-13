@@ -37,6 +37,11 @@ namespace Enemies
             pointA = position;
             patrolDistanceX = Random.Range(patrolMin, patrolMax);
             patrolDistanceZ = Random.Range(patrolMin, patrolMax);
+            int xSign = Random.Range(0, 1) == 0 ? 1 : -1;
+            int zSign = Random.Range(0, 1) == 0 ? 1 : -1;
+            patrolDistanceX *= xSign;
+            patrolDistanceZ *= zSign;
+            
             pointB = new Vector3(position.x + patrolDistanceX, position.y, position.z + patrolDistanceZ);
             nextPoint = pointA;
             hiveAttackTimer = Time.time - hiveAttackCooldown - 0.1f;

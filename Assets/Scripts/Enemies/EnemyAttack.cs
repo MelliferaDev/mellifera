@@ -17,6 +17,8 @@ namespace Enemies
         private EnemyBehaviour eb;
         private bool ebFound;
 
+        private float deadBandTimer;
+
         void Start()
         {
             lm = FindObjectOfType<LevelManager>();
@@ -29,17 +31,27 @@ namespace Enemies
                 eb = GetComponentInParent<EnemyBehaviour>();
                 ebFound = eb != null;
             }
-            
+
+            deadBandTimer = Time.time;
+
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            RegisterHit(collision.collider);
+            if (Time.time - deadBandTimer > 0.1f)
+            {
+                RegisterHit(collision.collider);
+                deadBandTimer = Time.time;
+            }
         }
 
         private void OnTriggerEnter(Collider hit)
         {
-            RegisterHit(hit);
+            if (Time.time - deadBandTimer > 0.1f)
+            {
+                RegisterHit(hit);
+                deadBandTimer = Time.time;
+            }
         }
 
         public void RegisterHit(Collider hit)
