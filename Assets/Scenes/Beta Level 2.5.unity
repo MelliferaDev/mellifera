@@ -18922,7 +18922,7 @@ PrefabInstance:
     - target: {fileID: 5962279020735602768, guid: 0881450cbb9b30046b0b503969b0720a,
         type: 3}
       propertyPath: nextLevel
-      value: Beta Level 2
+      value: Gold Level 3
       objectReference: {fileID: 0}
     - target: {fileID: 5962279020735602769, guid: 0881450cbb9b30046b0b503969b0720a,
         type: 3}
@@ -19179,6 +19179,10 @@ MonoBehaviour:
   reticleChangeSpeed: 3
   reticleEnemyColor: {r: 0, g: 0, b: 0, a: 0}
   reticleCollectibleColor: {r: 0, g: 0, b: 0, a: 0}
+  reticleHiveColor: {r: 0, g: 0, b: 0, a: 0}
+  canWagglePollen: 1
+  canWaggleEnemies: 1
+  canWaggleHive: 1
   vortexCollected: 0
   stingCollected: 0
   waggleCollected: 0
