@@ -87,7 +87,7 @@ namespace NPCs
             }
             else
             {
-                if (requested)
+                if (requested && !interacting)
                 {
                     NPCIndicatorBehaviour.RequestNPCIndicateOff();
                     requested = false;
@@ -110,6 +110,8 @@ namespace NPCs
 
             text.text = ChooseLine();
             
+            interacting = true;
+
             Invoke(nameof(Pause), 0.5f);
         }
 
@@ -129,7 +131,6 @@ namespace NPCs
         private void Pause()
         {
             LevelManager.gamePaused = true;
-            interacting = true;
         }
 
         private void DeactivateTalk()
