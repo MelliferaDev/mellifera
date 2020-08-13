@@ -604,7 +604,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 54030c15ec16ce24999ab0a916cb9c8f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.134
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2209,9 +2209,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Brock Fenbert
 
-    ???
+    CE + CS
 
-    ???'
+    Honey Nut Cheerio bee'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb9323e0bc824a8429cb732e466c16ea, type: 2}
   m_sharedMaterial: {fileID: -4275940874904721101, guid: bb9323e0bc824a8429cb732e466c16ea,
