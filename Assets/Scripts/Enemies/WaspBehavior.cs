@@ -14,7 +14,8 @@ namespace Enemies
      */
         public WaspFlyingState currState = WaspFlyingState.Patrolling;
         [Header("Attack Settings")]
-        public float minDistance = 5f;
+        public float minPlayerDistance = 5f;
+        public float minHiveDistance = 5f;
         public float attackSpeed = 5f;
         [Header("Attack Reactions")]
         public float recoilImpactSpeed = 0.75f;
@@ -74,6 +75,7 @@ namespace Enemies
             // Debug.DrawLine(transform.position, nextPoint, Color.blue);
             Vector3 target = transform.position + transform.forward.normalized * (edgeOfCharacter);
             Debug.DrawLine(transform.position, target, Color.red);
+            Debug.DrawRay(transform.position, ctrl.velocity, Color.magenta);
         }
 
         ///////////////////////////////////////////////
@@ -84,27 +86,31 @@ namespace Enemies
             anim.SetInteger(AnimState, 0);
             
             if (Utils.Distance2D(transform.position, nextPoint) <= edgeOfCharacter ||
-                (Time.time - patrolStuckTimer) > 25f)
+                (Time.time - patrolStuckTimer) > 10f)
             {
                 patrolStuckTimer = Time.time;
                 FindNextPoint();
             }
 
-            if (distToPlayer <= minDistance)
+            if (distToPlayer <= minPlayerDistance)
             {
                 RearviewCameraBehaviour.RequestRearviewOn();
                 currState = WaspFlyingState.Attacking;
+                patrolStuckTimer = Time.time;
             }
 
-            if (distToHive <= minDistance && (Time.time - hiveAttackTimer) >= hiveAttackCooldown)
+            if (distToHive <= minHiveDistance)
             {
-                hiveAttackTimer = Time.time;
                 currState = WaspFlyingState.Attacking;
+                attackHive = true;
             }
             
             Vector3 toTarget = nextPoint - transform.position;
             MoveInDir(toTarget, patrolSpeed);
             FaceTarget(nextPoint, false);
+            
+            Debug.DrawLine(transform.position, nextPoint, Color.cyan);
+
         }
 
         private void MoveInDir(Vector3 dir, float speed)
@@ -118,7 +124,20 @@ namespace Enemies
 
         private void UpdateAttackState()
         {
-            if (distToPlayer > minDistance && distToHive > minDistance)
+            if (attackHive)
+            {
+                Debug.DrawLine(transform.position, hive.transform.position, Color.green);
+            }
+            else
+            {
+                Debug.DrawLine(transform.position, player.transform.position, Color.blue);
+            }
+
+            bool attackingPlayer = !attackHive && (distToPlayer <= minPlayerDistance);
+            bool attackingHive = attackHive && (distToHive <= minHiveDistance);
+            
+            if (!attackingPlayer && !attackingHive ||
+                (Time.time - patrolStuckTimer) > 10f)
             {
                 RearviewCameraBehaviour.RequestRearviewOff(); // attacking is done
                 currState = WaspFlyingState.Patrolling;
@@ -129,13 +148,13 @@ namespace Enemies
             
             Vector3 toTarget = (player.transform.position - transform.position);
             Transform lookAt = null;
-            if (distToPlayer <= minDistance)
+            if (attackingPlayer)
             {
                 toTarget = player.transform.position - transform.position;
                 lookAt = player.transform;
                 attackHive = false;
             }
-            else if (hiveFound)
+            else if (attackingHive)
             {
                 toTarget = hive.transform.position - transform.position;
                 lookAt = hive.transform;
@@ -182,6 +201,11 @@ namespace Enemies
             recoilTimer = Time.time;
 
             Vector3 dir = (transform.position - player.transform.position);
+            if (attackHive)
+            {
+                dir = (transform.position - hive.transform.position);
+                
+            }
             dir.y = 0;
             currentRecoil = dir.normalized * recoilImpactSpeed;
             
@@ -209,7 +233,7 @@ namespace Enemies
             patrolStuckTimer = Time.time;
 
             currentRecoil = Vector3.zero;
-            ctrl.SimpleMove(Vector3.zero);
+            ctrl.Move(Vector3.zero);
         }
 
 
@@ -217,11 +241,21 @@ namespace Enemies
         {
             Patrolling, Attacking, Recoiling, Dying
         }
+
+        public void OnGUI()
+        {
+            GUI.Box(new Rect(0, 25, 150, 25),  "dth: " + distToHive);
+            GUI.Box(new Rect(0, 55, 150, 25),  "hTime: " + (Time.time - hiveAttackTimer));
+
+        }
         
         public void OnDrawGizmos()
         {
             Gizmos.color = Color.grey;
-            Gizmos.DrawWireSphere(transform.position, minDistance);
+            Gizmos.DrawWireSphere(transform.position, minPlayerDistance);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, minHiveDistance);
+
         }
 
     }

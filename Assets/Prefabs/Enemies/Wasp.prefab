@@ -327,7 +327,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 64ecb88baa911e645a9de465275e3962, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -381,7 +381,8 @@ MonoBehaviour:
   patrolMax: 50
   hiveAttackCooldown: 10
   currState: 0
-  minDistance: 30
+  minPlayerDistance: 5
+  minHiveDistance: 5
   attackSpeed: 25
   recoilImpactSpeed: 9
   recoilRecoverySpeed: 11

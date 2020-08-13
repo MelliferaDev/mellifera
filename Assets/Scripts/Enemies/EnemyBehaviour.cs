@@ -29,7 +29,7 @@ namespace Enemies
             {
                 player = GameObject.FindGameObjectWithTag("Player");
             }
-            hive = GameObject.FindGameObjectWithTag("Hive");
+            hive = GameObject.FindGameObjectWithTag("HiveParent");
             hiveFound = hive != null;
             
             Vector3 position = transform.position;

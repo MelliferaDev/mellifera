@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Enemies
 {
@@ -42,12 +43,17 @@ namespace Enemies
         private void OnTriggerEnter(Collider hit)
         {
             RegisterHit(hit);
+        }
 
+        private void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            RegisterHit(hit.collider);
         }
 
         public void RegisterHit(Collider hit)
         {
             GameObject other = hit.gameObject;
+
             if (other.CompareTag("Player") || other.CompareTag("ProjectileShield"))
             {
                 if (ebFound)
