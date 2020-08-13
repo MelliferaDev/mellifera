@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Timers;
 using UI;
 using UnityEngine;
@@ -34,6 +35,9 @@ namespace Enemies
 
         private Vector3 currentRecoil;
         private float recoilTimer;
+
+        private float edgeOfCharacter;
+        
         protected override void Start()
         {
             base.Start();
@@ -45,6 +49,7 @@ namespace Enemies
             recoilTimer = Time.time;
             currentRecoil = Vector3.zero;
 
+            edgeOfCharacter = 2 * Mathf.Abs(ctrl.center.magnitude + ctrl.radius);
         }
 
         protected override void Update()
@@ -66,7 +71,9 @@ namespace Enemies
                 currState = WaspFlyingState.Dying;
             }
             
-            Debug.DrawLine(transform.position, nextPoint, Color.blue);
+            // Debug.DrawLine(transform.position, nextPoint, Color.blue);
+            Vector3 target = transform.position + transform.forward.normalized * (edgeOfCharacter);
+            Debug.DrawLine(transform.position, target, Color.red);
         }
 
         ///////////////////////////////////////////////
@@ -76,7 +83,7 @@ namespace Enemies
         {
             anim.SetInteger(AnimState, 0);
             
-            if (Utils.Distance2D(transform.position, nextPoint) <= ctrl.radius ||
+            if (Utils.Distance2D(transform.position, nextPoint) <= edgeOfCharacter ||
                 (Time.time - patrolStuckTimer) > 25f)
             {
                 patrolStuckTimer = Time.time;
