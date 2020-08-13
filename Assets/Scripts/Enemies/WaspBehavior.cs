@@ -211,19 +211,11 @@ namespace Enemies
             Patrolling, Attacking, Recoiling, Dying
         }
         
-
         public void OnDrawGizmos()
         {
             Gizmos.color = Color.grey;
             Gizmos.DrawWireSphere(transform.position, minDistance);
         }
 
-        // void OnGUI()
-        // {
-        //     GUI.Box(new Rect(0, 25, 150, 25), "d: " + Utils.Distance2D(transform.position, nextPoint));
-        //     GUI.Box(new Rect(0, 55, 150, 25), "s: " + ctrl.velocity.ToString("f3"));
-        //     GUI.Box(new Rect(0, 85, 150, 25), "rs: " + currentRecoil.ToString("f3"));
-        //     GUI.Box(new Rect(0, 115, 150, 25), "rs mag: " + currentRecoil.magnitude);
-        // }
     }
 }

@@ -16,9 +16,7 @@ namespace Enemies
         private HiveManager hm;
         private EnemyBehaviour eb;
         private bool ebFound;
-
-        private float deadBandTimer;
-
+        
         void Start()
         {
             lm = FindObjectOfType<LevelManager>();
@@ -32,26 +30,19 @@ namespace Enemies
                 ebFound = eb != null;
             }
 
-            deadBandTimer = Time.time;
 
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (Time.time - deadBandTimer > 0.1f)
-            {
-                RegisterHit(collision.collider);
-                deadBandTimer = Time.time;
-            }
+            RegisterHit(collision.collider);
+
         }
 
         private void OnTriggerEnter(Collider hit)
         {
-            if (Time.time - deadBandTimer > 0.1f)
-            {
-                RegisterHit(hit);
-                deadBandTimer = Time.time;
-            }
+            RegisterHit(hit);
+
         }
 
         public void RegisterHit(Collider hit)
