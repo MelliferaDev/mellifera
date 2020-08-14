@@ -14,7 +14,7 @@ public class EndGame : MonoBehaviour
 
     int currentScore;
     int storedScore;
-    bool didWin = false;
+    bool didWin = true;
 
     private bool foundCurrScoreText = false;
     private bool foundHighScoreText = false;
