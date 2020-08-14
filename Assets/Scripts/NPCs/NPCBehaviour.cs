@@ -46,27 +46,26 @@ namespace NPCs
             if (LevelManager.gamePaused)
             {
                 ctrl.Move(Vector3.zero);
-                flySpeed = 0;
-                return;
             }
-            
-            flySpeed = flySpeedSave;
-
-            Vector2 posXZ = new Vector2(transform.position.x, transform.position.z);
-            Vector2 flowerXZ = new Vector2(currFlowerPos.x, currFlowerPos.z);
-
-            currDist = Vector2.Distance(posXZ, flowerXZ);
-
-            switch (currState)
+            else
             {
-                case NPCState.Flying: UpdateFlying();
-                    break;
-                case NPCState.Pollinating: UpdatePollinating();
-                    break;
-                case NPCState.Interacting : UpdateInteracting();
-                    break;
+                flySpeed = flySpeedSave;
+
+                Vector2 posXZ = new Vector2(transform.position.x, transform.position.z);
+                Vector2 flowerXZ = new Vector2(currFlowerPos.x, currFlowerPos.z);
+
+                currDist = Vector2.Distance(posXZ, flowerXZ);
+
+                switch (currState)
+                {
+                    case NPCState.Flying: UpdateFlying();
+                        break;
+                    case NPCState.Pollinating: UpdatePollinating();
+                        break;
+                    case NPCState.Interacting : UpdateInteracting();
+                        break;
+                } 
             }
-            
         }
 
         private void UpdateFlying()

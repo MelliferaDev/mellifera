@@ -8,24 +8,20 @@ namespace NPCs
     {
         public static List<string> INTRO_LINES_LVL1 = new List<string>(new string[]
         {
-            "Press 'R' when you're close to another bee to talk to them. Press 'P' for more" +
-            "instructions and controls. (Press 'R' again to cont.)",
-
-            "Press space when you flying over a flower to land on it an pollinate it, and again to take off",
+            "Press 'P' for more instructions and controls or 'R' to talk to other bees. (Press 'R' again to cont.)",
             
             "Pollinate enough flowers in the area to move onto the next field. You can even collect extra pollen!",
             
-            "Some flowers have harmful pesticides! Bee careful!",
+            "The blue powerup is a Vortex. Press 'E' to create a Vortex under your wings and zoom around.",
 
-            "Bee's have a lot of great skills! Look around the scene for Vortex, Waggle Dance, or Free Sting powerups",
+            "Some flowers have harmful pesticides! Bee careful!",
+            
+            "The purple power up is a Free Sting. That means when you hit 'Q', you wont have to fight with ASDF",
+            
+            "The yellow power up gives you a Waggle Dance! Try targeting enemies, pollen, or the Hive",
             
             "Land in some water to get hydrated and gain some health!",
 
-            "Press 'Q' to Sting an enemy when they're close. If you don't have a Sting powerup, you'll have to " +
-            "do some fancy finger work!",
-            
-            "Press 'E' to create a Vortex under your wings and zoom around.",
-            
             "If your bee vision has crosshairs, you have a Waggle Dance. Click 'W' when the crosshairs are active to " +
             "ask your swarm for help!",
 
@@ -37,8 +33,8 @@ namespace NPCs
         {
             "Bee careful of skunks! They're a main predator and will spray harmful stuff at you!",
 
-            "Looks like there's a lot of predators! Maybe if you use a Waggle Dance ('W' with crosshairs), we can " +
-            "handle them together!",
+            "Looks like there's a lot of crops to pollinate! Maybe if you use a Waggle Dance ('W' with crosshairs), we can " +
+            "collect pollen with teamwork!",
             
             "Many farms use bees to help pollinate their crops. Try landing on some crops!",
 
@@ -49,16 +45,17 @@ namespace NPCs
             "Birds are one of the worst predators for bees! If you fly anywhere in their patrol circle, they'll swoop in" +
             " and hurt you!",
             
-            "Looks like all the predators have teamed up to attack our hive. Collect pollen, Waggle Dance, and defend the" +
-            " hive",
-             
+            "Looks like all the predators have teamed up to attack our hive. Try to Waggle Dance at the hive and the " +
+            "rest of us will Shield the Hive!",
+            
+            "We can't let the Hive die!",
+            
             "FOR THE QUEEEEEN!!!!!!"
         });
     
-        // had to shorten some of these to fit the speech bubble
         public static List<string> NPC_LINES = new List<string>(new string[]
         {
-           "We bees communicate through movement called waggle dances! Click 'Q' to let other bees know you're being attacked",
+           "We bees communicate through movement called waggle dances! Click 'W' to let other bees know you need help.",
 
            "Pollen collecting is tiring, and we get thirsty. Try landing in water to take a drink and restore some health!",
            
@@ -66,7 +63,7 @@ namespace NPCs
             
             "There are a lot of wasps in this field, be careful, they’re a major predator.",
             
-            "Some people think we shouldn’t be able to fly, but the way our wings flap create little vortices that " +
+            "Some people think we shouldn’t be able to fly, but the way our wings flap create little vortexes that " +
             "give us extra lift!",
             
             "Urbanization is a threat to us bees. Humans can help biodiversity by planting gardens and flowering plants.",
@@ -74,8 +71,6 @@ namespace NPCs
             "Bee swarms aren’t dangerous, they’re actually very docile. Swarms can even be collected by beekeepers!",
             
             "Be careful when fighting, if you don’t score high enough, you might not defeat them and could *take* damage!",
-            
-            "The round vortex pickups will give you a speed boost!",
             
             "If you pick up the free sting item, you can defeat an enemy without fighting it!",
             
