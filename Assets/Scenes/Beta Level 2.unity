@@ -21518,7 +21518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550924319}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -141.2, y: 16.3, z: 80.40001}
+  m_LocalPosition: {x: -158, y: 16.3, z: 31.7}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 205106230}
@@ -76315,6 +76315,16 @@ PrefabInstance:
       propertyPath: canWaggleHive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6863974020979444369, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: waggleCollected
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863974020979444369, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: danceMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 4bf320e6798db6746ba2060849f88d88, type: 3}
     - target: {fileID: 7259016305702027546, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: m_LocalPosition.x

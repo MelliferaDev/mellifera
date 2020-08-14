@@ -18,7 +18,8 @@ namespace Player
         [SerializeField] private int waggleDanceDuration = 3; // seconds
         [SerializeField] private PowerupGUI gui;
         [SerializeField] private GameObject swarmVfx;
-
+        [SerializeField] private AudioClip danceMusic;
+        
         [Header("Waggle Target Reticle Settings")] 
         [SerializeField] private Transform reticleEyes;
         [SerializeField] Image reticleImage;
@@ -181,7 +182,7 @@ namespace Player
             if (didDance)
             {
                 Instantiate(swarmVfx, curTarget.transform.position, Quaternion.identity);
-
+                AudioSource.PlayClipAtPoint(danceMusic, transform.position, 1f);
                 curPowerup = PlayerPowerup.WaggleDance;
                 powerupTimeout = waggleDanceDuration;
                 waggleCollected--;
