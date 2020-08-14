@@ -61,7 +61,7 @@ public class EndGame : MonoBehaviour
     {
         if(currentScore > storedScore)
         {
-            PlayerPrefs.GetInt("highScore", currentScore);
+            PlayerPrefs.SetInt("highScore", currentScore);
         }
     }
 
