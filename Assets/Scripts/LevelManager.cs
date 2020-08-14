@@ -125,6 +125,7 @@ public class LevelManager : MonoBehaviour
         pollenCollected += pollenAmount;
         FindObjectOfType<ScoreKeeper>().IncreaseScore(pollenAmount);
         pollenCollected = Mathf.Clamp(pollenCollected, 0, pollenAvailable);
+        PlayerPrefs.SetInt("pollenCollected", PlayerPrefs.GetInt("pollenCollected") + pollenCollected);
 
         // every 2 extra pollen collected gives an extra point
         if (pollenCollected > pollenTarget && pollenAmount > 0)
@@ -219,8 +220,14 @@ public class LevelManager : MonoBehaviour
     public void EndDDR(int score, int maxScore)
     {
         Invoke("EndDDRView", 1.5f);
-        FindObjectOfType<StingBehavior>().FinishSting(score, maxScore, ddrTarget);
+        float prevAvg = PlayerPrefs.GetFloat("runningDDRAverage");
+        int prevN = PlayerPrefs.GetInt("timesPlayedDDR");
+        float newAvg = ((prevN * prevAvg) + ((1.0f * score) / (1.0f * maxScore))) / (1.0f * prevN + 1);
 
+        PlayerPrefs.SetInt("timesPlayedDDR", prevN + 1);
+        PlayerPrefs.SetFloat("runningDDRAverage", newAvg);
+
+        FindObjectOfType<StingBehavior>().FinishSting(score, maxScore, ddrTarget);
     }
 
     private void EndDDRView()
