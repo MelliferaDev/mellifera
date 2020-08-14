@@ -33,6 +33,7 @@ TagManager:
   - HighScoreText
   - CurrentScoreText
   - HiveParent
+  - Recorder
   layers:
   - Default
   - TransparentFX

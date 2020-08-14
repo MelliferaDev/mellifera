@@ -17,20 +17,20 @@ namespace UI
         {
             cameraRequests = 0;
             anim = cameraView.GetComponent<Animator>();
-            anim.SetBool("rvActive", false);
+            anim.SetBool("rvActive", true);
             viewState = 0;
         }
 
         // Update is called once per frame
         void Update()
         {
-            switch (viewState)
-            {
-                case 0: UpdateActive();
-                    break;
-                case 1: UpdateInactive();
-                    break;
-            }
+            // switch (viewState)
+            // {
+            //     case 0: UpdateActive();
+            //         break;
+            //     case 1: UpdateInactive();
+            //         break;
+            // }
         }
 
         public static void RequestRearviewOn()

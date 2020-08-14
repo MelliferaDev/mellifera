@@ -3838,6 +3838,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1206696096}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &285650728 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6958544908036769015, guid: f9954b1fad5413b4592a66ec711744dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6958544908373604135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &286542473
 GameObject:
   m_ObjectHideFlags: 0
@@ -10367,6 +10373,11 @@ PrefabInstance:
         type: 3}
       propertyPath: pollenCollected
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962279020735602768, guid: 0881450cbb9b30046b0b503969b0720a,
+        type: 3}
+      propertyPath: startingHealth
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 5962279020735602769, guid: 0881450cbb9b30046b0b503969b0720a,
         type: 3}
@@ -22626,6 +22637,105 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d7f8b3795ec76744a39444792e02693, type: 3}
+--- !u!1 &1867154026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1867154030}
+  - component: {fileID: 1867154029}
+  - component: {fileID: 1867154028}
+  - component: {fileID: 1867154027}
+  m_Layer: 0
+  m_Name: zzzCamera
+  m_TagString: Recorder
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1867154027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867154026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4fb6e632869f64aa4d31411fb3c548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runLateral: 1
+  lateralSpeed: {x: 0, y: 10, z: 0}
+  center: {fileID: 285650728}
+--- !u!81 &1867154028
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867154026}
+  m_Enabled: 1
+--- !u!20 &1867154029
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867154026}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 2000
+  field of view: 26.991467
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1867154030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867154026}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: -27.5, y: 203.4, z: -350}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!224 &1869120320 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6789244905885830127, guid: fe64349b000855d4e8847e56dd6b4947,
@@ -22764,6 +22874,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1377056157786587314, guid: dec7ab78763e53d4194edf13c74bbac4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1377056157786587315, guid: dec7ab78763e53d4194edf13c74bbac4,
         type: 3}
       propertyPath: m_LocalPosition.x
