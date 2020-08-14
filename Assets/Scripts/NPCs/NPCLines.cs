@@ -45,9 +45,11 @@ namespace NPCs
             "Birds are one of the worst predators for bees! If you fly anywhere in their patrol circle, they'll swoop in" +
             " and hurt you!",
             
-            "Looks like all the predators have teamed up to attack our hive. Collect pollen, Waggle Dance, and defend the" +
-            " hive",
-             
+            "Looks like all the predators have teamed up to attack our hive. Try to Waggle Dance at the hive and the " +
+            "rest of us will Shield the Hive!",
+            
+            "We can't let the Hive die!",
+            
             "FOR THE QUEEEEEN!!!!!!"
         });
     
