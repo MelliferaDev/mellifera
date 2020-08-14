@@ -2240,27 +2240,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &33770298 stripped
 Transform:
@@ -6000,27 +6026,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &127831011 stripped
 Transform:
@@ -20918,8 +20970,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 6940542784638926863, guid: 8faf00b108d51b24aa3bcca8bddbc9c4,
     type: 3}
-  pesticideAmount: -3
-  collectSfx: {fileID: 0}
+  pesticideAmount: -2
+  collectSfx: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
 --- !u!1001 &522837768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22897,27 +22949,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!1001 &595280309
 PrefabInstance:
@@ -24414,27 +24492,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &641963548 stripped
 Transform:
@@ -30331,27 +30435,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!1001 &837238292
 PrefabInstance:
@@ -33736,27 +33866,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!1001 &900932489
 PrefabInstance:
@@ -36490,8 +36646,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pesticideHit: {fileID: 6940542784638926863, guid: 8faf00b108d51b24aa3bcca8bddbc9c4,
     type: 3}
-  pesticideAmount: -3
-  collectSfx: {fileID: 0}
+  pesticideAmount: -2
+  collectSfx: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
 --- !u!1001 &975207929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39546,27 +39702,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &1022948353 stripped
 Transform:
@@ -50621,27 +50803,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &1271595412 stripped
 Transform:
@@ -54731,27 +54939,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &1365044723 stripped
 Transform:
@@ -58650,27 +58884,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &1449466696 stripped
 Transform:
@@ -61797,27 +62057,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &1523410188 stripped
 Transform:
@@ -63799,27 +64085,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &1568491181 stripped
 Transform:
@@ -79826,27 +80138,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!1001 &1961138725
 PrefabInstance:
@@ -81107,27 +81445,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &1994807641 stripped
 Transform:
@@ -84840,27 +85204,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &2090011147 stripped
 Transform:
@@ -85131,27 +85521,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &2096608220 stripped
 Transform:
@@ -86901,27 +87317,53 @@ PrefabInstance:
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 4733696524026973837, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: pesticideAmount
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951762906689327983, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6715621215862049679, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
-      propertyPath: pesticideAmount
-      value: -2
-      objectReference: {fileID: 0}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 7168565636649130371, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
     - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
         type: 3}
       propertyPath: pesticideAmount
       value: -3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0,
+        type: 3}
+      propertyPath: collectSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 185fd1284be177245bad31f16274b1ab, type: 3}
+    m_RemovedComponents:
+    - {fileID: 9093592828909317071, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5b045c16d692ef3488b714091df319c0, type: 3}
 --- !u!4 &2147186409 stripped
 Transform:
