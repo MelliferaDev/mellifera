@@ -236,7 +236,7 @@ namespace Enemies
         private void UpdateDieState()
         {
             anim.SetInteger(AnimState, 2);
-            transform.Translate(Vector3.down * Time.deltaTime * 10, Space.World);
+            transform.Translate(Vector3.down * (Time.deltaTime * 10), Space.World);
             Destroy(gameObject, 1f);
         }
 

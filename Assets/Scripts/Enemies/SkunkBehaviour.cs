@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -91,6 +92,7 @@ namespace Enemies
                     case SkunkState.Patrolling: UpdatePatrolState(); break;
                     case SkunkState.Attacking: UpdateAttackState(); break;
                     case SkunkState.Disengaging: UpdateDisengageState(); break;
+                    case SkunkState.Dead: UpdateDeadState(); break;
                 }
             }
         }
@@ -100,8 +102,23 @@ namespace Enemies
         //Defeated
         public override void EnemyDefeated()
         {
-            Destroy(gameObject);
-            //will probably call update disengage here
+            Destroy(gameObject, 1.5f);
+            currState = SkunkState.Dead;
+            UpdateDeadState();
+        }
+
+        public void UpdateDeadState()
+        {
+            agent.speed = 0f;
+
+            Debug.Log(gameObject.name + " Dying");
+            Vector3 eulers = transform.eulerAngles;
+            eulers.y += 360 * Time.deltaTime;
+            transform.eulerAngles = eulers;
+
+            Vector3 localSize = transform.localScale;
+            localSize = Vector3.Lerp(localSize, new Vector3(localSize.x, 0f, localSize.z), Time.deltaTime);
+            transform.localScale = localSize;
         }
 
         ///////////////////////////////////////////////
@@ -282,6 +299,6 @@ namespace Enemies
 
     public enum SkunkState
     {
-        Patrolling, Attacking, Disengaging
+        Patrolling, Attacking, Disengaging, Dead
     }
 }

@@ -671,6 +671,7 @@ MonoBehaviour:
   gui: {fileID: 0}
   swarmVfx: {fileID: 4972344946706402186, guid: c69720dcf4e8d6645a300a6c3d675d45,
     type: 3}
+  danceMusic: {fileID: 8300000, guid: 4bf320e6798db6746ba2060849f88d88, type: 3}
   reticleEyes: {fileID: 0}
   reticleImage: {fileID: 0}
   reticleChangeSpeed: 5
