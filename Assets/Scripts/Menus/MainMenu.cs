@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     // Stats
     public TextMeshProUGUI statsText;
 
+    public string nextLevel;
     private void Start()
     {
         string outText = "High score: " + PlayerPrefs.GetInt("highScore", 0).ToString();
@@ -20,7 +21,10 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (!string.IsNullOrEmpty(nextLevel))
+        {
+            SceneManager.LoadScene(nextLevel);
+        }
     }
 
     public void ExitGame()

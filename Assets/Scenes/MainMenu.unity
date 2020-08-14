@@ -808,6 +808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsText: {fileID: 268306664}
+  nextLevel: IntroCutScene
 --- !u!82 &551722442
 AudioSource:
   m_ObjectHideFlags: 0
