@@ -105,8 +105,17 @@ namespace Enemies
 
             if (distToHive <= minHiveDistance)
             {
-                currState = WaspFlyingState.Attacking;
-                attackHive = true;
+                if (Time.time - hiveAttackTimer >= hiveAttackCooldown)
+                {
+                    hiveAttackTimer = Time.time;
+                    currState = WaspFlyingState.Attacking;
+                    attackHive = true;
+                }
+                else
+                {
+                    // patrolStuckTimer = Time.time;
+                    // FindNextPoint();
+                }
             }
             
             Vector3 toTarget = nextPoint - transform.position;
@@ -245,10 +254,10 @@ namespace Enemies
         {
             Patrolling, Attacking, Recoiling, Dying
         }
-
-        public void OnDrawGizmos()
+        
+        public void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.grey;
+            Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, minPlayerDistance);
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, minHiveDistance);

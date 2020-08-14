@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Beta Level 2.5.unity
     guid: 44debaf0b6a335244b60725d2920583e
   - enabled: 1
-    path: Assets/Scenes/Gold Level 3.unity
+    path: Assets/Scenes/Testing/Gold Level 3 [wasp-cowboy-bug].unity
     guid: 238674950b6cd7548bc47dfcdd34bddd
   - enabled: 1
     path: Assets/Scenes/CutScenes/ExitCutScene.unity

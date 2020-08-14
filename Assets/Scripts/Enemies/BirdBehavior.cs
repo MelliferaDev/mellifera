@@ -315,6 +315,22 @@ namespace Enemies
 
         public void OnDrawGizmos()
         {
+            Gizmos.color = Color.red;
+            Vector3 v1 = transform.position + transform.forward * circleRadius;
+            Vector3 v2 = transform.position + transform.forward * -circleRadius;
+            Vector3 v3 = transform.position + transform.right * circleRadius;
+            Vector3 v4 = transform.position + transform.right * -circleRadius;
+
+            Gizmos.DrawLine(transform.position, v1);
+            Gizmos.DrawLine(transform.position, v2);
+            Gizmos.DrawLine(transform.position, v3);
+            Gizmos.DrawLine(transform.position, v4);
+
+        }
+        
+        public void OnDrawGizmosSelected()
+        {
+            
             if (ctlr != null)
             {
                 Gizmos.color = Color.blue;
@@ -327,10 +343,6 @@ namespace Enemies
                 Gizmos.DrawWireSphere(patrolCenter.position, circleRadius);
             }
             
-        }
-
-        public void OnDrawGizmosSelected()
-        {
             if (hive != null)
             {
                 Gizmos.color = Color.yellow;
