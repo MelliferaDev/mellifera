@@ -271,7 +271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 727aa8ceef6058842a310bb8f1c293f0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd4256394b5b29645b1f44bde8eb7b2b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -865,6 +865,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693129232}
   m_CullTransparentMesh: 0
+--- !u!1001 &831792859
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7885686746798232460, guid: 2e0f73a4fb5869841bbac03f516e8387,
+        type: 3}
+      propertyPath: m_Name
+      value: Score Keeper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -366.30975
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -639.6272
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4337.6333
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885686746798232462, guid: 2e0f73a4fb5869841bbac03f516e8387,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e0f73a4fb5869841bbac03f516e8387, type: 3}
 --- !u!1 &928919262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,7 +1383,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 99b6ae43a01c0bd43bbc209beb50075d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6027dccf89d1c214190bae5ffb5ff833, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1666,7 +1735,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0364dd45661d9e34ab4c1813bc0c1b15, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a9d3b1f948368e4aa17757c8ad8e80b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1756,7 +1825,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f4ececff916cb634bb55e53b2cc0c2ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a642e9c9eb0ce44dade12bf9fbf44ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1846,7 +1915,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: If you collect enough pollen, we'll have the strength to fend off the predators!
-    You hive and your Queen need you!
+    Your hive and your Queen need you!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bb9323e0bc824a8429cb732e466c16ea, type: 2}
   m_sharedMaterial: {fileID: -4275940874904721101, guid: bb9323e0bc824a8429cb732e466c16ea,

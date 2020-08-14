@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403471709}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
@@ -1548,7 +1548,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ff8b340c37ab1d04baf44164934f5076, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a0ed20ccf236e64f88862f3b582d77f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1662,7 +1662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2021413233
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1702,7 +1702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7a642e9c9eb0ce44dade12bf9fbf44ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 66ee82c3cb5a47142bc9c7a26737cd5a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
