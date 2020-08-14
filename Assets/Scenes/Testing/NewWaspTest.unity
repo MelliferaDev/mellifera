@@ -3022,14 +3022,39 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4198268655133958481, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 366648493, guid: 9f3bb6c40ff850a42b0754da94afcded, type: 3}
       propertyPath: cameraView
       value: 
       objectReference: {fileID: 203933832}
+    - target: {fileID: 3054152585756291836, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6588852612783348520, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 713946979}
+    - target: {fileID: 6863974020979444369, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: reticleEyes
+      value: 
+      objectReference: {fileID: 713946983}
+    - target: {fileID: 6863974020979444369, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7259016305702027546, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9994245
+      value: -22.1
       objectReference: {fileID: 0}
     - target: {fileID: 7259016305702027546, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
@@ -3039,7 +3064,7 @@ PrefabInstance:
     - target: {fileID: 7259016305702027546, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.009407
+      value: 102.899994
       objectReference: {fileID: 0}
     - target: {fileID: 7259016305702027546, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
@@ -5198,7 +5223,7 @@ PrefabInstance:
     - target: {fileID: 1377056157786587315, guid: dec7ab78763e53d4194edf13c74bbac4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9994245
+      value: -22.1
       objectReference: {fileID: 0}
     - target: {fileID: 1377056157786587315, guid: dec7ab78763e53d4194edf13c74bbac4,
         type: 3}
@@ -5208,7 +5233,7 @@ PrefabInstance:
     - target: {fileID: 1377056157786587315, guid: dec7ab78763e53d4194edf13c74bbac4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.790593
+      value: 95.1
       objectReference: {fileID: 0}
     - target: {fileID: 1377056157786587315, guid: dec7ab78763e53d4194edf13c74bbac4,
         type: 3}
@@ -5258,6 +5283,11 @@ PrefabInstance:
     - target: {fileID: 1377056157786587343, guid: dec7ab78763e53d4194edf13c74bbac4,
         type: 3}
       propertyPath: lookAt
+      value: 
+      objectReference: {fileID: 317588835}
+    - target: {fileID: 1377056157786587343, guid: dec7ab78763e53d4194edf13c74bbac4,
+        type: 3}
+      propertyPath: player
       value: 
       objectReference: {fileID: 317588835}
     m_RemovedComponents: []
@@ -6841,6 +6871,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5738778707072835271, guid: 3dde205f1a772f646be7a57e285d902a, type: 3}
+--- !u!114 &713946979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1377056157786587343, guid: dec7ab78763e53d4194edf13c74bbac4,
+    type: 3}
+  m_PrefabInstance: {fileID: 510652089}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d2cba00c692b014890c2b0c6a65b349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &713946983 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1377056157786587315, guid: dec7ab78763e53d4194edf13c74bbac4,
+    type: 3}
+  m_PrefabInstance: {fileID: 510652089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &720602549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23177,6 +23225,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: hive_model
       objectReference: {fileID: 0}
+    - target: {fileID: 1132573148100933949, guid: 91a521659ef9bf14185638a439de7be0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4173971126086880046, guid: 91a521659ef9bf14185638a439de7be0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23328,7 +23381,7 @@ PrefabInstance:
     - target: {fileID: 1873773959833377359, guid: 9d2e1e631403e7f458e9647ef59477dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.08
+      value: -45.179424
       objectReference: {fileID: 0}
     - target: {fileID: 1873773959833377359, guid: 9d2e1e631403e7f458e9647ef59477dd,
         type: 3}
@@ -23338,7 +23391,7 @@ PrefabInstance:
     - target: {fileID: 1873773959833377359, guid: 9d2e1e631403e7f458e9647ef59477dd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 42.68
+      value: 143.57059
       objectReference: {fileID: 0}
     - target: {fileID: 1873773959833377359, guid: 9d2e1e631403e7f458e9647ef59477dd,
         type: 3}
@@ -23384,6 +23437,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wasp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
+        type: 3}
+      propertyPath: recoilForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
+        type: 3}
+      propertyPath: recoilRecoverySpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196327193569929311, guid: 9d2e1e631403e7f458e9647ef59477dd,
+        type: 3}
+      propertyPath: recoilMaxTime
+      value: 1000000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d2e1e631403e7f458e9647ef59477dd, type: 3}
@@ -24298,6 +24371,11 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 256759998}
+    - target: {fileID: 5962279020735602768, guid: 0881450cbb9b30046b0b503969b0720a,
+        type: 3}
+      propertyPath: startingHealth
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 5962279020735602769, guid: 0881450cbb9b30046b0b503969b0720a,
         type: 3}
       propertyPath: m_Name

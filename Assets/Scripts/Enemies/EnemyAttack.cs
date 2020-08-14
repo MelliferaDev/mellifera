@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Runtime.CompilerServices;
+using UnityEngine;
 
 namespace Enemies
 {
@@ -16,7 +18,7 @@ namespace Enemies
         private HiveManager hm;
         private EnemyBehaviour eb;
         private bool ebFound;
-
+        
         void Start()
         {
             lm = FindObjectOfType<LevelManager>();
@@ -29,17 +31,22 @@ namespace Enemies
                 eb = GetComponentInParent<EnemyBehaviour>();
                 ebFound = eb != null;
             }
-            
         }
 
         private void OnCollisionEnter(Collision collision)
         {
             RegisterHit(collision.collider);
+
         }
 
         private void OnTriggerEnter(Collider hit)
         {
             RegisterHit(hit);
+        }
+
+        private void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            RegisterHit(hit.collider);
         }
 
         public void RegisterHit(Collider hit)

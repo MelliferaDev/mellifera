@@ -21,8 +21,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Beta Level 2.5.unity
     guid: 44debaf0b6a335244b60725d2920583e
   - enabled: 1
+    path: Assets/Scenes/CutScenes/HiveAttackCutScene.unity
+    guid: 9656ab7267d61284bb0e15d568617872
+  - enabled: 1
     path: Assets/Scenes/Gold Level 3.unity
-    guid: 238674950b6cd7548bc47dfcdd34bddd
+    guid: 9a8a9d7005a5b824b9b77cf7ae3e4420
   - enabled: 1
     path: Assets/Scenes/CutScenes/ExitCutScene.unity
     guid: 480d6850eccdc8749981c6f8f5deffe9
