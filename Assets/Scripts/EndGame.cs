@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndGame : MonoBehaviour
 {
-    public Text highScoreText;
-    public Text currentScoreText;
+    public TMP_Text highScoreText;
+    public TMP_Text currentScoreText;
 
     public GameObject winScreen;
     public GameObject loseScreen;
@@ -94,14 +95,14 @@ public class EndGame : MonoBehaviour
         GameObject csText = GameObject.FindGameObjectWithTag("CurrentScoreText");
         if (!foundCurrScoreText && csText != null)
         {
-            currentScoreText = csText.GetComponent<Text>();
+            currentScoreText = csText.GetComponent<TMP_Text>();
             foundCurrScoreText = currentScoreText != null;
         }
         
         GameObject hsText = GameObject.FindGameObjectWithTag("HighScoreText");
         if (!foundHighScoreText & hsText != null)
         {
-            highScoreText = hsText.GetComponent<Text>();
+            highScoreText = hsText.GetComponent<TMP_Text>();
             foundHighScoreText = highScoreText != null;
         }
     }
