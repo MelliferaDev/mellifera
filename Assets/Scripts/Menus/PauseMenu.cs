@@ -34,6 +34,7 @@ namespace Menus
         {
             lastGameState = lm.currentGameState;
             lm.currentGameState = GameState.PAUSED;
+            LevelManager.gamePaused = true;
             Time.timeScale = 0f;
                     
             
@@ -46,6 +47,7 @@ namespace Menus
         private void PauseMenuOff()
         {
             lm.currentGameState = lastGameState;
+            LevelManager.gamePaused = false;
             Time.timeScale = 1f;
                     
             menu.SetActive(false);

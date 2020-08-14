@@ -67,3 +67,8 @@ crashlytics-build.properties
 !/.idea/.idea.*/.idea
 /.idea/.idea.*/.idea/*
 !/.idea/.idea.*/.idea/runConfigurations
+
+# Videos
+[Rr]ecordings/
+/[Rr]ecordings/
+
