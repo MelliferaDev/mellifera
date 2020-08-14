@@ -2189,7 +2189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4056604, g: 0.34251514, b: 0.34251514, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2208,8 +2208,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You also unlocked a new Waggle Dance. Target Flowers and Crops, and the
-    swarm will collect extra pollen!
+  m_Text: You learned a new Waggle Dance. Target flowers and crops, and the swarm
+    will collect extra pollen!
 --- !u!222 &296829423
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2594,6 +2594,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580419817774918218, guid: de9d004ace95c9c45ba7fbe681138081,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580419817774918218, guid: de9d004ace95c9c45ba7fbe681138081,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580419817774918218, guid: de9d004ace95c9c45ba7fbe681138081,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3580419817774918219, guid: de9d004ace95c9c45ba7fbe681138081,
         type: 3}

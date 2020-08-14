@@ -2347,6 +2347,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3580419817642077620, guid: de9d004ace95c9c45ba7fbe681138081,
+        type: 3}
+      propertyPath: m_Text
+      value: 'x5:'
+      objectReference: {fileID: 0}
     - target: {fileID: 3580419817642077621, guid: de9d004ace95c9c45ba7fbe681138081,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2376,6 +2381,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580419817678470799, guid: de9d004ace95c9c45ba7fbe681138081,
+        type: 3}
+      propertyPath: healthIncr
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580419817678470799, guid: de9d004ace95c9c45ba7fbe681138081,
+        type: 3}
+      propertyPath: attackIncr
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3580419817678470837, guid: de9d004ace95c9c45ba7fbe681138081,
         type: 3}
@@ -2442,6 +2457,21 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3580419817774918218, guid: de9d004ace95c9c45ba7fbe681138081,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580419817774918218, guid: de9d004ace95c9c45ba7fbe681138081,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580419817774918218, guid: de9d004ace95c9c45ba7fbe681138081,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3580419817774918219, guid: de9d004ace95c9c45ba7fbe681138081,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -2471,6 +2501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580419817909295545, guid: de9d004ace95c9c45ba7fbe681138081,
+        type: 3}
+      propertyPath: m_Text
+      value: 'x.5:'
       objectReference: {fileID: 0}
     - target: {fileID: 3580419817909295546, guid: de9d004ace95c9c45ba7fbe681138081,
         type: 3}

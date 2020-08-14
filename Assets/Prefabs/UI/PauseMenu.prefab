@@ -1280,7 +1280,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3580419816886350528
 CanvasRenderer:
@@ -3803,7 +3803,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3580419817243179177
 CanvasRenderer:
@@ -4569,7 +4569,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3580419817431343214
 CanvasRenderer:
@@ -6364,7 +6364,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3580419817858387311
 CanvasRenderer:
@@ -7596,17 +7596,17 @@ MonoBehaviour:
 
 
     Once you have enough pollen, you can continue to explore the
-    area, or look for the entrance to the next level
+    area, or look for the entrance to the next level. Press ''R'' to talk to other
+    bees!
 
 
-    The world can be dangerous
-    for a bee. Watch out for wasps, skunks, birds, and plant pesticides!
+    The world can be dangerous for a bee. Watch out for wasps, skunks,
+    birds, and plant pesticides!
 
 
-    There
-    are powerups in the field. Vortex (blue) help with speed. Free Sting (purple)
-    make it easy to sting an enemy with ''Q''. Waggle Dance (yellow) lets you communicate
-    with the swarm to get help!'
+    There are powerups in the field. Vortex (blue)
+    help with speed. Free Sting (purple) make it easy to sting an enemy with ''Q''.
+    Waggle Dance (yellow) lets you communicate with the swarm to get help!'
 --- !u!1 &3580419818148404770
 GameObject:
   m_ObjectHideFlags: 0
@@ -7920,7 +7920,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3580419818199337642
 CanvasRenderer:
@@ -9887,7 +9887,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3580419818546860008
 CanvasRenderer:
@@ -11789,7 +11789,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8859827701297379068
 CanvasRenderer:
@@ -13038,7 +13038,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7652827676135086430
 CanvasRenderer:
