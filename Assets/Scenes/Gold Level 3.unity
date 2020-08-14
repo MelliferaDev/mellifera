@@ -12412,7 +12412,7 @@ PrefabInstance:
     - target: {fileID: 3793932472784344492, guid: 8b46d606a25ba41459250b65d19321c0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -700
+      value: -714.82
       objectReference: {fileID: 0}
     - target: {fileID: 3793932472784344492, guid: 8b46d606a25ba41459250b65d19321c0,
         type: 3}
@@ -20302,6 +20302,10 @@ PrefabInstance:
       value: 'There''re no pollen left over there!
 
         Turn around!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670426090, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
+      propertyPath: m_Text
+      value: Ready to return to the hive?
       objectReference: {fileID: 0}
     - target: {fileID: 1790188291, guid: fe64349b000855d4e8847e56dd6b4947, type: 3}
       propertyPath: inputManager
