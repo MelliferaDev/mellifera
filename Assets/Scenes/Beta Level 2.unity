@@ -75750,6 +75750,11 @@ PrefabInstance:
       propertyPath: reticleEyes
       value: 
       objectReference: {fileID: 1378539055}
+    - target: {fileID: 6863974020979444369, guid: 9f3bb6c40ff850a42b0754da94afcded,
+        type: 3}
+      propertyPath: canWaggleHive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7259016305702027546, guid: 9f3bb6c40ff850a42b0754da94afcded,
         type: 3}
       propertyPath: m_LocalPosition.x
